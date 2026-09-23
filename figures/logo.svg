@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Nesneye Yönelik Programlama">
+  <rect x="30" y="8" width="60" height="44" rx="4" fill="#ff7043"/>
+  <path d="M30 22h60M30 36h60" stroke="#fff" stroke-width="2"/>
+  <path d="M60 52v14" stroke="#37474f" stroke-width="3"/>
+  <polygon points="60,52 54,62 66,62" fill="#fff" stroke="#37474f" stroke-width="2"/>
+  <path d="M60 66v6M28 72h64M28 72v10M92 72v10" stroke="#37474f" stroke-width="3" fill="none"/>
+  <rect x="8" y="82" width="40" height="28" rx="4" fill="#3f51b5"/>
+  <rect x="72" y="82" width="40" height="28" rx="4" fill="#26a69a"/>
+  <text x="28" y="101" font-family="monospace" font-size="11" fill="#fff" text-anchor="middle">{ }</text>
+  <text x="92" y="101" font-family="monospace" font-size="11" fill="#fff" text-anchor="middle">( )</text>
+</svg>

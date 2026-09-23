@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Üst proje: her modülün exercise_files/ klasörü ayrı bir Maven alt modülüdür.
+       Kökte `mvn test` tüm modüllerin testlerini çalıştırır. -->
+  <groupId>tr.edu.atlas.nyp</groupId>
+  <artifactId>nyp-parent</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>Nesneye Yönelik Programlama</name>
+
+  <modules>
+    <module>m1_oop_giris/exercise_files</module>
+    <module>m2_siniflar_nesneler/exercise_files</module>
+    <module>m3_kapsulleme/exercise_files</module>
+    <module>m4_iliskiler_uml/exercise_files</module>
+    <module>m5_kalitim/exercise_files</module>
+    <module>m6_cok_bicimlilik/exercise_files</module>
+    <module>m7_soyut_arayuz/exercise_files</module>
+    <module>m8_istisnalar/exercise_files</module>
+    <module>m9_koleksiyonlar_generics/exercise_files</module>
+    <module>m10_lambda_stream/exercise_files</module>
+    <module>m11_tasarim_ilkeleri/exercise_files</module>
+    <module>m12_tasarim_kaliplari/exercise_files</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.11.4</junit.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.5.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

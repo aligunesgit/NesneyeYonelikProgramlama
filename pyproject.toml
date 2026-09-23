@@ -1,0 +1,17 @@
+[project]
+name = "nesneye-yonelik-programlama"
+version = "0.1.0"
+description = "Nesneye Yönelik Programlama (Java) ders materyali - dokümantasyon araçları"
+readme = "README.md"
+requires-python = ">=3.11"
+
+# Python yalnızca ders sitesini (mkdocs) derlemek için kullanılır; ders kodu Java'dır (bkz. pom.xml).
+dependencies = [
+  "mkdocs-exclude<=1.0.2",
+  "mkdocs-git-revision-date-localized-plugin<=1.4.5",
+  "mkdocs-glightbox<=0.4",
+  "mkdocs-material<=9.7",
+  "mkdocs-material-extensions<=1.3.1",
+  "mkdocs-same-dir<=0.1.3",
+  "pymdown-extensions<=10.14.3",
+]

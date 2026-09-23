@@ -1,0 +1,108 @@
+site_name: Nesneye Yönelik Programlama
+site_description: Nesneye Yönelik Programlama (Java) ders materyali
+docs_dir: .
+site_dir: ../site
+repo_url: https://github.com/aligunesgit/NesneyeYonelikProgramlama
+edit_uri: edit/main/
+copyright: Copyright &copy; 2026
+
+theme:
+  language: tr
+  name: material
+  logo: figures/logo.svg
+  favicon: figures/logo.svg
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+  palette:
+    - scheme: default
+      primary: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Karanlık moda geç
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Aydınlık moda geç
+  features:
+    - navigation.instant
+    - navigation.indexes
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.action.view
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang:
+        - tr
+        - en
+  - exclude:
+      glob:
+        - .venv/**
+        - site/**
+        - .pytest_cache/**
+        - "**/target/**"
+        - "**/*.java"
+        - "**/pom.xml"
+  - glightbox
+  - same-dir
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+      locale: tr
+
+nav:
+  - Ana Sayfa: README.md
+  - Giriş: pages/before.md
+  - 💡 M1 - Nesneye Yönelik Programlamaya Giriş: m1_oop_giris/README.md
+  - 🧱 M2 - Sınıflar ve Nesneler: m2_siniflar_nesneler/README.md
+  - 🔒 M3 - Kapsülleme: m3_kapsulleme/README.md
+  - 🔗 M4 - Nesneler Arası İlişkiler ve UML: m4_iliskiler_uml/README.md
+  - 🧬 M5 - Kalıtım: m5_kalitim/README.md
+  - 🎭 M6 - Çok Biçimlilik: m6_cok_bicimlilik/README.md
+  - 🧩 M7 - Soyut Sınıflar ve Arayüzler: m7_soyut_arayuz/README.md
+  - 🚀 Proje Sprinti A: sprint_a_proje/README.md
+  - 🚨 M8 - İstisna Yönetimi: m8_istisnalar/README.md
+  - 📦 M9 - Koleksiyonlar ve Generics: m9_koleksiyonlar_generics/README.md
+  - λ M10 - Lambda İfadeleri ve Stream API: m10_lambda_stream/README.md
+  - 📐 M11 - Tasarım İlkeleri: m11_tasarim_ilkeleri/README.md
+  - 🏛️ M12 - Tasarım Kalıpları: m12_tasarim_kaliplari/README.md
+  - 🏁 Proje Sprinti B: sprint_b_final_proje/README.md
+  - Zaman Planı: pages/timeplan.md
+  - Projeler: pages/projects.md
+  - SSS: pages/faq.md
+  - Özet: pages/overview.md

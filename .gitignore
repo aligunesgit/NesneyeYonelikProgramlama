@@ -1,0 +1,16 @@
+# Java / Maven
+target/
+*.class
+
+# Python (docs tooling)
+__pycache__/
+.venv/
+
+# mkdocs build output
+site/
+
+# OS/editor cruft
+.DS_Store
+.vscode/
+.idea/
+*.iml
