@@ -1,0 +1,2323 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Nesneye Yönelik Programlama (Java) ders materyali">
+      
+      
+      
+      
+        <link rel="prev" href="../m8_istisnalar/">
+      
+      
+        <link rel="next" href="../m10_lambda_stream/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../figures/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>📦 M9 - Koleksiyonlar ve Generics - Nesneye Yönelik Programlama</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#m9-koleksiyonlar-ve-generics" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-header__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nesneye Yönelik Programlama
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📦 M9 - Koleksiyonlar ve Generics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Karanlık moda geç"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Karanlık moda geç" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Aydınlık moda geç"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aydınlık moda geç" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Ara" placeholder="Ara" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Ara">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Temizle" aria-label="Temizle" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Arama başlatılıyor
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-nav__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    Nesneye Yönelik Programlama
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ana Sayfa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m1_oop_giris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 M1 - Nesneye Yönelik Programlamaya Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2_siniflar_nesneler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 M2 - Sınıflar ve Nesneler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m3_kapsulleme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔒 M3 - Kapsülleme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m4_iliskiler_uml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔗 M4 - Nesneler Arası İlişkiler ve UML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m5_kalitim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 M5 - Kalıtım
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m6_cok_bicimlilik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎭 M6 - Çok Biçimlilik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m7_soyut_arayuz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧩 M7 - Soyut Sınıflar ve Arayüzler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_a_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Proje Sprinti A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m8_istisnalar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚨 M8 - İstisna Yönetimi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📦 M9 - Koleksiyonlar ve Generics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📦 M9 - Koleksiyonlar ve Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-diziler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Diziler ve koleksiyonlar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Diziler ve koleksiyonlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arayuz-turuyle-degisken-tanmlamak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arayüz türüyle değişken tanımlamak
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. List ve ArrayList
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set ve HashSet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Set ve HashSet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tekrarsz-kayt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Tekrarsız kayıt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-equals-hashcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 equals ve hashCode'u ezmemenin bedeli
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Map ve HashMap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dolasma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Dolaşma, silme ve değişmez koleksiyonlar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Dolaşma, silme ve değişmez koleksiyonlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-dolasrken-silme-tuzag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Dolaşırken silme tuzağı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-degismez-koleksiyonlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Değişmez koleksiyonlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Generics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-neden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Neden?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-generic-snf-kutu-ve-cift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Generic sınıf: Kutu ve Cift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-generic-metot-ve-snrl-tur-parametresi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Generic metot ve sınırlı tür parametresi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-joker-extends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Joker: ? extends
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-siralama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Comparable ve Comparator
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Comparable ve Comparator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-dogal-sralama-comparable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Doğal sıralama: Comparable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-alternatif-sralamalar-comparator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Alternatif sıralamalar: Comparator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m10_lambda_stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    λ M10 - Lambda İfadeleri ve Stream API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m11_tasarim_ilkeleri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 M11 - Tasarım İlkeleri
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m12_tasarim_kaliplari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏛️ M12 - Tasarım Kalıpları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_b_final_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏁 Proje Sprinti B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/timeplan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zaman Planı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Özet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-diziler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Diziler ve koleksiyonlar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Diziler ve koleksiyonlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arayuz-turuyle-degisken-tanmlamak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arayüz türüyle değişken tanımlamak
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. List ve ArrayList
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set ve HashSet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Set ve HashSet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-tekrarsz-kayt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Tekrarsız kayıt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-equals-hashcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 equals ve hashCode'u ezmemenin bedeli
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Map ve HashMap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-dolasma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Dolaşma, silme ve değişmez koleksiyonlar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Dolaşma, silme ve değişmez koleksiyonlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-dolasrken-silme-tuzag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Dolaşırken silme tuzağı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-degismez-koleksiyonlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Değişmez koleksiyonlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Generics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-neden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Neden?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-generic-snf-kutu-ve-cift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Generic sınıf: Kutu ve Cift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-generic-metot-ve-snrl-tur-parametresi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Generic metot ve sınırlı tür parametresi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-joker-extends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Joker: ? extends
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-siralama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Comparable ve Comparator
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Comparable ve Comparator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-dogal-sralama-comparable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Doğal sıralama: Comparable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-alternatif-sralamalar-comparator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Alternatif sıralamalar: Comparator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/edit/main/m9_koleksiyonlar_generics/README.md" title="Düzenle" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/raw/main/m9_koleksiyonlar_generics/README.md" title="Sayfanın kaynağını görüntüle" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="m9-koleksiyonlar-ve-generics">📦 M9 - Koleksiyonlar ve Generics<a class="headerlink" href="#m9-koleksiyonlar-ve-generics" title="Permanent link">&para;</a></h1>
+<p align="center"><em>Hafta 10</em></p>
+
+<h2 id="ogrenme-hedefleri">❔ Öğrenme hedefleri<a class="headerlink" href="#ogrenme-hedefleri" title="Permanent link">&para;</a></h2>
+<p>Bu modülün sonunda öğrenci:</p>
+<ul>
+<li>Probleme uygun koleksiyon türünü seçmek</li>
+<li>Generic bir sınıf ve metot yazmak</li>
+<li>Comparable ve Comparator ile nesneleri sıralamak</li>
+<li>equals/hashCode'un koleksiyonlardaki önemini açıklamak</li>
+</ul>
+<hr />
+<h2 id="1-diziler">1. Diziler ve koleksiyonlar<a class="headerlink" href="#1-diziler" title="Permanent link">&para;</a></h2>
+<p>Bir dersin öğrencilerini dizide tutmak istediğimizi düşünelim:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Ogrenci</span><span class="o">[]</span><span class="w"> </span><span class="n">ogrenciler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Ogrenci</span><span class="o">[</span><span class="mi">40</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">sayi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">ogrenciler</span><span class="o">[</span><span class="n">sayi</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Ogrenci</span><span class="p">(</span><span class="s">"2024001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ece"</span><span class="p">,</span><span class="w"> </span><span class="mf">3.5</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Dizi basit ve hızlıdır, ama gerçek bir kayıt sisteminde çabuk yetersiz kalır:</p>
+<ul>
+<li><strong>Boyut sabittir.</strong> 41. öğrenci geldiğinde daha büyük bir dizi açıp elemanları elle kopyalamak
+  gerekir. Doluluk için ayrı bir <code>sayi</code> değişkeni tutmak zorundayız.</li>
+<li><strong>Tekrar denetimi yoktur.</strong> Aynı öğrencinin iki kez kaydolmasını engellemek için her eklemede tüm
+  diziyi dolaşmamız gerekir.</li>
+<li><strong>Anahtarla erişim yoktur.</strong> "Numarası 2024001 olan öğrenci" sorusunun cevabı yine bir döngüdür.</li>
+<li><strong>Silmek zordur.</strong> Ortadan bir eleman silinince arkadakileri birer sola kaydırmak bizim işimizdir.</li>
+</ul>
+<p>Java'nın <strong>koleksiyonlar çatısı</strong> (Collections Framework, <code>java.util</code> paketi), bu işleri hazır ve
+test edilmiş sınıflarla çözer. M3'ten beri "ayrıntısı M9'da" diyerek kullandığımız <code>ArrayList</code> bu
+çatının bir parçasıdır. Çatı iki ayrı kökten oluşur: tek tek eleman tutan <code>Collection</code> ve
+anahtar-değer çiftleri tutan <code>Map</code>. Aşağıdaki diyagramda arayüzler (M7) ve en sık kullanılan
+gerçeklemeleri görülüyor (bazı ara arayüzler gösterilmedi):</p>
+<pre class="mermaid"><code>classDiagram
+    class Collection~E~ { &lt;&lt;interface&gt;&gt; }
+    class List~E~ { &lt;&lt;interface&gt;&gt; }
+    class Set~E~ { &lt;&lt;interface&gt;&gt; }
+    class SortedSet~E~ { &lt;&lt;interface&gt;&gt; }
+    class Queue~E~ { &lt;&lt;interface&gt;&gt; }
+    class Deque~E~ { &lt;&lt;interface&gt;&gt; }
+    class Map~K,V~ { &lt;&lt;interface&gt;&gt; }
+    class SortedMap~K,V~ { &lt;&lt;interface&gt;&gt; }
+    Collection &lt;|-- List
+    Collection &lt;|-- Set
+    Collection &lt;|-- Queue
+    Set &lt;|-- SortedSet
+    Queue &lt;|-- Deque
+    List &lt;|.. ArrayList
+    List &lt;|.. LinkedList
+    Deque &lt;|.. LinkedList
+    Deque &lt;|.. ArrayDeque
+    Set &lt;|.. HashSet
+    HashSet &lt;|-- LinkedHashSet
+    SortedSet &lt;|.. TreeSet
+    Map &lt;|.. HashMap
+    HashMap &lt;|-- LinkedHashMap
+    Map &lt;|-- SortedMap
+    SortedMap &lt;|.. TreeMap</code></pre>
+<p>Doğru koleksiyonu seçmek için üç soru sorulur: <strong>sıra önemli mi, tekrar olabilir mi, elemana bir
+anahtarla mı erişeceğim?</strong></p>
+<table>
+<thead>
+<tr>
+<th>İhtiyaç</th>
+<th>Arayüz</th>
+<th>Tipik sınıf</th>
+<th>Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sıralı, tekrara izin veren, indisle erişilen dizi</td>
+<td><code>List</code></td>
+<td><code>ArrayList</code></td>
+<td>Bir öğrencinin aldığı notlar</td>
+</tr>
+<tr>
+<td>Tekrarsız, sıra önemsiz</td>
+<td><code>Set</code></td>
+<td><code>HashSet</code></td>
+<td>Bir derse kayıtlı öğrenciler</td>
+</tr>
+<tr>
+<td>Tekrarsız, ekleme sırası korunur</td>
+<td><code>Set</code></td>
+<td><code>LinkedHashSet</code></td>
+<td>Kayıt sırasıyla öğrenciler</td>
+</tr>
+<tr>
+<td>Tekrarsız, hep sıralı</td>
+<td><code>Set</code></td>
+<td><code>TreeSet</code></td>
+<td>Numaraya göre sıralı öğrenci listesi</td>
+</tr>
+<tr>
+<td>Anahtarla hızlı erişim</td>
+<td><code>Map</code></td>
+<td><code>HashMap</code></td>
+<td>Numara → öğrenci</td>
+</tr>
+<tr>
+<td>Anahtarlar sıralı</td>
+<td><code>Map</code></td>
+<td><code>TreeMap</code></td>
+<td>Kelime → geçiş sayısı, alfabetik</td>
+</tr>
+<tr>
+<td>Sıraya giren, baştan çıkan (FIFO)</td>
+<td><code>Queue</code>/<code>Deque</code></td>
+<td><code>ArrayDeque</code></td>
+<td>Danışman görüşme kuyruğu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arayuz-turuyle-degisken-tanmlamak">Arayüz türüyle değişken tanımlamak<a class="headerlink" href="#arayuz-turuyle-degisken-tanmlamak" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">liste</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numaraIle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Değişkenin türü arayüz (<code>List</code>), nesnenin türü somut sınıftır (<code>ArrayList</code>). Bu, M6'daki çok
+biçimliliğin doğrudan uygulamasıdır: kodun geri kalanı yalnızca <code>List</code> sözleşmesine güvenir.
+İleride <code>LinkedList</code>'e geçmek istersek yalnızca <code>new</code> satırını değiştiririz. Metot parametrelerinde
+ve dönüş türlerinde de arayüz türünü kullanmak, çağıran kodu belirli bir gerçeklemeye bağlamaz
+(<em>Effective Java</em>, Madde 64, "Refer to objects by their interfaces"). <code>&lt;&gt;</code> işaretine <strong>elmas</strong>
+(diamond) denir; tür argümanını derleyici soldan çıkarır (<a href="#6-generics">§6</a>).</p>
+<h2 id="2-list">2. List ve ArrayList<a class="headerlink" href="#2-list" title="Permanent link">&para;</a></h2>
+<p><code>List</code>, elemanları eklendiği sırada tutan ve indisle erişim sağlayan koleksiyondur. Aynı eleman
+birden çok kez bulunabilir. <code>ArrayList</code> içeride bir dizi tutar ve dolunca kendiliğinden büyütür.</p>
+<table>
+<thead>
+<tr>
+<th>Metot</th>
+<th>Ne yapar?</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>add(e)</code> / <code>add(i, e)</code></td>
+<td>Sona / <code>i</code> konumuna ekler</td>
+<td>Ortaya eklemek arkadakileri kaydırır</td>
+</tr>
+<tr>
+<td><code>get(i)</code> / <code>set(i, e)</code></td>
+<td><code>i</code>'deki elemanı okur / değiştirir</td>
+<td>Geçersiz <code>i</code> için <code>IndexOutOfBoundsException</code> (M8)</td>
+</tr>
+<tr>
+<td><code>remove(i)</code> / <code>remove(o)</code></td>
+<td>İndisle / eşit olan ilk elemanı siler</td>
+<td><code>remove(o)</code> eşitliği <code>equals</code> ile arar</td>
+</tr>
+<tr>
+<td><code>contains(o)</code> / <code>indexOf(o)</code></td>
+<td>Var mı? / ilk konumu (yoksa <code>-1</code>)</td>
+<td>Yine <code>equals</code> kullanır</td>
+</tr>
+<tr>
+<td><code>size()</code> / <code>isEmpty()</code></td>
+<td>Eleman sayısı / boş mu?</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>contains</code>, <code>indexOf</code> ve <code>remove(o)</code> metotlarının hepsi <code>equals</code> ile karşılaştırır. <code>equals</code>'ı
+ezmemiş bir sınıfta bu metotlar yalnızca <strong>aynı nesneyi</strong> bulur (M5).</p>
+<p><strong><code>LinkedList</code></strong> aynı <code>List</code> arayüzünü birbirine bağlı düğümlerle gerçekler. Başa ya da sona ekleyip
+çıkarmak hızlıdır, ama <code>get(i)</code> için listeyi baştan dolaşması gerekir. Pratikte <code>ArrayList</code> çoğu
+durumda daha hızlıdır; kuyruk gerektiğinde ise <code>ArrayDeque</code> tercih edilir.</p>
+<div class="admonition example">
+<p class="admonition-title">Kendinizi deneyin</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notlar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">));</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">notlar</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">notlar</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Çıktı <code>[20, 30]</code> mu, <code>[10, 30]</code> mu?</p>
+<details class="success">
+<summary>Cevap</summary>
+<p><code>[10, 30]</code>. <code>remove(1)</code> çağrısında <code>1</code> bir <code>int</code>'tir ve derleyici <strong>indis</strong> alan
+<code>remove(int)</code> sürümünü seçer: 1. konumdaki <code>20</code> silinir. Değeri <code>1</code> olan elemanı silmek
+isteseydik <code>notlar.remove(Integer.valueOf(1))</code> yazmamız gerekirdi. Koleksiyonlar yalnızca
+nesne tuttuğu için <code>int</code> değerler <code>Integer</code>'a kutulanır (autoboxing); <code>List&lt;int&gt;</code> yazılamaz.</p>
+</details>
+</div>
+<h2 id="3-set">3. Set ve HashSet<a class="headerlink" href="#3-set" title="Permanent link">&para;</a></h2>
+<h3 id="31-tekrarsz-kayt">3.1 Tekrarsız kayıt<a class="headerlink" href="#31-tekrarsz-kayt" title="Permanent link">&para;</a></h3>
+<p>Bir derse aynı öğrenci iki kez kaydolmamalı. Bu kuralı her seferinde döngüyle denetlemek yerine
+kuralı zaten koruyan bir koleksiyon seçeriz: <strong>küme</strong> (<code>Set</code>).</p>
+<pre class="mermaid"><code>classDiagram
+    class Ders {
+        -String kod
+        -int kontenjan
+        -Set~Ogrenci~ ogrenciler
+        +kaydet(Ogrenci ogrenci) boolean
+        +kayitliMi(Ogrenci ogrenci) boolean
+        +ogrenciListesi() List~Ogrenci~
+        +ortalamasiYetmeyenleriCikar(double enAzOrtalama) int
+    }
+    class Ogrenci {
+        -String numara
+        -String ad
+        -double ortalama
+        +compareTo(Ogrenci diger) int
+        +equals(Object o) boolean
+        +hashCode() int
+    }
+    class Comparable~T~ {
+        &lt;&lt;interface&gt;&gt;
+        +compareTo(T diger)* int
+    }
+    Ders "1" o-- "*" Ogrenci : kayıtlı
+    Comparable &lt;|.. Ogrenci</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Ders</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">kod</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kontenjan</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ogrenciler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">kaydet</span><span class="p">(</span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">ogrenci</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ogrenciler</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">ogrenci</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">                           </span><span class="c1">// (2)!</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ogrenciler</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">kontenjan</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">"Kontenjan dolu: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kod</span><span class="p">);</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ogrenciler</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ogrenci</span><span class="p">);</span><span class="w">                               </span><span class="c1">// (3)!</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>LinkedHashSet</code>, kümenin ekleme sırasını da hatırlar. Sınıf listesi kayıt sırasıyla basılabilir.</li>
+<li>Önce "zaten kayıtlı mı?" diye bakıyoruz ki kontenjan doluyken kayıtlı bir öğrencinin tekrar
+   denemesi istisna değil <code>false</code> üretsin. <code>HashSet</code>'te <code>contains</code>, eleman sayısından bağımsız olarak
+   ortalamada sabit sürede çalışır; dizide ise tüm elemanlara bakmak gerekirdi.</li>
+<li><code>Set.add</code>, eleman zaten varsa kümeyi değiştirmez ve <code>false</code> döndürür.</li>
+</ol>
+<p>Üç <code>Set</code> gerçeklemesinin farkı yalnızca <strong>sıradadır</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Sınıf</th>
+<th>Dolaşma sırası</th>
+<th>Eşitliği neyle anlar?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HashSet</code></td>
+<td>Belirsiz (hash değerine bağlı)</td>
+<td><code>hashCode</code> + <code>equals</code></td>
+</tr>
+<tr>
+<td><code>LinkedHashSet</code></td>
+<td>Ekleme sırası</td>
+<td><code>hashCode</code> + <code>equals</code></td>
+</tr>
+<tr>
+<td><code>TreeSet</code></td>
+<td>Sıralı (doğal sıra ya da verilen <code>Comparator</code>)</td>
+<td><code>compareTo</code> / <code>compare</code> sonucu <code>0</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>List.of("muz", "elma", "kiraz", "elma")</code> listesinden oluşturulan <code>LinkedHashSet</code> <code>[muz, elma,
+kiraz]</code>, <code>TreeSet</code> ise <code>[elma, kiraz, muz]</code> sırasını verir (<code>KoleksiyonDavranisiTest</code>).</p>
+<h3 id="3-2-equals-hashcode">3.2 equals ve hashCode'u ezmemenin bedeli<a class="headerlink" href="#3-2-equals-hashcode" title="Permanent link">&para;</a></h3>
+<p><code>HashSet</code> bir elemanı ararken önce <code>hashCode()</code> ile hangi "kovaya" (bucket) bakacağını bulur, sonra
+o kovadaki elemanları <code>equals()</code> ile karşılaştırır. M5'te gördüğümüz kural burada somut bir anlam
+kazanır: <strong>eşit nesnelerin hash kodları da eşit olmalıdır.</strong></p>
+<p><code>EqualsizOgrenci</code> sınıfı bilerek <code>equals</code> ve <code>hashCode</code>'u ezmez; <code>Object</code>'ten gelen sürümler nesne
+kimliğine bakar:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Test</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"equals/hashCode ezilmezse HashSet aynı öğrenciyi iki kez tutar"</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">equalsizOgrenciIkiKezEklenir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">EqualsizOgrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">kume</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">EqualsizOgrenci</span><span class="p">(</span><span class="s">"2024001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ece"</span><span class="p">));</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">kume</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">EqualsizOgrenci</span><span class="p">(</span><span class="s">"2024001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ece"</span><span class="p">));</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">kume</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w">                                               </span><span class="c1">// (1)!</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">kume</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">EqualsizOgrenci</span><span class="p">(</span><span class="s">"2024001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ece"</span><span class="p">)));</span><span class="w">          </span><span class="c1">// (2)!</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Aynı öğrenci <strong>iki kez</strong> kaydedildi. Tekrarı engellemek için seçtiğimiz koleksiyon işini yapamadı.</li>
+<li>Üstelik "Ece kayıtlı mı?" sorusu <code>false</code> döner. Aynı sorun <code>HashMap</code>'te anahtar olarak
+   kullanıldığında da çıkar: <code>put</code> ile konan değer, eşit ama yeni bir anahtar nesnesiyle <code>get</code>
+   yapılınca <code>null</code> gelir (<code>OgrenciTest.equalsizAnahtarBulunamaz</code>).</li>
+</ol>
+<p><code>Ogrenci</code> ise numaraya göre <code>equals</code> ve <code>hashCode</code>'u birlikte ezer, aynı testlerde kümede tek eleman
+kalır. Yalnızca <code>equals</code>'ı ezip <code>hashCode</code>'u unutmak da aynı derecede tehlikelidir: eşit iki nesne
+büyük olasılıkla farklı kovalara düşer ve <code>HashSet</code> onları hiç karşılaştırmaz (<em>Effective Java</em>,
+Madde 11, "Always override hashCode when you override equals"). <code>record</code> türleri (M3) bu iki metodu
+bileşenlerine göre kendiliğinden üretir.</p>
+<div class="admonition warning">
+<p class="admonition-title">Kümedeki nesneyi değiştirmeyin</p>
+<p>Bir nesne <code>HashSet</code>'e eklendikten sonra <code>hashCode</code>'unu etkileyen bir alanı değişirse, nesne
+yanlış kovada kalır ve bir daha bulunamaz. Bu yüzden <code>Ogrenci</code>'nin <code>numara</code> alanı <code>final</code>'dır.
+Küme elemanları ve map anahtarları için değişmez (immutable) nesneler tercih edin.</p>
+</div>
+<h2 id="4-map">4. Map ve HashMap<a class="headerlink" href="#4-map" title="Permanent link">&para;</a></h2>
+<p><code>Map</code>, her <strong>anahtarı</strong> (key) bir <strong>değere</strong> (value) eşler. Anahtarlar tekrarsızdır (anahtarlar
+kümesi bir <code>Set</code> gibi davranır), değerler tekrar edebilir. Bir metindeki kelimeleri sayan
+<code>KelimeSayaci</code> bunun tipik bir örneğidir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">KelimeSayaci</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Locale</span><span class="w"> </span><span class="n">TURKCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Locale</span><span class="p">.</span><span class="na">forLanguageTag</span><span class="p">(</span><span class="s">"tr-TR"</span><span class="p">);</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sayimlar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ekle</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">metin</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">parca</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">metin</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"[^\\p{L}]+"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="c1">// (2)!</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">parca</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">                </span><span class="k">continue</span><span class="p">;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">kelime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parca</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">(</span><span class="n">TURKCE</span><span class="p">);</span><span class="w">                </span><span class="c1">// (3)!</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">eski</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sayimlar</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">kelime</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">              </span><span class="c1">// (4)!</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="n">sayimlar</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">kelime</span><span class="p">,</span><span class="w"> </span><span class="n">eski</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>TreeMap</code>, anahtarları sıralı tutar; sonuçlar alfabetik listelenir. Sıra önemli değilse <code>HashMap</code>
+   biraz daha hızlıdır. Değişken türü yine arayüz: <code>Map</code>.</li>
+<li>Harf olmayan her karakter dizisinden böler: boşluk, virgül, nokta, noktalı virgül.</li>
+<li>Türkçe yerel ayarla küçültme: <code>"IŞIK"</code> → <code>"ışık"</code>. Yerel ayar verilmezse sonuç çalıştığı
+   bilgisayarın ayarına bağlı olur.</li>
+<li>Anahtar yoksa <code>get</code> <code>null</code> döndürür; <code>getOrDefault</code> ise verilen varsayılanı (<code>0</code>). Aynı anahtarla
+   <code>put</code> eski değerin üzerine yazar ve eski değeri döndürür.</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">KelimeSayaci</span><span class="w"> </span><span class="n">sayac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KelimeSayaci</span><span class="p">();</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">sayac</span><span class="p">.</span><span class="na">ekle</span><span class="p">(</span><span class="s">"Bir elma, bir armut; iki elma."</span><span class="p">);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sayac</span><span class="p">.</span><span class="na">sayimlar</span><span class="p">());</span><span class="w">   </span><span class="c1">// {armut=1, bir=2, elma=2, iki=1}</span>
+</span></code></pre></div>
+<p>Bir <code>Map</code> üç biçimde dolaşılabilir: <code>keySet()</code> (anahtarlar), <code>values()</code> (değerler) ve <code>entrySet()</code>
+(anahtar-değer çiftleri, <code>Map.Entry</code>). En sık kelimeyi bulmak için ikisine birden ihtiyacımız var:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">giris</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">sayimlar</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">giris</span><span class="p">.</span><span class="na">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">enBuyukSayi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="n">enSik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">giris</span><span class="p">.</span><span class="na">getKey</span><span class="p">();</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="n">enBuyukSayi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">giris</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Sınıf</th>
+<th>Anahtar sırası</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HashMap</code></td>
+<td>Belirsiz</td>
+<td>En yaygın seçim; anahtarın <code>equals</code>/<code>hashCode</code>'u doğru olmalı</td>
+</tr>
+<tr>
+<td><code>LinkedHashMap</code></td>
+<td>Ekleme sırası</td>
+<td>Sıra korunmalı ama sıralama gerekmiyorsa</td>
+</tr>
+<tr>
+<td><code>TreeMap</code></td>
+<td>Sıralı</td>
+<td>Anahtar <code>Comparable</code> olmalı ya da <code>Comparator</code> verilmeli</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">TreeMap ve Türkçe harfler</p>
+<p><code>String.compareTo</code> karakterlerin Unicode kodlarını karşılaştırır. Bu yüzden <code>"çay"</code>, <code>"zeytin"</code>'den
+<strong>sonra</strong> gelir. Türkçe alfabe sırası gerekiyorsa <code>java.text.Collator</code> kullanılır; bu modülün
+kapsamı dışında.</p>
+</div>
+<p><code>sayac.merge(kelime, 1, Integer::sum)</code> aynı sayma işini tek satırda yapar; <code>Integer::sum</code> yazımını
+M10'da göreceğiz.</p>
+<h2 id="5-dolasma">5. Dolaşma, silme ve değişmez koleksiyonlar<a class="headerlink" href="#5-dolasma" title="Permanent link">&para;</a></h2>
+<h3 id="51-dolasrken-silme-tuzag">5.1 Dolaşırken silme tuzağı<a class="headerlink" href="#51-dolasrken-silme-tuzag" title="Permanent link">&para;</a></h3>
+<p>Tüm koleksiyonlar <code>for-each</code> ile dolaşılabilir. Ama dolaşırken koleksiyonu <strong>doğrudan</strong>
+değiştirirseniz:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">liste</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="s">"c"</span><span class="p">));</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">liste</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">"a"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="n">liste</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w">          </span><span class="c1">// ConcurrentModificationException</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>for-each</code> arka planda bir <strong>yineleyici</strong> (iterator) kullanır. Yineleyici, koleksiyonun kendisinden
+habersiz değiştirildiğini fark eder ve <code>ConcurrentModificationException</code> fırlatır (fail-fast).
+API belgesi bu davranışın <strong>garanti edilmediğini</strong>, yalnızca hataları erken yakalamaya yönelik
+olduğunu söyler: bazı durumlarda (ör. sondan bir önceki eleman silinince) istisna oluşmaz ama döngü
+son elemanı sessizce atlar. Her iki durumda da kod yanlıştır.</p>
+<p>Doğru yol, silmeyi <strong>yineleyicinin kendisine</strong> yaptırmaktır:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ortalamasiYetmeyenleriCikar</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">enAzOrtalama</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">silinen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ogrenciler</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">                                  </span><span class="c1">// (1)!</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">ogrenci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ogrenci</span><span class="p">.</span><span class="na">getOrtalama</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">enAzOrtalama</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">            </span><span class="n">it</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span><span class="w">                                    </span><span class="c1">// (2)!</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">            </span><span class="n">silinen</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">silinen</span><span class="p">;</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>hasNext()</code> sırada eleman olup olmadığını söyler, <code>next()</code> o elemanı verir ve bir ilerler.</li>
+<li><code>it.remove()</code>, <code>next()</code> ile en son verilen elemanı siler ve yineleyiciyi tutarlı durumda bırakır.</li>
+</ol>
+<p>Java 8'den beri aynı iş <code>ogrenciler.removeIf(o -&gt; o.getOrtalama() &lt; enAzOrtalama)</code> ile tek satırda
+yapılabilir. Parantez içindeki lambda ifadesini M10'da ayrıntılı işleyeceğiz.</p>
+<h3 id="52-degismez-koleksiyonlar">5.2 Değişmez koleksiyonlar<a class="headerlink" href="#52-degismez-koleksiyonlar" title="Permanent link">&para;</a></h3>
+<p><code>List.of</code>, <code>Set.of</code> ve <code>Map.of</code> (Java 9+) <strong>değiştirilemez</strong> (unmodifiable) koleksiyonlar üretir.
+<code>add</code>, <code>remove</code> ya da <code>put</code> çağrısı <code>UnsupportedOperationException</code> fırlatır; <code>null</code> eleman da
+kabul etmezler.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gunler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"pzt"</span><span class="p">,</span><span class="w"> </span><span class="s">"sal"</span><span class="p">);</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">krediler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"NYP101"</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s">"MAT101"</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">gunler</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"car"</span><span class="p">);</span><span class="w">                </span><span class="c1">// UnsupportedOperationException</span>
+</span></code></pre></div>
+<p>Bu özellik kapsülleme (M3) için değerlidir. <code>Ders.ogrenciListesi()</code> iç kümeyi değil
+<code>List.copyOf(ogrenciler)</code> ile bir <strong>kopyasını</strong> döndürür; dışarıdaki kod listeyi değiştiremez,
+değiştirmeye çalışırsa hemen istisna alır. <code>KelimeSayaci.sayimlar()</code> ise
+<code>Collections.unmodifiableMap(sayimlar)</code> döndürür: bu bir kopya değil, iç haritanın <strong>salt okunur
+görünümüdür</strong> (view). Sayaç yeni kelime ekledikçe görünüm de güncellenir.</p>
+<table>
+<thead>
+<tr>
+<th>Yöntem</th>
+<th>Kopya mı?</th>
+<th>İç koleksiyon değişince</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List.copyOf(x)</code> / <code>Set.copyOf(x)</code></td>
+<td>Evet</td>
+<td>Kopya değişmez</td>
+</tr>
+<tr>
+<td><code>Collections.unmodifiableList(x)</code></td>
+<td>Hayır, görünüm</td>
+<td>Görünüm de değişir</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-generics">6. Generics<a class="headerlink" href="#6-generics" title="Permanent link">&para;</a></h2>
+<h3 id="61-neden">6.1 Neden?<a class="headerlink" href="#61-neden" title="Permanent link">&para;</a></h3>
+<p>Generics (Java 5, 2004) öncesinde koleksiyonlar her şeyi <code>Object</code> olarak tutardı:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">ArrayList</span><span class="w"> </span><span class="n">liste</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">();</span><span class="w">      </span><span class="c1">// ham tür (raw type)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Ogrenci</span><span class="p">(</span><span class="s">"2024001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ece"</span><span class="p">,</span><span class="w"> </span><span class="mf">3.5</span><span class="p">));</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"yanlışlıkla bir metin"</span><span class="p">);</span><span class="w">     </span><span class="c1">// derleyici itiraz etmez</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">Ogrenci</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Ogrenci</span><span class="p">)</span><span class="w"> </span><span class="n">liste</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">     </span><span class="c1">// çalışma zamanında ClassCastException</span>
+</span></code></pre></div>
+<p>Hata yanlış elemanın <strong>eklendiği</strong> yerde değil, çok sonra <strong>okunduğu</strong> yerde ortaya çıkar. <code>List&lt;Ogrenci&gt;</code>
+yazdığımızda ise derleyici listeye yalnızca <code>Ogrenci</code> eklenmesine izin verir ve <code>get</code> doğrudan
+<code>Ogrenci</code> döndürür: <strong>tip güvenliği</strong> (type safety) derleme zamanına taşınır, cast gerekmez.
+Yeni kodda ham tür kullanmayın (<em>Effective Java</em>, Madde 26, "Don't use raw types").</p>
+<h3 id="62-generic-snf-kutu-ve-cift">6.2 Generic sınıf: Kutu ve Cift<a class="headerlink" href="#62-generic-snf-kutu-ve-cift" title="Permanent link">&para;</a></h3>
+<p>Kendi generic sınıflarımızı da yazabiliriz. Sınıf adının yanındaki <code>&lt;T&gt;</code> bir <strong>tür parametresidir</strong>
+(type parameter): sınıfı kullanan kod <code>T</code> yerine gerçek bir tür verir.</p>
+<pre class="mermaid"><code>classDiagram
+    class Kutu~T~ {
+        -T icerik
+        +koy(T yeni) void
+        +al() T
+        +bosMu() boolean
+    }
+    class Cift~A,B~ {
+        &lt;&lt;record&gt;&gt;
+        +ilk() A
+        +ikinci() B
+        +yerDegistir() Cift~B,A~
+    }</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Kutu</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">icerik</span><span class="p">;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Kutu</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">icerik</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">icerik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">icerik</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">al</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                                   </span><span class="c1">// (1)!</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">icerik</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">"Kutu boş"</span><span class="p">);</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">icerik</span><span class="p">;</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="c1">// boş kurucu, koy(T), bosMu()</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Dönüş türü <code>T</code>'dir. <code>Kutu&lt;String&gt;</code> için <code>al()</code> <code>String</code>, <code>Kutu&lt;Ogrenci&gt;</code> için <code>Ogrenci</code> döndürür.</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Kutu</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kalemKutusu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Kutu</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">"kalem"</span><span class="p">);</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">String</span><span class="w"> </span><span class="n">icerik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kalemKutusu</span><span class="p">.</span><span class="na">al</span><span class="p">();</span><span class="w">                     </span><span class="c1">// cast yok</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">kalemKutusu</span><span class="p">.</span><span class="na">koy</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w">                                  </span><span class="c1">// derleme hatası: int, String değil</span>
+</span></code></pre></div>
+<p>Birden çok tür parametresi de olabilir. <code>Cift&lt;A, B&gt;</code>, iki farklı türden değeri bir arada tutan
+generic bir <code>record</code>'dur:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Cift</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="o">&gt;</span><span class="p">(</span><span class="n">A</span><span class="w"> </span><span class="n">ilk</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">ikinci</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Cift</span><span class="o">&lt;</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">yerDegistir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cift</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">ikinci</span><span class="p">,</span><span class="w"> </span><span class="n">ilk</span><span class="p">);</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>new Cift&lt;&gt;("NYP101", 3)</code> bir <code>Cift&lt;String, Integer&gt;</code> oluşturur; <code>yerDegistir()</code> bir
+<code>Cift&lt;Integer, String&gt;</code> döndürür. Tür parametreleri yalnızca referans türleri alabilir; <code>int</code> yerine
+<code>Integer</code> kullanılır ve dönüşüm kendiliğinden yapılır.</p>
+<h3 id="63-generic-metot-ve-snrl-tur-parametresi">6.3 Generic metot ve sınırlı tür parametresi<a class="headerlink" href="#63-generic-metot-ve-snrl-tur-parametresi" title="Permanent link">&para;</a></h3>
+<p>Tür parametresi yalnızca sınıfa değil, tek bir metoda da ait olabilir. <code>&lt;T&gt;</code> dönüş türünden önce
+yazılır:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Cift</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">ilkVeSon</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">liste</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NoSuchElementException</span><span class="p">(</span><span class="s">"Boş listenin ilk ve son elemanı yok"</span><span class="p">);</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cift</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">liste</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Bir listenin en büyük elemanını bulan bir metot yazmak istersek, <code>T</code> hakkında daha fazlasını
+bilmemiz gerekir: elemanları karşılaştırabilmeliyiz. <strong>Sınırlı tür parametresi</strong> (bounded type
+parameter) bunu söyler:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">enBuyuk</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">liste</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">liste</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NoSuchElementException</span><span class="p">(</span><span class="s">"Boş listenin en büyük elemanı yok"</span><span class="p">);</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">enBuyuk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">liste</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">eleman</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">liste</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">eleman</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">enBuyuk</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                          </span><span class="c1">// (2)!</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">            </span><span class="n">enBuyuk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eleman</span><span class="p">;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">enBuyuk</span><span class="p">;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>"<code>T</code>, kendi türüyle karşılaştırılabilir herhangi bir tür olabilir." Burada <code>extends</code> hem sınıf
+   kalıtımı hem arayüz gerçekleme anlamında kullanılır.</li>
+<li>Sınır sayesinde derleyici <code>T</code>'nin <code>compareTo</code> metodu olduğunu bilir. Sınır olmasaydı bu satır
+   derlenmezdi.</li>
+</ol>
+<p>Aynı metot <code>List&lt;Integer&gt;</code>, <code>List&lt;String&gt;</code> ve <code>List&lt;Ogrenci&gt;</code> ile çalışır, çünkü üçü de
+<code>Comparable</code>'dır. <code>Comparable</code> olmayan bir türün listesiyle çağırmak <strong>derleme hatasıdır</strong>.</p>
+<h3 id="64-joker-extends">6.4 Joker: <code>? extends</code><a class="headerlink" href="#64-joker-extends" title="Permanent link">&para;</a></h3>
+<p><code>Integer</code>, <code>Number</code>'ın alt sınıfıdır, ama <code>List&lt;Integer&gt;</code> bir <code>List&lt;Number&gt;</code> <strong>değildir</strong>. Öyle
+olsaydı, <code>List&lt;Number&gt;</code> türündeki bir değişken üzerinden bir <code>Integer</code> listesine <code>Double</code> eklenebilirdi.
+Her türden sayı listesini kabul eden bir metot için <strong>joker</strong> (wildcard) kullanılır:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">toplam</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Number</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sayilar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">toplam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Number</span><span class="w"> </span><span class="n">sayi</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">sayilar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">        </span><span class="n">toplam</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sayi</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">();</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">toplam</span><span class="p">;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>List&lt;? extends Number&gt;</code>, "elemanları <code>Number</code> ya da onun bir alt türü olan bir liste" demektir.
+Bu listeden <code>Number</code> olarak <strong>okuyabiliriz</strong>, ama ona eleman <strong>ekleyemeyiz</strong> (hangi alt tür olduğunu
+bilmiyoruz). Jokerlerin ayrıntısı (<code>? super</code>, "PECS" kuralı) için <em>Effective Java</em> Madde 31'e
+("Use bounded wildcards to increase API flexibility") bakabilirsiniz.</p>
+<h2 id="7-siralama">7. Comparable ve Comparator<a class="headerlink" href="#7-siralama" title="Permanent link">&para;</a></h2>
+<h3 id="71-dogal-sralama-comparable">7.1 Doğal sıralama: Comparable<a class="headerlink" href="#71-dogal-sralama-comparable" title="Permanent link">&para;</a></h3>
+<p><code>Collections.sort(liste)</code> bir listeyi nasıl sıralayacağını nereden bilir? Elemanların <strong>doğal
+sıralaması</strong> (natural ordering) olmalıdır: sınıf <code>Comparable&lt;T&gt;</code> arayüzünü gerçekler.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Ogrenci</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">diger</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// (1)!</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">numara</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">diger</span><span class="p">.</span><span class="na">numara</span><span class="p">);</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Sözleşme: <code>this</code> küçükse <strong>negatif</strong>, eşitse <strong>0</strong>, büyükse <strong>pozitif</strong> bir sayı döndür. Sayının
+   büyüklüğü önemli değildir, yalnızca işareti. Burada işi <code>String.compareTo</code>'ya devrediyoruz.</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">liste</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Ogrenci</span><span class="p">(</span><span class="s">"2024003"</span><span class="p">,</span><span class="w"> </span><span class="s">"Can"</span><span class="p">,</span><span class="w"> </span><span class="mf">2.8</span><span class="p">));</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Ogrenci</span><span class="p">(</span><span class="s">"2024001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ece"</span><span class="p">,</span><span class="w"> </span><span class="mf">3.5</span><span class="p">));</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">liste</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Ogrenci</span><span class="p">(</span><span class="s">"2024002"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ali"</span><span class="p">,</span><span class="w"> </span><span class="mf">3.5</span><span class="p">));</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">liste</span><span class="p">);</span><span class="w">   </span><span class="c1">// [Ece (2024001), Ali (2024002), Can (2024003)]</span>
+</span></code></pre></div>
+<p><code>TreeSet&lt;Ogrenci&gt;</code> ve <code>TreeMap&lt;Ogrenci, ...&gt;</code> da bu sıralamayı kullanır. <code>TreeSet</code>'te iki eleman
+<code>compareTo</code> sonucu <code>0</code> ise <strong>aynı</strong> kabul edilir. Bu yüzden <code>compareTo</code>, <code>equals</code> ile tutarlı
+olmalıdır: <code>Ogrenci</code>'de ikisi de numaraya bakar (<em>Effective Java</em>, Madde 14, "Consider implementing
+Comparable").</p>
+<h3 id="72-alternatif-sralamalar-comparator">7.2 Alternatif sıralamalar: Comparator<a class="headerlink" href="#72-alternatif-sralamalar-comparator" title="Permanent link">&para;</a></h3>
+<p>Bir sınıfın tek bir doğal sıralaması olur, ama öğrencileri bazen ada, bazen ortalamaya göre sıralamak
+isteriz. <code>Comparator&lt;T&gt;</code> arayüzü sıralama ölçütünü sınıfın <strong>dışına</strong> taşır. İlk yol ayrı bir
+sınıf yazmaktır:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AdaGoreKarsilastirici</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">getAd</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">getAd</span><span class="p">());</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Yalnızca bir yerde kullanılacak bir karşılaştırıcı için ayrı dosya açmak yerine <strong>anonim sınıf</strong>
+(anonymous class) yazılabilir: adı olmayan, tanımlandığı yerde tek bir nesnesi oluşturulan sınıf.
+<code>Ogrenci</code> sınıfında bir sabit olarak:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ORTALAMAYA_GORE_AZALAN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">ortalama</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">ortalama</span><span class="p">);</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">};</span>
+</span></code></pre></div>
+<ol>
+<li><code>b</code> ile <code>a</code>'nın yeri değiştirildiği için sıralama <strong>azalan</strong> olur. <code>double</code> değerleri çıkarma ile
+   değil <code>Double.compare</code> ile karşılaştırın; <code>(int) (a - b)</code> gibi bir ifade <code>0.5</code> farkını <code>0</code>'a
+   yuvarlar.</li>
+</ol>
+<p>Karşılaştırıcılar birleştirilebilir. <code>thenComparing</code>, ilk ölçüt eşitlik verdiğinde ikinciye
+başvurur; <code>reversed()</code> sırayı tersine çevirir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">liste</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Ogrenci</span><span class="p">.</span><span class="na">ORTALAMAYA_GORE_AZALAN</span><span class="p">.</span><span class="na">thenComparing</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AdaGoreKarsilastirici</span><span class="p">()));</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1">// [Ali (2024002), Ece (2024001), Can (2024003)]  -&gt; 3.5 eşit, ada göre: Ali, Ece</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">liste</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AdaGoreKarsilastirici</span><span class="p">().</span><span class="na">reversed</span><span class="p">());</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1">// [Ece (2024001), Can (2024003), Ali (2024002)]</span>
+</span></code></pre></div>
+<p><code>List.sort(karsilastirici)</code> ve <code>Collections.sort(liste, karsilastirici)</code> aynı işi yapar.</p>
+<div class="admonition tip">
+<p class="admonition-title">Aynı şey lambda ile (M10'da ayrıntılı)</p>
+<p>Java 8'den beri tek soyut metodu olan arayüzler lambda ifadeleriyle çok daha kısa yazılır.
+Yukarıdaki birleşik sıralama şu satırla eşdeğerdir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">liste</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">Ogrenci</span><span class="p">::</span><span class="n">getOrtalama</span><span class="p">)</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">        </span><span class="p">.</span><span class="na">reversed</span><span class="p">()</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">        </span><span class="p">.</span><span class="na">thenComparing</span><span class="p">(</span><span class="n">Ogrenci</span><span class="p">::</span><span class="n">getAd</span><span class="p">));</span>
+</span></code></pre></div>
+<p><code>SiralamaTest.lambdaIleAyniSonuc</code> bu iki yazımın aynı sonucu verdiğini doğrular. Sözdizimini
+M10'da işleyeceğiz; şimdilik anonim sınıfın kısa yazımı olarak okuyun.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Kendinizi deneyin</p>
+<p><code>TreeSet&lt;Ogrenci&gt; kume = new TreeSet&lt;&gt;(new AdaGoreKarsilastirici());</code> kümesine <code>Ece (2024001)</code>
+ve <code>Ece (2024005)</code> eklenirse küme kaç eleman tutar?</p>
+<details class="success">
+<summary>Cevap</summary>
+<p><strong>Bir.</strong> <code>TreeSet</code> eşitliği <code>equals</code> ile değil, karşılaştırıcının <code>0</code> döndürmesiyle anlar.
+İki öğrencinin adı aynı olduğu için ikinci <code>add</code> <code>false</code> döner. Numaraları farklı iki kişiden
+biri kaybolmuştur. Karşılaştırıcıyı <code>.thenComparing(...)</code> ile numaraya göre de ayırt eder hâle
+getirmek bu sorunu çözer.</p>
+</details>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>mvn<span class="w"> </span>-pl<span class="w"> </span>m9_koleksiyonlar_generics/exercise_files<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>[INFO] BUILD SUCCESS
+</span></code></pre></div>
+<h2 id="8-alstrmalar">8. Alıştırmalar<a class="headerlink" href="#8-alstrmalar" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Çalıştır ve incele.</strong> <code>mvn -pl m9_koleksiyonlar_generics/exercise_files test</code> ile testleri
+   çalıştırın. <code>KayitUygulamasi</code>'nı çalıştırıp iki küme boyutunun neden farklı olduğunu
+   <a href="#3-2-equals-hashcode">§3.2</a>'ye dayanarak bir cümleyle açıklayın.</li>
+<li><strong>hashCode'u unutun.</strong> <code>Ogrenci.hashCode</code> metodunu geçici olarak yorum satırına alın. Hangi
+   testler başarısız oluyor? Hangileri hâlâ geçiyor ve neden? Sonra metodu geri getirin.</li>
+<li><strong>Envanter.</strong> Bir kırtasiye için <code>Envanter</code> sınıfı yazın: <code>Map&lt;String, Integer&gt;</code> ile ürün adı →
+   stok adedi tutsun. <code>ekle(urun, adet)</code>, <code>cikar(urun, adet)</code> (stok yetmezse M8'deki gibi bir
+   istisna), <code>stokta(urun)</code> ve biten ürünleri <code>Iterator.remove</code> ile temizleyen <code>bitenleriSil()</code>
+   metotları olsun. En az beş test yazın.</li>
+<li><strong>Generic yığın.</strong> <code>Yigin&lt;T&gt;</code> sınıfını içeride bir <code>ArrayList&lt;T&gt;</code> kullanarak yazın: <code>ekle(T)</code>,
+   <code>cikar()</code> (boşsa <code>NoSuchElementException</code>), <code>ust()</code>, <code>bosMu()</code>. <code>Yigin&lt;String&gt;</code> ve
+   <code>Yigin&lt;Ogrenci&gt;</code> ile test edin.</li>
+<li><strong>enKucuk.</strong> <code>GenericAraclar</code>'a <code>enBuyuk</code>'un eşi olan <code>enKucuk</code> metodunu ve bir
+   <code>Comparator&lt;T&gt;</code> alan <code>enBuyuk(List&lt;T&gt; liste, Comparator&lt;T&gt; karsilastirici)</code> sürümünü ekleyin.
+   İkincisiyle en yüksek ortalamalı öğrenciyi bulun.</li>
+<li><strong>Sıralama.</strong> Öğrencileri önce ada göre, ad aynıysa numaraya göre sıralayan bir karşılaştırıcıyı
+   <strong>anonim sınıf</strong> olarak yazın ve <code>TreeSet</code> ile <a href="#7-siralama">§7.2</a>'deki "Kendinizi deneyin"
+   sorununun çözüldüğünü bir testle gösterin.</li>
+</ol>
+<hr />
+<h2 id="ozet">Özet<a class="headerlink" href="#ozet" title="Permanent link">&para;</a></h2>
+<p>Koleksiyonlar çatısı, dizilerin sabit boyut, tekrar denetimi ve anahtarla erişim eksiklerini hazır
+sınıflarla giderir. <code>List</code> sıralı ve tekrara açık, <code>Set</code> tekrarsız, <code>Map</code> anahtar-değer eşlemelidir;
+seçim sıra, tekrar ve anahtarla erişim sorularıyla yapılır. Değişkenleri arayüz türüyle tanımlamak
+kodu belirli bir gerçeklemeye bağlamaz. <code>HashSet</code> ve <code>HashMap</code> <code>hashCode</code> ile kovayı, <code>equals</code> ile
+elemanı bulur; ikisini birlikte ezmeyen bir sınıf bu koleksiyonlarda tekrarları engelleyemez ve
+elemanlarını bulamaz. Dolaşırken silmek için <code>Iterator.remove</code> kullanılır; <code>List.of</code>, <code>Map.of</code> ve
+<code>List.copyOf</code> değiştirilemez koleksiyonlar üretir. Generics, tür denetimini derleme zamanına taşır
+ve cast'i ortadan kaldırır; <code>Kutu&lt;T&gt;</code> gibi generic sınıflar, <code>&lt;T extends Comparable&lt;T&gt;&gt;</code> gibi sınırlı
+tür parametreleri ve <code>? extends</code> jokeri yazabiliriz. Nesnelerin doğal sıralaması <code>Comparable</code> ile,
+alternatif sıralamalar <code>Comparator</code> ile tanımlanır ve <code>thenComparing</code>, <code>reversed</code> ile birleştirilir.
+Bir sonraki modülde anonim sınıfların kısa yazımı olan lambda ifadelerini ve koleksiyonları bildirimsel
+(declarative) biçimde işleyen Stream API'yi öğreniyoruz.</p>
+<h2 id="ileri-okuma">İleri okuma<a class="headerlink" href="#ileri-okuma" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/collections/">The Java Tutorials: Collections</a>, Oracle.
+  Arayüzler, gerçeklemeler ve algoritmalar üzerine resmî ders dizisi.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/generics/">The Java Tutorials: Generics</a>, Oracle.
+  Sınırlı tür parametreleri, jokerler ve tür silme (type erasure).</li>
+<li>Joshua Bloch, <em>Effective Java</em>, 3. baskı, 2018, 5. bölüm ("Generics", Madde 26–33). Ham türler,
+  generic metotlar ve jokerler üzerine ayrıntılı öneriler.</li>
+</ul>
+<h2 id="kaynaklar">Kaynaklar<a class="headerlink" href="#kaynaklar" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html">Java SE 21 API: <code>java.util.Collection</code></a>
+  ve <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html"><code>java.util.Map</code></a>.
+  §1'deki hiyerarşi ve §4'teki <code>getOrDefault</code>, <code>entrySet</code>.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html">Java SE 21 API: <code>java.util.List</code></a>.
+  §2'deki metotlar ve §5.2'deki değiştirilemez listeler (<code>List.of</code>, <code>List.copyOf</code>).</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ConcurrentModificationException.html">Java SE 21 API: <code>java.util.ConcurrentModificationException</code></a>.
+  §5.1'deki fail-fast davranışının garanti edilmediği notu.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html">Java SE 21 API: <code>java.lang.Object</code></a>.
+  §3.2'deki <code>equals</code>/<code>hashCode</code> sözleşmesi.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html">Java SE 21 API: <code>java.lang.Comparable</code></a>
+  ve <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparator.html"><code>java.util.Comparator</code></a>.
+  §7'deki sözleşmeler, <code>thenComparing</code>, <code>reversed</code>.</li>
+<li>Joshua Bloch, <em>Effective Java</em>, 3. baskı, Addison-Wesley, 2018. Madde 11 (<code>hashCode</code>), Madde 14
+  (<code>Comparable</code>), Madde 26 (ham türler), Madde 31 (jokerler), Madde 64 (arayüz türüyle referans).</li>
+<li>Cay S. Horstmann, <em>Core Java, Volume I: Fundamentals</em>, 12. baskı, Pearson, 2022, 8. bölüm
+  ("Generic Programming") ve 9. bölüm ("Collections"). Konunun ders kitabı anlatımı.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Son Güncelleme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 Eylül 2026 06:14:04">24 Eylül 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Oluşturuldu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 Eylül 2026 22:53:58">23 Eylül 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Altbilgi" >
+        
+          
+          <a href="../m8_istisnalar/" class="md-footer__link md-footer__link--prev" aria-label="Önceki: 🚨 M8 - İstisna Yönetimi">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Önceki
+              </span>
+              <div class="md-ellipsis">
+                🚨 M8 - İstisna Yönetimi
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../m10_lambda_stream/" class="md-footer__link md-footer__link--next" aria-label="Sonraki: λ M10 - Lambda İfadeleri ve Stream API">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sonraki
+              </span>
+              <div class="md-ellipsis">
+                λ M10 - Lambda İfadeleri ve Stream API
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.indexes", "navigation.footer", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

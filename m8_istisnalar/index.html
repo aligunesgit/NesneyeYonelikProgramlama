@@ -1,0 +1,2184 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Nesneye Yönelik Programlama (Java) ders materyali">
+      
+      
+      
+      
+        <link rel="prev" href="../sprint_a_proje/">
+      
+      
+        <link rel="next" href="../m9_koleksiyonlar_generics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../figures/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>🚨 M8 - İstisna Yönetimi - Nesneye Yönelik Programlama</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#m8-istisna-yonetimi" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-header__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nesneye Yönelik Programlama
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🚨 M8 - İstisna Yönetimi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Karanlık moda geç"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Karanlık moda geç" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Aydınlık moda geç"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aydınlık moda geç" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Ara" placeholder="Ara" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Ara">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Temizle" aria-label="Temizle" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Arama başlatılıyor
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-nav__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    Nesneye Yönelik Programlama
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ana Sayfa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m1_oop_giris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 M1 - Nesneye Yönelik Programlamaya Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2_siniflar_nesneler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 M2 - Sınıflar ve Nesneler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m3_kapsulleme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔒 M3 - Kapsülleme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m4_iliskiler_uml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔗 M4 - Nesneler Arası İlişkiler ve UML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m5_kalitim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 M5 - Kalıtım
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m6_cok_bicimlilik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎭 M6 - Çok Biçimlilik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m7_soyut_arayuz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧩 M7 - Soyut Sınıflar ve Arayüzler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_a_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Proje Sprinti A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚨 M8 - İstisna Yönetimi
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚨 M8 - İstisna Yönetimi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-neden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hata yönetimi neden gerekli?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-try-catch-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. try, catch, finally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. try, catch, finally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-istisna-cagr-zincirinde-nasl-ilerler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 İstisna çağrı zincirinde nasıl ilerler?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-birden-cok-catch-ve-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Birden çok catch ve finally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-coklu-yakalama-multi-catch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Çoklu yakalama (multi-catch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hiyerarsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. İstisna hiyerarşisi: checked ve unchecked
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. İstisna hiyerarşisi: checked ve unchecked">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ne-zaman-hangisi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ne zaman hangisi?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-throw-throws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. throw ve throws
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-kendi-istisnalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Kendi istisna sınıflarımız
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Kendi istisna sınıflarımız">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-alan-verisi-tasyan-istisna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Alan verisi taşıyan istisna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-neden-cause-zinciri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Neden (cause) zinciri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-try-with-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. try-with-resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. try-with-resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-kaynaklar-kapatmak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Kaynakları kapatmak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-kendi-autocloseable-snfmz-ve-kapatma-sras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Kendi AutoCloseable sınıfımız ve kapatma sırası
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-kotu-pratikler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Yaygın kötü pratikler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-junit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. JUnit ile istisna testi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m9_koleksiyonlar_generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📦 M9 - Koleksiyonlar ve Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m10_lambda_stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    λ M10 - Lambda İfadeleri ve Stream API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m11_tasarim_ilkeleri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 M11 - Tasarım İlkeleri
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m12_tasarim_kaliplari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏛️ M12 - Tasarım Kalıpları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_b_final_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏁 Proje Sprinti B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/timeplan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zaman Planı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Özet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-neden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hata yönetimi neden gerekli?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-try-catch-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. try, catch, finally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. try, catch, finally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-istisna-cagr-zincirinde-nasl-ilerler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 İstisna çağrı zincirinde nasıl ilerler?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-birden-cok-catch-ve-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Birden çok catch ve finally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-coklu-yakalama-multi-catch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Çoklu yakalama (multi-catch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hiyerarsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. İstisna hiyerarşisi: checked ve unchecked
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. İstisna hiyerarşisi: checked ve unchecked">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ne-zaman-hangisi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ne zaman hangisi?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-throw-throws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. throw ve throws
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-kendi-istisnalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Kendi istisna sınıflarımız
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Kendi istisna sınıflarımız">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-alan-verisi-tasyan-istisna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Alan verisi taşıyan istisna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-neden-cause-zinciri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Neden (cause) zinciri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-try-with-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. try-with-resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. try-with-resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-kaynaklar-kapatmak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Kaynakları kapatmak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-kendi-autocloseable-snfmz-ve-kapatma-sras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Kendi AutoCloseable sınıfımız ve kapatma sırası
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-kotu-pratikler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Yaygın kötü pratikler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-junit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. JUnit ile istisna testi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/edit/main/m8_istisnalar/README.md" title="Düzenle" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/raw/main/m8_istisnalar/README.md" title="Sayfanın kaynağını görüntüle" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="m8-istisna-yonetimi">🚨 M8 - İstisna Yönetimi<a class="headerlink" href="#m8-istisna-yonetimi" title="Permanent link">&para;</a></h1>
+<p align="center"><em>Hafta 9</em></p>
+
+<h2 id="ogrenme-hedefleri">❔ Öğrenme hedefleri<a class="headerlink" href="#ogrenme-hedefleri" title="Permanent link">&para;</a></h2>
+<p>Bu modülün sonunda öğrenci:</p>
+<ul>
+<li>Hata durumlarını istisnalarla bildirmek ve yakalamak</li>
+<li>Checked ve unchecked istisnaları ayırt etmek</li>
+<li>Alan kurallarına özgü istisna sınıfları yazmak</li>
+<li>İstisna fırlatan kodu JUnit ile test etmek</li>
+</ul>
+<hr />
+<h2 id="1-neden">1. Hata yönetimi neden gerekli?<a class="headerlink" href="#1-neden" title="Permanent link">&para;</a></h2>
+<p>M1'deki <code>Hesap.paraCek</code> metodu bakiye yetmediğinde <code>false</code> döndürüyordu. M3'te geçersiz bir değer
+geldiğinde <code>IllegalArgumentException</code> fırlatmayı gördük. İkisi de "bir şeyler ters gitti" demenin
+yollarıdır, ama çağıran koda çok farklı sorumluluklar yükler.</p>
+<p><code>boolean</code> dönüşün sorunu, dönüş değerinin <strong>görmezden gelinebilmesidir</strong>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">hesap</span><span class="p">.</span><span class="na">paraCek</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">                 </span><span class="c1">// false döndü, kimse bakmadı</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">faturaOde</span><span class="p">();</span><span class="w">                         </span><span class="c1">// para çekilmiş gibi devam ediyoruz</span>
+</span></code></pre></div>
+<p>Derleyici bu satırda hiçbir uyarı vermez. Üstelik <code>false</code> yalnızca "olmadı" der; tutar mı negatif,
+bakiye mi yetersiz, hesap mı kapalı, söylemez. Nedenini öğrenmek isteyen kod aynı kontrolleri
+kendisi tekrar yapmak zorunda kalır.</p>
+<p><strong>İstisna</strong> (exception), bir metodun normal akışını sürdüremediğini bildiren nesnedir. Bir istisna
+fırlatıldığında (throw) metot o noktada durur, sonraki satırlar çalışmaz ve istisna, onu yakalayan
+(catch) bir kod bulunana kadar çağrı zincirinde yukarı doğru ilerler. Kimse yakalamazsa program
+hata mesajıyla sonlanır. Yani hata <strong>sessizce kaybolamaz</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Yaklaşım</th>
+<th>Görmezden gelinebilir mi?</th>
+<th>Neden bilgisi</th>
+<th>Derleyici zorlar mı?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boolean</code> dönüş (M1)</td>
+<td>Evet</td>
+<td>Yok, yalnızca <code>false</code></td>
+<td>Hayır</td>
+</tr>
+<tr>
+<td><code>IllegalArgumentException</code> (M3)</td>
+<td>Hayır, program durur</td>
+<td>Mesaj</td>
+<td>Hayır</td>
+</tr>
+<tr>
+<td>Kendi kontrollü istisnamız (bu modül)</td>
+<td>Hayır</td>
+<td>Mesaj + alan verisi (bakiye, istenen tutar)</td>
+<td>Evet, yakala ya da bildir</td>
+</tr>
+</tbody>
+</table>
+<p>Bu modülde M1'deki banka örneğini istisnalarla yeniden yazıyoruz: <code>Hesap</code>, onu numarasıyla bulan
+bir <code>Banka</code> ve kullanıcıya mesaj gösteren bir <code>HavaleEkrani</code>.</p>
+<h2 id="2-try-catch-finally">2. try, catch, finally<a class="headerlink" href="#2-try-catch-finally" title="Permanent link">&para;</a></h2>
+<h3 id="21-istisna-cagr-zincirinde-nasl-ilerler">2.1 İstisna çağrı zincirinde nasıl ilerler?<a class="headerlink" href="#21-istisna-cagr-zincirinde-nasl-ilerler" title="Permanent link">&para;</a></h3>
+<p><code>HavaleEkrani</code> bankadan havale ister, <code>Banka</code> kaynak hesaptan para çeker. Bakiye yetmezse istisna
+<code>Hesap</code> içinde doğar; <code>Banka</code> onu yakalamaz, yalnızca yukarı iletir; <code>HavaleEkrani</code> yakalayıp
+kullanıcıya uygun bir mesaj üretir:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant E as HavaleEkrani
+    participant B as Banka
+    participant H as Hesap
+    E-&gt;&gt;B: havale(TR01, TR02, 1000)
+    B-&gt;&gt;H: paraCek(1000)
+    H--xB: throw YetersizBakiyeException
+    B--xE: iletilir (throws)
+    Note over E: catch bloğu çalışır</code></pre>
+<p>İstisnayı <strong>onunla anlamlı bir şey yapabilecek katmanda</strong> yakalarız. <code>Hesap</code> kullanıcıya ne
+söyleneceğini bilmez; ekran bilir.</p>
+<h3 id="22-birden-cok-catch-ve-finally">2.2 Birden çok catch ve finally<a class="headerlink" href="#22-birden-cok-catch-ve-finally" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">havaleYap</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">kaynakNo</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">hedefNo</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tutar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">                                                       </span><span class="c1">// (1)!</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="n">banka</span><span class="p">.</span><span class="na">havale</span><span class="p">(</span><span class="n">kaynakNo</span><span class="p">,</span><span class="w"> </span><span class="n">hedefNo</span><span class="p">,</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Havale tamamlandı"</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">YetersizBakiyeException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                       </span><span class="c1">// (2)!</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Bakiye yetersiz, eksik tutar: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getEksik</span><span class="p">();</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">HesapBulunamadiException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Hesap bulunamadı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getHesapNo</span><span class="p">();</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Geçersiz tutar"</span><span class="p">;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">                                                 </span><span class="c1">// (3)!</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="n">denemeSayisi</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>try</code> bloğu, istisna fırlatabilecek kodu içerir. İçerideki herhangi bir satır istisna fırlatırsa
+   bloğun geri kalanı atlanır.</li>
+<li><code>catch</code> blokları <strong>yukarıdan aşağı</strong> denenir; istisnanın türüne uyan ilk blok çalışır. <code>e</code>,
+   yakalanan istisna nesnesidir: mesajını ve alanlarını okuyabiliriz.</li>
+<li><code>finally</code> bloğu <strong>her durumda</strong> çalışır: <code>try</code> normal bittiğinde, bir <code>catch</code> çalıştığında, hatta
+   <code>return</code> ile çıkıldığında bile. Sayaç, kilit bırakma, günlük yazma gibi "ne olursa olsun yapılacak"
+   işler buraya konur.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Özel olan önce, genel olan sonra</p>
+<p>Alt sınıf istisnayı üst sınıftan <strong>önce</strong> yakalamalısınız. <code>catch (BankaException e)</code> bloğunu
+<code>catch (YetersizBakiyeException e)</code> bloğunun üstüne yazarsanız ikinci blok hiçbir zaman
+çalışamaz ve program <strong>derlenmez</strong>: <code>exception YetersizBakiyeException has already been caught</code>.</p>
+</div>
+<h3 id="23-coklu-yakalama-multi-catch">2.3 Çoklu yakalama (multi-catch)<a class="headerlink" href="#23-coklu-yakalama-multi-catch" title="Permanent link">&para;</a></h3>
+<p>İki farklı istisnaya aynı tepkiyi vereceksek, Java 7'den beri türleri <code>|</code> ile birleştirebiliriz:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">banka</span><span class="p">.</span><span class="na">havale</span><span class="p">(</span><span class="n">kaynakNo</span><span class="p">,</span><span class="w"> </span><span class="n">hedefNo</span><span class="p">,</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"Havale tamamlandı"</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">YetersizBakiyeException</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">HesapBulunamadiException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"İşlem başarısız: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">();</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">denemeSayisi</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Bu blokta <code>e</code>'nin türü iki istisnanın ortak üst türüdür (<code>BankaException</code>), dolayısıyla yalnızca
+ortak metotlar (<code>getMessage</code>) çağrılabilir. <code>|</code> ile birleştirilen türler birbirinin alt sınıfı
+olamaz; <code>YetersizBakiyeException | BankaException</code> yazmak derleme hatasıdır, çünkü ikincisi
+birincisini zaten kapsar.</p>
+<div class="admonition example">
+<p class="admonition-title">Kendinizi deneyin</p>
+<p>TR02 hesabının bakiyesi 0 iken <code>ekran.havaleYap("TR02", "TR01", 50)</code> çağrılıyor. Hangi satırlar
+hangi sırayla çalışır, metot ne döndürür ve <code>denemeSayisi</code> kaç artar?</p>
+<details class="success">
+<summary>Cevap</summary>
+<p><code>banka.havale</code> içinde <code>paraCek(50)</code> bir <code>YetersizBakiyeException</code> fırlatır; <code>return "Havale
+tamamlandı"</code> satırı <strong>atlanır</strong>. İlk <code>catch</code> bloğu eşleşir ve <code>"Bakiye yetersiz, eksik
+tutar: 50.0"</code> dönüş değeri hazırlanır. Metottan çıkmadan önce <code>finally</code> çalışır ve
+<code>denemeSayisi</code> <strong>bir</strong> artar. Diğer <code>catch</code> blokları çalışmaz.</p>
+</details>
+</div>
+<h2 id="3-hiyerarsi">3. İstisna hiyerarşisi: checked ve unchecked<a class="headerlink" href="#3-hiyerarsi" title="Permanent link">&para;</a></h2>
+<p>Java'da fırlatılabilen her şey <code>Throwable</code> sınıfından türer. Hiyerarşinin kalıtım (M5) ağacı şöyle
+özetlenebilir (ara sınıfların bir kısmı gösterilmedi):</p>
+<pre class="mermaid"><code>classDiagram
+    class Throwable {
+        +getMessage() String
+        +getCause() Throwable
+        +getSuppressed() Throwable[]
+    }
+    Throwable &lt;|-- Error
+    Throwable &lt;|-- Exception
+    Error &lt;|-- OutOfMemoryError
+    Error &lt;|-- StackOverflowError
+    Exception &lt;|-- IOException
+    Exception &lt;|-- RuntimeException
+    Exception &lt;|-- BankaException
+    BankaException &lt;|-- YetersizBakiyeException
+    BankaException &lt;|-- HesapBulunamadiException
+    RuntimeException &lt;|-- IllegalArgumentException
+    RuntimeException &lt;|-- NullPointerException
+    RuntimeException &lt;|-- IllegalStateException
+    IllegalArgumentException &lt;|-- NumberFormatException</code></pre>
+<p>Ağacın üç dalı üç farklı anlam taşır:</p>
+<table>
+<thead>
+<tr>
+<th>Dal</th>
+<th>Anlamı</th>
+<th>Derleyici</th>
+<th>Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Error</code></td>
+<td>JVM düzeyinde, genellikle kurtarılamaz sorun</td>
+<td>Denetlemez</td>
+<td><code>OutOfMemoryError</code>, <code>StackOverflowError</code></td>
+</tr>
+<tr>
+<td><code>RuntimeException</code> ve altları: <strong>denetlenmeyen</strong> (unchecked)</td>
+<td>Programlama hatası: kodun kendisi yanlış</td>
+<td>Denetlemez</td>
+<td><code>NullPointerException</code>, <code>IllegalArgumentException</code></td>
+</tr>
+<tr>
+<td>Diğer tüm <code>Exception</code> altları: <strong>denetlenen</strong> (checked)</td>
+<td>Doğru yazılmış kodda bile olabilecek, kurtarılabilir durum</td>
+<td><strong>Yakala ya da bildir</strong> kuralını zorlar</td>
+<td><code>IOException</code>, <code>YetersizBakiyeException</code></td>
+</tr>
+</tbody>
+</table>
+<p>Denetlenen bir istisna fırlatabilecek bir metodu çağıran kod iki şeyden birini yapmak <strong>zorundadır</strong>:
+istisnayı <code>try</code>/<code>catch</code> ile yakalamak ya da kendi imzasına <code>throws</code> ekleyerek yukarı iletmek.
+Aksi hâlde program derlenmez: <code>unreported exception YetersizBakiyeException; must be caught or
+declared to be thrown</code>. Denetlenmeyen istisnalarda böyle bir zorunluluk yoktur.</p>
+<h3 id="ne-zaman-hangisi">Ne zaman hangisi?<a class="headerlink" href="#ne-zaman-hangisi" title="Permanent link">&para;</a></h3>
+<p>Joshua Bloch'un <em>Effective Java</em> kitabındaki kural (Madde 70, "Use checked exceptions for
+recoverable conditions and runtime exceptions for programming errors") pratik bir ölçüt verir:
+<strong>çağıran kod bu durumdan makul biçimde kurtulabilir mi?</strong></p>
+<ul>
+<li>Bakiye yetersiz, aranan hesap yok, dosya bulunamadı: kullanıcıya haber verilip başka bir tutar ya da
+  hesap denenebilir. Bunlar <strong>kontrollü</strong> istisna olmaya adaydır.</li>
+<li>Negatif tutar, <code>null</code> argüman, sınırların dışında bir dizi indisi: bunlar çağıran kodun bir
+  hatasıdır, doğru yazılmış kodda hiç olmamalıdır. <strong>Denetlenmeyen</strong> istisna kullanılır.</li>
+</ul>
+<p>Bu yüzden <code>Hesap.paraYatir(-5)</code> bir <code>IllegalArgumentException</code> fırlatır (M3'teki gibi), ama
+<code>paraCek(1000)</code> bir <code>YetersizBakiyeException</code> fırlatır.</p>
+<div class="admonition tip">
+<p class="admonition-title">Kontrollü istisnayı gereksiz yere kullanmayın</p>
+<p>Madde 71 ("Avoid unnecessary use of checked exceptions") öbür uca karşı uyarır: her çağrının
+<code>try</code>/<code>catch</code> ile sarılmasını gerektiren kontrollü istisnalar, çağıran kod zaten hiçbir şey
+yapamayacaksa yalnızca yük getirir. Uygun bir standart istisna varsa (<code>IllegalArgumentException</code>,
+<code>IllegalStateException</code>, <code>UnsupportedOperationException</code>) onu kullanmak da ayrı bir öneridir
+(Madde 72, "Favor the use of standard exceptions").</p>
+</div>
+<p><code>Error</code> türlerini yakalamayın. Bellek bittiğinde ya da yığın taştığında programın yapabileceği
+anlamlı bir şey genellikle yoktur.</p>
+<h2 id="4-throw-throws">4. throw ve throws<a class="headerlink" href="#4-throw-throws" title="Permanent link">&para;</a></h2>
+<p>İki anahtar kelime birbirine benzese de farklı işler görür:</p>
+<ul>
+<li><strong><code>throw</code></strong> bir <strong>ifadedir</strong> (statement): bir istisna nesnesini o anda fırlatır.</li>
+<li><strong><code>throws</code></strong> bir metot <strong>imzasının</strong> parçasıdır: "bu metot şu kontrollü istisnaları fırlatabilir"
+  diye bildirir.</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">paraCek</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">tutar</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">YetersizBakiyeException</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">tutariDenetle</span><span class="p">(</span><span class="n">tutar</span><span class="p">);</span><span class="w">                                             </span><span class="c1">// (2)!</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tutar</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">bakiye</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">YetersizBakiyeException</span><span class="p">(</span><span class="n">hesapNo</span><span class="p">,</span><span class="w"> </span><span class="n">bakiye</span><span class="p">,</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span><span class="w">    </span><span class="c1">// (3)!</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="n">bakiye</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bakiye</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tutar</span><span class="p">;</span><span class="w">                                          </span><span class="c1">// (4)!</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">tutariDenetle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">tutar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tutar</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Tutar pozitif olmalı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>throws</code> bildirimi metodun sözleşmesinin (contract) bir parçasıdır. Çağıran kod ne tür hatalara
+   hazırlıklı olması gerektiğini imzadan okur.</li>
+<li><code>IllegalArgumentException</code> denetlenmeyen olduğu için <code>tutariDenetle</code> imzasında <code>throws</code> yoktur.</li>
+<li>İstisna bir nesnedir; <code>new</code> ile oluşturulur ve <code>throw</code> ile fırlatılır. Bu satırdan sonrası
+   çalışmaz.</li>
+<li>Buraya ancak tüm kontroller geçildiyse gelinir. Hata durumunda bakiye <strong>hiç değişmemiştir</strong>.</li>
+</ol>
+<p><code>Banka.havale</code> istisnaları yakalamaz, yalnızca bildirir ve iletir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">havale</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">kaynakNo</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">hedefNo</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tutar</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="kd">throws</span><span class="w"> </span><span class="n">HesapBulunamadiException</span><span class="p">,</span><span class="w"> </span><span class="n">YetersizBakiyeException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">Hesap</span><span class="w"> </span><span class="n">kaynak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hesapBul</span><span class="p">(</span><span class="n">kaynakNo</span><span class="p">);</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">Hesap</span><span class="w"> </span><span class="n">hedef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hesapBul</span><span class="p">(</span><span class="n">hedefNo</span><span class="p">);</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">kaynak</span><span class="p">.</span><span class="na">paraCek</span><span class="p">(</span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">hedef</span><span class="p">.</span><span class="na">paraYatir</span><span class="p">(</span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Satırların sırası bilinçlidir. Önce iki hesap da bulunur, sonra para çekilir. Hedef hesap yoksa
+istisna, kaynaktan para <strong>çekilmeden önce</strong> fırlatılır. Bir işlem başarısız olduğunda nesneleri
+işlemden önceki durumunda bırakmaya <strong>hata atomikliği</strong> (failure atomicity) denir (Madde 76, "Strive
+for failure atomicity"). Sırayı ters çevirseydik, hedef bulunamadığında para kaynaktan çıkmış ama
+hiçbir yere varmamış olurdu.</p>
+<h2 id="5-kendi-istisnalar">5. Kendi istisna sınıflarımız<a class="headerlink" href="#5-kendi-istisnalar" title="Permanent link">&para;</a></h2>
+<h3 id="51-alan-verisi-tasyan-istisna">5.1 Alan verisi taşıyan istisna<a class="headerlink" href="#51-alan-verisi-tasyan-istisna" title="Permanent link">&para;</a></h3>
+<p>Standart istisnalar genel durumlar içindir. Alanımıza özgü bir durumu (yetersiz bakiye) adıyla
+bildirmek için kendi istisna sınıfımızı yazarız. İstisnalar sıradan sınıflardır: alanları, kurucuları
+ve metotları olabilir.</p>
+<pre class="mermaid"><code>classDiagram
+    class Exception
+    class BankaException {
+        +BankaException(String mesaj)
+        +BankaException(String mesaj, Throwable neden)
+    }
+    class YetersizBakiyeException {
+        -String hesapNo
+        -double bakiye
+        -double istenen
+        +getBakiye() double
+        +getIstenen() double
+        +getEksik() double
+    }
+    class HesapBulunamadiException {
+        -String hesapNo
+        +getHesapNo() String
+    }
+    Exception &lt;|-- BankaException
+    BankaException &lt;|-- YetersizBakiyeException
+    BankaException &lt;|-- HesapBulunamadiException
+    Hesap ..&gt; YetersizBakiyeException : fırlatır
+    Banka ..&gt; HesapBulunamadiException : fırlatır</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">YetersizBakiyeException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BankaException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">hesapNo</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">bakiye</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">istenen</span><span class="p">;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">YetersizBakiyeException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">hesapNo</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">bakiye</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">istenen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="s">"Yetersiz bakiye: hesap "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hesapNo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">", bakiye "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bakiye</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">", istenen "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">istenen</span><span class="p">);</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hesapNo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hesapNo</span><span class="p">;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">bakiye</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bakiye</span><span class="p">;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">istenen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istenen</span><span class="p">;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getEksik</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                                              </span><span class="c1">// (2)!</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">istenen</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bakiye</span><span class="p">;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="c1">// getHesapNo, getBakiye, getIstenen</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Mesaj, hatayı anlamak için gereken tüm değerleri içerir: hangi hesap, ne kadar vardı, ne
+   istendi (Madde 75, "Include failure-capture information in detail messages"). Günlükte yalnızca
+   "Yetersiz bakiye" yazması hata ayıklarken işe yaramaz.</li>
+<li>Aynı bilgi alan olarak da saklanır. <code>HavaleEkrani</code> eksik tutarı mesajı ayrıştırarak değil,
+   <code>e.getEksik()</code> ile okur.</li>
+</ol>
+<p>Ortak üst sınıf <code>BankaException</code>, çağıran koda seçim hakkı verir: tüm banka hatalarını tek
+<code>catch (BankaException e)</code> ile ya da her türü ayrı ayrı yakalayabilir. Sınıf adı <code>Exception</code> ile
+biter; bu Java'da yerleşik bir adlandırma geleneğidir.</p>
+<h3 id="52-neden-cause-zinciri">5.2 Neden (cause) zinciri<a class="headerlink" href="#52-neden-cause-zinciri" title="Permanent link">&para;</a></h3>
+<p>Not dosyası okuyan bir sınıf düşünelim. Satırlar <code>Ayşe;85</code> biçiminde. <code>Integer.parseInt("yetmiş")</code>
+bir <code>NumberFormatException</code> fırlatır. Bu istisnayı olduğu gibi yukarı iletirsek, çağıran kod
+"For input string" mesajından hangi dosyanın hangi satırının hatalı olduğunu anlayamaz. Onu
+<strong>kendi soyutlama düzeyimize uygun</strong> bir istisnaya çeviririz (Madde 73, "Throw exceptions appropriate
+to the abstraction") ve asıl istisnayı <strong>neden</strong> (cause) olarak saklarız:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">String</span><span class="w"> </span><span class="n">metin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parcalar</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">trim</span><span class="p">();</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">not</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">not</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">metin</span><span class="p">);</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NumberFormatException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NotFormatException</span><span class="p">(</span><span class="n">satirNo</span><span class="p">,</span><span class="w"> </span><span class="s">"Not bir tam sayı değil: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">metin</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Üçüncü argüman <code>e</code>, <code>NotFormatException</code> kurucusundan <code>super(mesaj, neden)</code> ile <code>Throwable</code>'a
+   iletilir. Sonradan <code>hata.getCause()</code> asıl <code>NumberFormatException</code>'ı döndürür ve yığın izinde
+   (stack trace) <code>Caused by:</code> satırı olarak görünür. Nedeni atmak, hata ayıklamak için gereken
+   bilgiyi çöpe atmaktır.</li>
+</ol>
+<h2 id="6-try-with-resources">6. try-with-resources<a class="headerlink" href="#6-try-with-resources" title="Permanent link">&para;</a></h2>
+<h3 id="61-kaynaklar-kapatmak">6.1 Kaynakları kapatmak<a class="headerlink" href="#61-kaynaklar-kapatmak" title="Permanent link">&para;</a></h3>
+<p>Dosya, ağ bağlantısı, veritabanı bağlantısı gibi <strong>kaynaklar</strong> (resources) işletim sisteminden
+ödünç alınır ve işimiz bitince kapatılmaları gerekir. Okuma sırasında bir istisna olsa bile.
+Bunu <code>finally</code> ile yapabiliriz, ama kod hızla kalabalıklaşır ve <code>close()</code> da istisna fırlatabildiği
+için doğru yazmak zordur (Madde 9, "Prefer try-with-resources to try-finally").</p>
+<p>Java 7'den beri <strong>try-with-resources</strong> bu işi derleyiciye bırakır:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">ortalama</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">dosya</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">NotFormatException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">okuyucu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">newBufferedReader</span><span class="p">(</span><span class="n">dosya</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notlar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">notlariOku</span><span class="p">(</span><span class="n">okuyucu</span><span class="p">);</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">notlar</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NotFormatException</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"Dosyada hiç not yok"</span><span class="p">);</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">toplam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">notlar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">            </span><span class="n">toplam</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">not</span><span class="p">;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">toplam</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">notlar</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="p">}</span><span class="w">                                                                  </span><span class="c1">// (2)!</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Parantez içinde tanımlanan değişken bir <strong>kaynaktır</strong>. Türü <code>AutoCloseable</code> arayüzünü (M7)
+   gerçeklemek zorundadır; <code>BufferedReader</code> bunu gerçekler.</li>
+<li>Blok nasıl biterse bitsin (normal, <code>return</code> ya da istisna ile) <code>okuyucu.close()</code> otomatik
+   çağrılır. <code>catch</code> bloğu yazmadık: istisnalar <code>throws</code> ile yukarı iletilir, dosya yine kapanır.</li>
+</ol>
+<p><code>notlariOku</code> metodu dosya değil, bir <code>BufferedReader</code> alır. Böylece testte gerçek dosya yerine
+<code>new BufferedReader(new StringReader("Ayşe;85"))</code> verebiliriz (<a href="#8-junit">§8</a>).</p>
+<h3 id="62-kendi-autocloseable-snfmz-ve-kapatma-sras">6.2 Kendi AutoCloseable sınıfımız ve kapatma sırası<a class="headerlink" href="#62-kendi-autocloseable-snfmz-ve-kapatma-sras" title="Permanent link">&para;</a></h3>
+<p>Kapatmanın <strong>ne zaman</strong> ve <strong>hangi sırayla</strong> olduğunu görmek için açılışını ve kapanışını bir
+günlüğe yazan küçük bir kaynak sınıfı yazalım:</p>
+<pre class="mermaid"><code>classDiagram
+    class AutoCloseable {
+        &lt;&lt;interface&gt;&gt;
+        +close()* void
+    }
+    class IzlenenKaynak {
+        -String ad
+        -List~String~ gunluk
+        -boolean kapatirkenHataVer
+        +kullan() void
+        +close() void
+    }
+    AutoCloseable &lt;|.. IzlenenKaynak</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IzlenenKaynak</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">AutoCloseable</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="c1">// alanlar ve kurucu: kurucu günlüğe "&lt;ad&gt; açıldı" yazar</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">kullan</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="n">gunluk</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" kullanıldı"</span><span class="p">);</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">close</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                          </span><span class="c1">// (1)!</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="n">gunluk</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" kapatıldı"</span><span class="p">);</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kapatirkenHataVer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="n">ad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" kapatılamadı"</span><span class="p">);</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>AutoCloseable.close()</code> imzasında <code>throws Exception</code> vardır. Ezen metot bu bildirimi daraltabilir
+   ya da tamamen kaldırabilir; biz kaldırdık, böylece kullanan kod kontrollü istisna yakalamak
+   zorunda kalmaz.</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gunluk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">IzlenenKaynak</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IzlenenKaynak</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="n">gunluk</span><span class="p">);</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="n">IzlenenKaynak</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IzlenenKaynak</span><span class="p">(</span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="n">gunluk</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="na">kullan</span><span class="p">();</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="na">kullan</span><span class="p">();</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">gunluk</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[A açıldı, B açıldı, A kullanıldı, B kullanıldı, B kapatıldı, A kapatıldı]
+</span></code></pre></div>
+<p>Kaynaklar <strong>açılış sırasının tersiyle</strong> kapatılır: en son açılan önce kapanır. Bu mantıklıdır,
+çünkü sonra açılan kaynak (ör. dosyanın üstüne kurulmuş bir okuyucu) öncekine bağımlı olabilir.</p>
+<div class="admonition note">
+<p class="admonition-title">Bastırılmış (suppressed) istisnalar</p>
+<p>Gövde bir istisna fırlatır, ardından <code>close()</code> da fırlatırsa hangisi kazanır? Asıl hata
+gövdedeki olduğu için o fırlatılır; <code>close()</code>'un istisnası kaybolmaz, asıl istisnaya
+<strong>bastırılmış</strong> olarak eklenir ve <code>getSuppressed()</code> ile okunur. <code>IzlenenKaynakTest</code> bu durumu
+<code>kapatirkenHataVer = true</code> ile dener. Elle yazılmış <code>try</code>/<code>finally</code> ise gövdenin istisnasını
+sessizce ezer; try-with-resources'ın üstünlüklerinden biri budur.</p>
+</div>
+<h2 id="7-kotu-pratikler">7. Yaygın kötü pratikler<a class="headerlink" href="#7-kotu-pratikler" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Kötü pratik</th>
+<th>Neden kötü?</th>
+<th>Yerine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boş <code>catch</code> bloğu: <code>catch (IOException e) { }</code></td>
+<td>Hata sessizce kaybolur, program yanlış veriyle devam eder (Madde 77, "Don't ignore exceptions")</td>
+<td>Ele alın, yukarı iletin ya da en azından neden görmezden gelindiğini yorumla yazın</td>
+</tr>
+<tr>
+<td><code>catch (Exception e)</code> ile her şeyi yakalamak</td>
+<td><code>NullPointerException</code> gibi programlama hatalarını da yutar, gerçek hatayı gizler</td>
+<td>Beklediğiniz türleri tek tek yakalayın</td>
+</tr>
+<tr>
+<td>İstisnayı akış kontrolü için kullanmak</td>
+<td>Okunaksız ve yavaştır; istisna "olağan dışı" durumlar içindir (Madde 69, "Use exceptions only for exceptional conditions")</td>
+<td>Önceden kontrol edin: <code>if (i &lt; dizi.length)</code></td>
+</tr>
+<tr>
+<td>Nedeni atmak: <code>throw new BankaException("hata")</code></td>
+<td>Asıl istisnanın yığın izi kaybolur</td>
+<td><code>throw new BankaException("hata", e)</code></td>
+</tr>
+<tr>
+<td><code>e.printStackTrace()</code> yazıp devam etmek</td>
+<td>Konsola yazılır ama program hatalı durumda ilerler</td>
+<td>Hatayı ele alın ya da iletin</td>
+</tr>
+</tbody>
+</table>
+<p>Akış kontrolü için istisna kullanmanın tipik bir örneği:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// Kötü: dizinin sonunu istisnayla bulmak</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">        </span><span class="n">toplam</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">notlar</span><span class="o">[</span><span class="n">i</span><span class="o">++]</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ArrayIndexOutOfBoundsException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="c1">// döngü bitti</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Aynı iş <code>for (int not : notlar)</code> ile hem daha kısa hem daha doğru yapılır. Üstelik bu kalıp,
+döngü gövdesinde <strong>başka bir nedenle</strong> oluşan bir <code>ArrayIndexOutOfBoundsException</code>'ı da "döngü
+bitti" diye yorumlar ve gerçek hatayı gizler.</p>
+<div class="admonition example">
+<p class="admonition-title">Kendinizi deneyin</p>
+<p>Aşağıdaki kodda kaç sorun görüyorsunuz?</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">banka</span><span class="p">.</span><span class="na">havale</span><span class="p">(</span><span class="s">"TR01"</span><span class="p">,</span><span class="w"> </span><span class="s">"TR02"</span><span class="p">,</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<details class="success">
+<summary>Cevap</summary>
+<p>İki sorun var. (1) <code>Exception</code> yakalandığı için bir <code>NullPointerException</code> (ör. <code>banka</code>
+<code>null</code> ise) da sessizce yutulur. (2) <code>catch</code> bloğu boş: yetersiz bakiye de, olmayan hesap da
+kullanıcıya hiç bildirilmez ve program havale yapılmış gibi devam eder. <code>HavaleEkrani</code>'ndaki
+gibi beklenen türleri ayrı ayrı yakalayıp her birine anlamlı bir tepki verin.</p>
+</details>
+</div>
+<h2 id="8-junit">8. JUnit ile istisna testi<a class="headerlink" href="#8-junit" title="Permanent link">&para;</a></h2>
+<p>Bir metodun doğru durumda istisna fırlattığını test etmek, doğru sonucu döndürdüğünü test etmek
+kadar önemlidir. M3'te <code>assertThrows</code>'u gördük. Bu modülde onun <strong>dönüş değerini</strong> de kullanıyoruz:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@Test</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"Yetersiz bakiye: istisna alan verisini taşır, bakiye değişmez"</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">yetersizBakiyeIstisnasi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="c1">// Hazırla</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="n">Hesap</span><span class="w"> </span><span class="n">hesap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hesap</span><span class="p">(</span><span class="s">"TR01"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ayşe"</span><span class="p">);</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">hesap</span><span class="p">.</span><span class="na">paraYatir</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="c1">// Çalıştır</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="n">YetersizBakiyeException</span><span class="w"> </span><span class="n">hata</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">            </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">YetersizBakiyeException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">hesap</span><span class="p">.</span><span class="na">paraCek</span><span class="p">(</span><span class="mi">150</span><span class="p">));</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="c1">// Doğrula</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Yetersiz bakiye: hesap TR01, bakiye 100.0, istenen 150.0"</span><span class="p">,</span><span class="w"> </span><span class="n">hata</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">50.0</span><span class="p">,</span><span class="w"> </span><span class="n">hata</span><span class="p">.</span><span class="na">getEksik</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span><span class="w"> </span><span class="n">hesap</span><span class="p">.</span><span class="na">getBakiye</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span><span class="w">                                    </span><span class="c1">// (2)!</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>assertThrows</code> ikinci argümandaki kodu çalıştırır. Beklenen türde bir istisna fırlatılmazsa test
+   başarısız olur; fırlatılırsa <strong>istisna nesnesini döndürür</strong>. <code>() -&gt; ...</code> yazımı bir lambda
+   ifadesidir; ayrıntısını M10'da göreceğiz, şimdilik "çalıştırılacak kod parçası" diye okuyun.</li>
+<li>Yalnızca istisnanın fırlatıldığını değil, <strong>hata atomikliğini</strong> de doğruluyoruz: bakiye değişmemiş
+   olmalı.</li>
+</ol>
+<p>Birkaç ayrıntı daha:</p>
+<table>
+<thead>
+<tr>
+<th>Araç</th>
+<th>Ne yapar?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assertThrows(Tur.class, kod)</code></td>
+<td><code>kod</code> <code>Tur</code> ya da onun bir <strong>alt türünü</strong> fırlatırsa geçer, istisnayı döndürür</td>
+</tr>
+<tr>
+<td><code>assertThrowsExactly(Tur.class, kod)</code></td>
+<td>Yalnızca tam olarak <code>Tur</code> fırlatılırsa geçer (alt tür kabul edilmez)</td>
+</tr>
+<tr>
+<td><code>assertDoesNotThrow(kod)</code></td>
+<td><code>kod</code> hiçbir istisna fırlatmazsa geçer; "mutlu yol" testlerini açıkça ifade eder</td>
+</tr>
+<tr>
+<td><code>assertInstanceOf(Tur.class, nesne)</code></td>
+<td>Neden zincirini denetlemek için: <code>assertInstanceOf(NumberFormatException.class, hata.getCause())</code></td>
+</tr>
+<tr>
+<td><code>void test() throws Exception</code></td>
+<td>Testin kendisi kontrollü istisna fırlatan kodu doğrudan çağırıyorsa imzaya <code>throws</code> eklenir; beklenmedik bir istisna testi başarısız yapar</td>
+</tr>
+</tbody>
+</table>
+<p>Dosya okuyan kodu test etmenin iki yolu var. Okuma mantığı <code>BufferedReader</code> aldığı için ilkinde
+dosyaya hiç gerek yoktur:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">NotFormatException</span><span class="w"> </span><span class="n">hata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">NotFormatException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">        </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">NotOkuyucu</span><span class="p">.</span><span class="na">notlariOku</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringReader</span><span class="p">(</span><span class="s">"Ayşe;85\nZeynep;yetmiş\n"</span><span class="p">))));</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">assertEquals</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">hata</span><span class="p">.</span><span class="na">getSatirNo</span><span class="p">());</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">assertInstanceOf</span><span class="p">(</span><span class="n">NumberFormatException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">hata</span><span class="p">.</span><span class="na">getCause</span><span class="p">());</span>
+</span></code></pre></div>
+<p>Gerçek dosya gerektiğinde JUnit'in <code>@TempDir</code> özelliği her test için boş bir geçici klasör
+oluşturur ve test bitince siler:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@TempDir</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">Path</span><span class="w"> </span><span class="n">geciciKlasor</span><span class="p">;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nd">@Test</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dosyadanOrtalama</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">dosya</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">geciciKlasor</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="s">"notlar.txt"</span><span class="p">);</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="n">Files</span><span class="p">.</span><span class="na">writeString</span><span class="p">(</span><span class="n">dosya</span><span class="p">,</span><span class="w"> </span><span class="s">"Ayşe;85\nMehmet;70\nZeynep;90\n"</span><span class="p">);</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">81.666666666</span><span class="p">,</span><span class="w"> </span><span class="n">NotOkuyucu</span><span class="p">.</span><span class="na">ortalama</span><span class="p">(</span><span class="n">dosya</span><span class="p">),</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mvn<span class="w"> </span>-pl<span class="w"> </span>m8_istisnalar/exercise_files<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>[INFO] BUILD SUCCESS
+</span></code></pre></div>
+<h2 id="9-alstrmalar">9. Alıştırmalar<a class="headerlink" href="#9-alstrmalar" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Çalıştır ve incele.</strong> <code>mvn -pl m8_istisnalar/exercise_files test</code> ile testleri çalıştırın.
+   <code>BankaUygulamasi</code>'nı çalıştırıp her çıktı satırının hangi <code>catch</code> bloğundan geldiğini bulun.</li>
+<li><strong>Derleyiciyi deneyin.</strong> <code>HavaleEkrani.havaleYap</code> içinde <code>catch (HesapBulunamadiException e)</code>
+   bloğunu silin. Derleyici ne diyor? Sonra <code>catch (BankaException e)</code> bloğunu diğer iki bloğun
+   <strong>üstüne</strong> ekleyin ve hata mesajını <a href="#2-try-catch-finally">§2.2</a>'deki uyarıyla karşılaştırın.</li>
+<li><strong>Kapalı hesap.</strong> <code>Hesap</code> sınıfına <code>kapat()</code> metodu ve <code>HesapKapaliException extends
+   BankaException</code> ekleyin: kapalı bir hesaptan para çekmek ya da yatırmak bu istisnayı fırlatsın.
+   Kontrollü mü denetlenmeyen mi seçtiniz? Seçiminizi <a href="#3-hiyerarsi">§3</a>'teki ölçütle bir cümleyle
+   gerekçelendirin. En az üç test yazın (biri <code>assertThrows</code> dönüş değeriyle mesaj kontrolü).</li>
+<li><strong>Günlük limiti.</strong> Bir hesaptan bir günde en fazla 5000 TL çekilebilsin. Limit aşıldığında
+   fırlatılan istisna, <strong>kalan limiti</strong> alan olarak taşısın. <code>HavaleEkrani</code> bu durumda "Günlük
+   limit aşıldı, kalan: ..." mesajı döndürsün.</li>
+<li><strong>Not dosyası.</strong> <code>NotOkuyucu</code>'ya <code>enYuksek(Path dosya)</code> metodu ekleyin. <code>@TempDir</code> ile şu
+   durumları test edin: normal dosya, tek satırlı dosya, hatalı satır içeren dosya (hangi satır
+   olduğunu doğrulayın), olmayan dosya.</li>
+<li><strong>Kapatma sırası.</strong> <code>IzlenenKaynak</code> ile üç kaynak açın ve ikinci kaynağın <strong>kurucusu</strong> sırasında
+   istisna fırlatıldığını düşünün (sınıfa bunu sağlayan bir kurucu parametresi ekleyin). Hangi
+   kaynaklar kapatılır? Önce tahmin edin, sonra bir testle doğrulayın.</li>
+</ol>
+<hr />
+<h2 id="ozet">Özet<a class="headerlink" href="#ozet" title="Permanent link">&para;</a></h2>
+<p>İstisnalar, bir metodun işini yapamadığını görmezden gelinemeyecek biçimde bildirir. <code>try</code> bloğu
+riskli kodu, <code>catch</code> blokları özelden genele doğru hata türlerini, <code>finally</code> ise her durumda
+yapılacak işi içerir; aynı tepkiyi alacak türler <code>|</code> ile birleştirilebilir. <code>Throwable</code> ağacında
+<code>Error</code> JVM sorunlarını, <code>RuntimeException</code> altları programlama hatalarını (denetlenmeyen), diğer
+<code>Exception</code> altları ise kurtarılabilir durumları (denetlenen) temsil eder; denetlenen istisnalar
+için derleyici "yakala ya da <code>throws</code> ile bildir" kuralını zorlar. Kendi istisna sınıflarımız alan
+verisi taşır, anlamlı mesaj üretir ve alt düzey istisnayı neden olarak saklar. try-with-resources,
+<code>AutoCloseable</code> kaynakları açılışın tersi sırayla ve her durumda kapatır. Boş <code>catch</code>, <code>Exception</code>
+yakalamak ve istisnayla akış kontrolü kaçınılacak kalıplardır. JUnit'te <code>assertThrows</code> dönen
+istisnanın mesajını ve alanlarını, <code>assertDoesNotThrow</code> ise mutlu yolu doğrular. Bir sonraki modülde
+M3'ten beri yüzeysel kullandığımız <code>ArrayList</code>'i ve Java koleksiyonlarının geri kalanını, onları
+tip güvenli yapan generics ile birlikte işliyoruz.</p>
+<h2 id="ileri-okuma">İleri okuma<a class="headerlink" href="#ileri-okuma" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/">The Java Tutorials: Exceptions</a>,
+  Oracle. İstisnaların yakalanması, fırlatılması ve kontrollü/denetlenmeyen ayrımı üzerine resmî
+  ders dizisi.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">The Java Tutorials: The try-with-resources Statement</a>,
+  Oracle. Bastırılmış istisnalar dahil try-with-resources'ın ayrıntıları.</li>
+<li>Joshua Bloch, <em>Effective Java</em>, 3. baskı, 2018, 10. bölüm ("Exceptions", Madde 69–77). Bu modülde
+  alıntılanan önerilerin tamamı ve gerekçeleri.</li>
+</ul>
+<h2 id="kaynaklar">Kaynaklar<a class="headerlink" href="#kaynaklar" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/javase/specs/jls/se21/html/jls-11.html">Java Language Specification, Java SE 21: Chapter 11, Exceptions</a>.
+  §3'teki kontrollü/denetlenmeyen istisna tanımının ve "yakala ya da bildir" kuralının kaynağı.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html">Java SE 21 API: <code>java.lang.Throwable</code></a>.
+  <code>getCause</code>, <code>getSuppressed</code> ve neden zinciri (§5.2, §6.2).</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html">Java SE 21 API: <code>java.lang.AutoCloseable</code></a>.
+  §6'daki <code>close()</code> sözleşmesi.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/BufferedReader.html">Java SE 21 API: <code>java.io.BufferedReader</code></a>.
+  <code>NotOkuyucu</code>'daki satır satır okuma.</li>
+<li>Joshua Bloch, <em>Effective Java</em>, 3. baskı, Addison-Wesley, 2018. Madde 9 (try-with-resources),
+  Madde 69–77 (istisnalar); §3–§7'deki öneriler.</li>
+<li>Cay S. Horstmann, <em>Core Java, Volume I: Fundamentals</em>, 12. baskı, Pearson, 2022, 7. bölüm
+  ("Exceptions, Assertions, and Logging"). Konunun ders kitabı anlatımı.</li>
+<li><a href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5 User Guide</a>. §8'deki <code>assertThrows</code>,
+  <code>assertThrowsExactly</code>, <code>assertDoesNotThrow</code> ve <code>@TempDir</code>.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Son Güncelleme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 Eylül 2026 06:14:04">24 Eylül 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Oluşturuldu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 Eylül 2026 22:53:58">23 Eylül 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Altbilgi" >
+        
+          
+          <a href="../sprint_a_proje/" class="md-footer__link md-footer__link--prev" aria-label="Önceki: 🚀 Proje Sprinti A">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Önceki
+              </span>
+              <div class="md-ellipsis">
+                🚀 Proje Sprinti A
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../m9_koleksiyonlar_generics/" class="md-footer__link md-footer__link--next" aria-label="Sonraki: 📦 M9 - Koleksiyonlar ve Generics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sonraki
+              </span>
+              <div class="md-ellipsis">
+                📦 M9 - Koleksiyonlar ve Generics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.indexes", "navigation.footer", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

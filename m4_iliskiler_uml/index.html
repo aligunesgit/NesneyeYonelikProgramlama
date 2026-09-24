@@ -1,0 +1,2245 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Nesneye Yönelik Programlama (Java) ders materyali">
+      
+      
+      
+      
+        <link rel="prev" href="../m3_kapsulleme/">
+      
+      
+        <link rel="next" href="../m5_kalitim/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../figures/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>🔗 M4 - Nesneler Arası İlişkiler ve UML - Nesneye Yönelik Programlama</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#m4-nesneler-aras-iliskiler-ve-uml" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-header__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nesneye Yönelik Programlama
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🔗 M4 - Nesneler Arası İlişkiler ve UML
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Karanlık moda geç"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Karanlık moda geç" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Aydınlık moda geç"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aydınlık moda geç" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Ara" placeholder="Ara" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Ara">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Temizle" aria-label="Temizle" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Arama başlatılıyor
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-nav__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    Nesneye Yönelik Programlama
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ana Sayfa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m1_oop_giris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 M1 - Nesneye Yönelik Programlamaya Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2_siniflar_nesneler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 M2 - Sınıflar ve Nesneler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m3_kapsulleme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔒 M3 - Kapsülleme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔗 M4 - Nesneler Arası İlişkiler ve UML
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔗 M4 - Nesneler Arası İlişkiler ve UML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-uml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. UML sınıf diyagramı
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. UML sınıf diyagramı">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-bolmeler-ve-gorunurluk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Bölmeler ve görünürlük
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-iliski-oklar-genel-baks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 İlişki okları: genel bakış
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-iliskilendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. İlişkilendirme (association) ve çokluk
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. İlişkilendirme (association) ve çokluk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tek-yonlu-iliskilendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Tek yönlü ilişkilendirme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cokluk-multiplicity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Çokluk (multiplicity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-cift-yonlu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Çift yönlü ilişkilendirme ve tutarlılık
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-4-siralama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Sıralama diyagramı: ödünç alma akışı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-toplama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Toplama (aggregation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bilesim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bileşim (composition)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bagimlilik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Bağımlılık (dependency)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-donusum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Diyagramdan koda, koddan diyagrama
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Diyagramdan koda, koddan diyagrama">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-dort-iliskiyi-ayrt-etmek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Dört ilişkiyi ayırt etmek
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-diyagramdan-koda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Diyagramdan koda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-koddan-diyagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Koddan diyagrama
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m5_kalitim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 M5 - Kalıtım
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m6_cok_bicimlilik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎭 M6 - Çok Biçimlilik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m7_soyut_arayuz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧩 M7 - Soyut Sınıflar ve Arayüzler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_a_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Proje Sprinti A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m8_istisnalar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚨 M8 - İstisna Yönetimi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m9_koleksiyonlar_generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📦 M9 - Koleksiyonlar ve Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m10_lambda_stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    λ M10 - Lambda İfadeleri ve Stream API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m11_tasarim_ilkeleri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 M11 - Tasarım İlkeleri
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m12_tasarim_kaliplari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏛️ M12 - Tasarım Kalıpları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_b_final_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏁 Proje Sprinti B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/timeplan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zaman Planı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Özet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-uml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. UML sınıf diyagramı
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. UML sınıf diyagramı">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-bolmeler-ve-gorunurluk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Bölmeler ve görünürlük
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-iliski-oklar-genel-baks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 İlişki okları: genel bakış
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-iliskilendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. İlişkilendirme (association) ve çokluk
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. İlişkilendirme (association) ve çokluk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tek-yonlu-iliskilendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Tek yönlü ilişkilendirme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cokluk-multiplicity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Çokluk (multiplicity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-cift-yonlu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Çift yönlü ilişkilendirme ve tutarlılık
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-4-siralama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Sıralama diyagramı: ödünç alma akışı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-toplama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Toplama (aggregation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bilesim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bileşim (composition)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bagimlilik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Bağımlılık (dependency)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-donusum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Diyagramdan koda, koddan diyagrama
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Diyagramdan koda, koddan diyagrama">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-dort-iliskiyi-ayrt-etmek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Dört ilişkiyi ayırt etmek
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-diyagramdan-koda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Diyagramdan koda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-koddan-diyagrama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Koddan diyagrama
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/edit/main/m4_iliskiler_uml/README.md" title="Düzenle" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/raw/main/m4_iliskiler_uml/README.md" title="Sayfanın kaynağını görüntüle" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="m4-nesneler-aras-iliskiler-ve-uml">🔗 M4 - Nesneler Arası İlişkiler ve UML<a class="headerlink" href="#m4-nesneler-aras-iliskiler-ve-uml" title="Permanent link">&para;</a></h1>
+<p align="center"><em>Hafta 4</em></p>
+
+<h2 id="ogrenme-hedefleri">❔ Öğrenme hedefleri<a class="headerlink" href="#ogrenme-hedefleri" title="Permanent link">&para;</a></h2>
+<p>Bu modülün sonunda öğrenci:</p>
+<ul>
+<li>UML sınıf diyagramını okumak ve çizmek</li>
+<li>İlişkilendirme, toplama, bileşim ve bağımlılığı ayırt etmek</li>
+<li>Bir diyagramı Java koduna, Java kodunu diyagrama dönüştürmek</li>
+</ul>
+<hr />
+<h2 id="1-uml">1. UML sınıf diyagramı<a class="headerlink" href="#1-uml" title="Permanent link">&para;</a></h2>
+<p>Şimdiye kadar sınıfları tek tek tasarladık: bir <code>Hesap</code>, bir <code>Ogrenci</code>. Gerçek bir programda ise asıl
+iş sınıfların <strong>birlikte</strong> çalışmasıyla yapılır. Bir kütüphane yazılımında kitaplar, üyeler ve ödünç
+kayıtları birbirini tanır, birbirine mesaj gönderir. Bu ilişkileri koda dökmeden önce bir kâğıt üzerinde
+konuşabilmek için ortak bir dile ihtiyaç duyarız. O dil <strong>UML</strong>'dir (Unified Modeling Language).</p>
+<p>UML, OMG (Object Management Group) tarafından standartlaştırılmış bir görsel modelleme dilidir; güncel
+sürümü UML 2.5.1'dir (2017). Standart, on dört diyagram türü tanımlar. Bu derste en çok ikisini
+kullanacağız: yapıyı gösteren <strong>sınıf diyagramı</strong> (class diagram) ve zaman içindeki mesajlaşmayı
+gösteren <strong>sıralama diyagramı</strong> (sequence diagram). Martin Fowler'ın <em>UML Distilled</em> kitabındaki
+tavsiyeye uyarak UML'yi bir "eskiz dili" gibi kullanacağız: her ayrıntıyı değil, konuşmak istediğimiz
+şeyi çizeceğiz.</p>
+<h3 id="11-bolmeler-ve-gorunurluk">1.1 Bölmeler ve görünürlük<a class="headerlink" href="#11-bolmeler-ve-gorunurluk" title="Permanent link">&para;</a></h3>
+<p>Bir sınıf dikdörtgen bir kutuyla çizilir. Kutunun üç bölmesi (compartment) vardır: üstte <strong>ad</strong>, ortada
+<strong>nitelikler</strong> (attributes, Java'da alanlar), altta <strong>işlemler</strong> (operations, Java'da metotlar). Alt iki
+bölme boş bırakılabilir ya da hiç çizilmeyebilir.</p>
+<pre class="mermaid"><code>classDiagram
+    class Uye {
+        +MAKS_KITAP$ int
+        -String uyeNo
+        -String ad
+        +Uye(String uyeNo, String ad)
+        +oduncAl(Kitap kitap) boolean
+    }
+    class Kitap {
+        -Uye oduncAlan
+        +oduncteMi() boolean
+        ~oduncAlaniAta(Uye uye) void
+    }</code></pre>
+<p>Her üyenin önündeki simge görünürlüğü (visibility) gösterir. M3'teki erişim belirleyicilerin UML
+karşılıkları şunlardır:</p>
+<table>
+<thead>
+<tr>
+<th>UML simgesi</th>
+<th>Anlamı</th>
+<th>Java karşılığı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>public</td>
+<td><code>public</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>private</td>
+<td><code>private</code></td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td>protected</td>
+<td><code>protected</code> (M5'te göreceğiz)</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>package</td>
+<td>belirleyici yazılmaz (paket içi, package-private)</td>
+</tr>
+</tbody>
+</table>
+<p>UML standardında tip, adın <strong>arkasına</strong> iki nokta ile yazılır: <code>- bakiye : double</code>,
+<code>+ paraCek(tutar : double) : boolean</code>. Bu derste diyagramları Mermaid ile çizdiğimiz için Java'ya yakın
+<code>-double bakiye</code> yazımını kullanıyoruz; ikisi de aynı bilgiyi taşır. Birkaç gösterim daha:</p>
+<table>
+<thead>
+<tr>
+<th>Gösterim</th>
+<th>UML standardında</th>
+<th>Mermaid'de</th>
+<th>Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static</code> üye</td>
+<td>Altı çizili</td>
+<td>Sonuna <code>$</code></td>
+<td><code>+MAKS_KITAP$ int</code></td>
+</tr>
+<tr>
+<td>Soyut (abstract) sınıf</td>
+<td>Adı <em>italik</em> ya da <code>{abstract}</code></td>
+<td><code>&lt;&lt;abstract&gt;&gt;</code></td>
+<td><code>class Sekil { &lt;&lt;abstract&gt;&gt; }</code> (M7)</td>
+</tr>
+<tr>
+<td>Soyut metot</td>
+<td><em>İtalik</em></td>
+<td>Sonuna <code>*</code></td>
+<td><code>+alan()* double</code></td>
+</tr>
+<tr>
+<td>Sabit (<code>final</code>) alan</td>
+<td><code>{readOnly}</code></td>
+<td>Özel gösterimi yok; adı BÜYÜK_HARF yazılır</td>
+<td><code>MAKS_KITAP</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Diyagramı nerede çizeceğim?</p>
+<p>Bu sitedeki diyagramlar metin olarak yazılan <strong>Mermaid</strong> koduyla çizilir; GitHub ve IntelliJ de
+Mermaid'i gösterir. Fareyle çizmeyi tercih ederseniz ücretsiz <strong>draw.io</strong> (diagrams.net) aracının
+"UML" şekil kütüphanesini kullanabilirsiniz. Araç isteğe bağlıdır; ödevlerde önemli olan diyagramın
+doğru olmasıdır, hangi araçla çizildiği değil.</p>
+</div>
+<h3 id="12-iliski-oklar-genel-baks">1.2 İlişki okları: genel bakış<a class="headerlink" href="#12-iliski-oklar-genel-baks" title="Permanent link">&para;</a></h3>
+<p>Sınıflar arasındaki çizgiler ilişkinin türünü söyler. Bu modülün geri kalanı bu tabloyu açmaktan ibaret:</p>
+<table>
+<thead>
+<tr>
+<th>İlişki</th>
+<th>UML çizimi</th>
+<th>Mermaid</th>
+<th>Günlük dilde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>İlişkilendirme (association)</td>
+<td>Düz çizgi (yönlüyse ok)</td>
+<td><code>A --&gt; B</code>, <code>A -- B</code></td>
+<td>"A, B'yi tanır"</td>
+</tr>
+<tr>
+<td>Toplama (aggregation)</td>
+<td>Bütün tarafında içi boş elmas</td>
+<td><code>A o-- B</code></td>
+<td>"A'nın B'leri var, B tek başına da yaşar"</td>
+</tr>
+<tr>
+<td>Bileşim (composition)</td>
+<td>Bütün tarafında içi dolu elmas</td>
+<td><code>A *-- B</code></td>
+<td>"B, A'nın parçasıdır, A'sız var olmaz"</td>
+</tr>
+<tr>
+<td>Bağımlılık (dependency)</td>
+<td>Kesikli ok</td>
+<td><code>A ..&gt; B</code></td>
+<td>"A, B'yi bir an için kullanır"</td>
+</tr>
+<tr>
+<td>Kalıtım (generalization)</td>
+<td>İçi boş üçgen uçlu ok</td>
+<td>M5'te</td>
+<td>"B bir A'dır"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-iliskilendirme">2. İlişkilendirme (association) ve çokluk<a class="headerlink" href="#2-iliskilendirme" title="Permanent link">&para;</a></h2>
+<p><strong>İlişkilendirme</strong>, bir sınıfın nesnelerinin başka bir sınıfın nesnelerini <strong>kalıcı olarak tanıması</strong>
+demektir. Java'da bunun karşılığı basittir: bir sınıfın <strong>alanı</strong> (field), diğer sınıfın tipindedir.</p>
+<h3 id="21-tek-yonlu-iliskilendirme">2.1 Tek yönlü ilişkilendirme<a class="headerlink" href="#21-tek-yonlu-iliskilendirme" title="Permanent link">&para;</a></h3>
+<p>Kütüphanede her ödünç işleminin bir kaydı olsun: hangi üye, hangi kitabı, hangi tarihte aldı. Bu kaydı
+M3'te öğrendiğimiz bir <code>record</code> ile tutalım:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Odunc</span><span class="p">(</span><span class="n">Uye</span><span class="w"> </span><span class="n">uye</span><span class="p">,</span><span class="w"> </span><span class="n">Kitap</span><span class="w"> </span><span class="n">kitap</span><span class="p">,</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">alisTarihi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SURE_GUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="nf">sonTeslimTarihi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">alisTarihi</span><span class="p">.</span><span class="na">plusDays</span><span class="p">(</span><span class="n">SURE_GUN</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="c1">// gecikmeGunu(LocalDate) ve null kontrolleri exercise_files'ta</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>Odunc</code> bir <code>Uye</code> ve bir <code>Kitap</code> alanı taşıyor: kayıt üyesini ve kitabını <strong>tanıyor</strong>. Tersi doğru
+   değil; <code>Uye</code> sınıfında <code>Odunc</code> tipinde bir alan yok. Bu yüzden ilişki <strong>tek yönlüdür</strong> (unidirectional).
+   <code>LocalDate</code>, JDK'nın tarih sınıfıdır (<code>java.time</code>); <code>plusDays(14)</code> tarihe 14 gün ekler.</li>
+</ol>
+<pre class="mermaid"><code>classDiagram
+    direction LR
+    class Odunc {
+        &lt;&lt;record&gt;&gt;
+        +sonTeslimTarihi() LocalDate
+        +gecikmeGunu(LocalDate iadeTarihi) long
+    }
+    Odunc "*" --&gt; "1" Uye : uye
+    Odunc "*" --&gt; "1" Kitap : kitap</code></pre>
+<p>Okun yönü "kim kimi tanıyor" sorusunun cevabıdır: <code>Odunc</code>'tan <code>Uye</code>'ye bakılabilir, <code>Uye</code>'den
+<code>Odunc</code>'a bakılamaz. Okun ucundaki <code>uye</code> etiketi, ilişkinin o uçtaki <strong>rol adıdır</strong> ve Java'da genellikle
+alanın adı olur.</p>
+<h3 id="22-cokluk-multiplicity">2.2 Çokluk (multiplicity)<a class="headerlink" href="#22-cokluk-multiplicity" title="Permanent link">&para;</a></h3>
+<p>Çizginin iki ucundaki sayılar <strong>çokluktur</strong>: karşı taraftaki bir nesneye bu taraftan kaç nesne
+bağlanabilir? Yukarıdaki diyagram şöyle okunur: "Her ödünç kaydının <strong>tam bir</strong> üyesi vardır; bir üyenin
+<strong>sıfır ya da daha çok</strong> ödünç kaydı olabilir."</p>
+<table>
+<thead>
+<tr>
+<th>Çokluk</th>
+<th>Anlamı</th>
+<th>Java'da tipik karşılığı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Tam olarak bir</td>
+<td><code>null</code> olamayan bir alan (kurucuda kontrol edilir)</td>
+</tr>
+<tr>
+<td><code>0..1</code></td>
+<td>Hiç ya da bir</td>
+<td><code>null</code> olabilen bir alan</td>
+</tr>
+<tr>
+<td><code>*</code> (ya da <code>0..*</code>)</td>
+<td>Sıfır ya da daha çok</td>
+<td>Dizi ya da liste alanı</td>
+</tr>
+<tr>
+<td><code>1..*</code></td>
+<td>En az bir</td>
+<td>Liste alanı + "boş olamaz" kuralı</td>
+</tr>
+<tr>
+<td><code>0..3</code></td>
+<td>Sıfır ile üç arası</td>
+<td>Liste alanı + üst sınır kontrolü</td>
+</tr>
+</tbody>
+</table>
+<p>Çokluk yalnızca bir çizim ayrıntısı değildir; <strong>korunması gereken bir kuraldır</strong>. <code>0..3</code> yazdıysanız
+dördüncü kitabı reddeden kodu da yazmanız gerekir.</p>
+<h3 id="2-3-cift-yonlu">2.3 Çift yönlü ilişkilendirme ve tutarlılık<a class="headerlink" href="#2-3-cift-yonlu" title="Permanent link">&para;</a></h3>
+<p>Kütüphane görevlisi iki soru sorar: "Ayşe'nin elinde hangi kitaplar var?" ve "Simyacı şu anda kimde?"
+İkisini de hızlı cevaplamak için ilişkiyi <strong>çift yönlü</strong> (bidirectional) kurarız: üye kitaplarını,
+kitap da onu ödünç alan üyeyi tanır.</p>
+<pre class="mermaid"><code>classDiagram
+    direction LR
+    Uye "0..1" -- "0..3" Kitap : ödünç</code></pre>
+<p>"Bir kitap en fazla bir üyededir; bir üyenin elinde en fazla üç kitap olur." Java'da iki tarafın da
+alanı vardır. Üye tarafında birden çok kitap tutmak için <code>java.util.ArrayList</code> kullanıyoruz.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>ArrayList</code> şimdilik bir kutu</p>
+<p><code>ArrayList&lt;Kitap&gt;</code>, boyu kendiliğinden büyüyen bir dizi gibi düşünülebilir. Bu modülde yalnızca
+<code>add</code> (ekle), <code>get(i)</code> (i. elemanı al), <code>size()</code> (eleman sayısı), <code>remove</code> (çıkar),
+<code>contains</code> (içinde mi?) ve for-each döngüsünü kullanıyoruz. <code>&lt;Kitap&gt;</code> yazımının (generics) ve
+koleksiyonların ayrıntısı M9'da.</p>
+</div>
+<p>Çift yönlü ilişkinin tehlikesi şudur: iki alan birbirinin <strong>aynası</strong> olmak zorundadır. Üyenin listesine
+kitabı ekleyip kitabın <code>oduncAlan</code> alanını güncellemeyi unutursak, sistem aynı anda iki farklı şey
+söyler: "Ayşe'de Simyacı var" ve "Simyacı rafta". Bir başka üye rafta sandığı kitabı da alır. Çözüm,
+iki tarafı <strong>tek bir metotta, birlikte</strong> güncellemektir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Uye</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAKS_KITAP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Kitap</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kitaplar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">// uyeNo, ad, kurucu ve getter'lar exercise_files'ta</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">oduncAl</span><span class="p">(</span><span class="n">Kitap</span><span class="w"> </span><span class="n">kitap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kitap</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Kitap null olamaz"</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kitap</span><span class="p">.</span><span class="na">oduncteMi</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">kitaplar</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">MAKS_KITAP</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">kitaplar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">kitap</span><span class="p">);</span><span class="w">        </span><span class="c1">// bu taraf: üye kitabı biliyor</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">kitap</span><span class="p">.</span><span class="na">oduncAlaniAta</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w">  </span><span class="c1">// (2)!</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>İki kural birden: kitap başkasındaysa ya da üyenin <code>0..3</code> sınırı dolduysa işlem yapılmaz.</li>
+<li>Karşı taraf. <code>Kitap.oduncAlaniAta</code> <strong>paket içi</strong> (<code>~</code>) tanımlı: yalnızca aynı paketteki <code>Uye</code>
+   çağırabilir. Başka paketteki bir kod kitabın sahibini tek taraflı değiştiremez; bağlantıyı kurmanın
+   tek yolu <code>oduncAl</code>'dır. <code>iadeEt</code> metodu da aynı biçimde iki tarafı birlikte koparır.</li>
+</ol>
+<p>Tutarlılık kuralını bir testle sabitleyelim:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Test</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"oduncAl ilişkinin iki tarafını da günceller"</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">oduncAlIkiTarafiGunceller</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// Hazırla</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">Uye</span><span class="w"> </span><span class="n">ayse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Uye</span><span class="p">(</span><span class="s">"U-001"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ayşe"</span><span class="p">);</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">Kitap</span><span class="w"> </span><span class="n">kitap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Kitap</span><span class="p">(</span><span class="s">"111"</span><span class="p">,</span><span class="w"> </span><span class="s">"Simyacı"</span><span class="p">);</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Çalıştır</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">sonuc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ayse</span><span class="p">.</span><span class="na">oduncAl</span><span class="p">(</span><span class="n">kitap</span><span class="p">);</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">// Doğrula</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">sonuc</span><span class="p">);</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">ayse</span><span class="p">.</span><span class="na">elindeMi</span><span class="p">(</span><span class="n">kitap</span><span class="p">));</span><span class="w">       </span><span class="c1">// üye -&gt; kitap</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">assertSame</span><span class="p">(</span><span class="n">ayse</span><span class="p">,</span><span class="w"> </span><span class="n">kitap</span><span class="p">.</span><span class="na">getOduncAlan</span><span class="p">());</span><span class="w"> </span><span class="c1">// kitap -&gt; üye</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ayse</span><span class="p">.</span><span class="na">oduncKitapSayisi</span><span class="p">());</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>assertSame(a, b)</code>, iki referansın <strong>aynı nesneyi</strong> gösterdiğini doğrular (M2'deki <code>==</code> karşılaştırması).</p>
+<div class="admonition warning">
+<p class="admonition-title">Çift yönlü ilişki pahalıdır</p>
+<p>Her çift yönlü ilişki, "iki tarafı birlikte güncelle" yükümlülüğü getirir. Bir yön yeterliyse tek
+yönlü kurun. Fowler da <em>UML Distilled</em>'da çift yönlü ilişkilerin tutarlı tutulmasının ek iş
+olduğunu vurgular.</p>
+</div>
+<h3 id="2-4-siralama">2.4 Sıralama diyagramı: ödünç alma akışı<a class="headerlink" href="#2-4-siralama" title="Permanent link">&para;</a></h3>
+<p>Sınıf diyagramı "kim kimi tanıyor" sorusunu cevaplar, ama "ne zaman, hangi sırayla" sorusunu
+cevaplamaz. Bunun için <strong>sıralama diyagramı</strong> (sequence diagram) kullanılır. Dikey çizgiler nesnelerin
+yaşam çizgisi (lifeline), yatay oklar mesajlar (metot çağrıları), kesikli oklar dönüş değerleridir.
+Aşağıdaki akış <code>KutuphaneUygulamasi.main</code>'de çalışır:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant G as Görevli (main)
+    participant K as kutuphane : Kutuphane
+    participant U as ayse : Uye
+    participant B as kitap : Kitap
+    participant O as odunc : Odunc
+    G-&gt;&gt;K: oduncVer(ayse, kitap, tarih)
+    K-&gt;&gt;K: üye ve kitap kayıtlı mı?
+    K-&gt;&gt;U: oduncAl(kitap)
+    U-&gt;&gt;B: oduncteMi()
+    B--&gt;&gt;U: false
+    U-&gt;&gt;U: kitaplar.add(kitap)
+    U-&gt;&gt;B: oduncAlaniAta(ayse)
+    U--&gt;&gt;K: true
+    K-&gt;&gt;O: new Odunc(ayse, kitap, tarih)
+    K--&gt;&gt;G: odunc</code></pre>
+<p>Diyagram tutarlılık kuralını görünür kılar: <code>Kitap</code> nesnesinin durumunu <strong>yalnızca <code>Uye</code></strong> değiştiriyor;
+<code>Kutuphane</code> ve <code>main</code> kitabın alanına dokunmuyor.</p>
+<h2 id="3-toplama">3. Toplama (aggregation)<a class="headerlink" href="#3-toplama" title="Permanent link">&para;</a></h2>
+<p>Bir kütüphanenin kitapları vardır. Ama kitaplar kütüphaneden <strong>önce</strong> de vardır: yayınevinden gelir,
+bağışlanır, başka bir şubeye devredilir. Kütüphane kapansa kitaplar yok olmaz, başka bir kütüphaneye
+gider. Bu "bütün-parça" ilişkisinde parça bütünden bağımsız yaşar; buna <strong>toplama</strong> (aggregation) denir.</p>
+<pre class="mermaid"><code>classDiagram
+    direction LR
+    class Kutuphane {
+        +GUNLUK_CEZA$ double
+        -String ad
+        +kitapEkle(Kitap kitap) boolean
+        +kitapCikar(Kitap kitap) boolean
+        +kitapBul(String isbn) Kitap
+        +uyeEkle(Uye uye) boolean
+    }
+    Kutuphane "0..1" o-- "*" Kitap : kitaplar
+    Kutuphane "*" o-- "*" Uye : uyeler</code></pre>
+<p>Java'da toplamayı ele veren iz, <strong>parçanın dışarıda yaratılıp içeri verilmesidir</strong>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Kutuphane</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Kitap</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kitaplar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">kitapEkle</span><span class="p">(</span><span class="n">Kitap</span><span class="w"> </span><span class="n">kitap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">         </span><span class="c1">// (1)!</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kitap</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Kitap null olamaz"</span><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kitapBul</span><span class="p">(</span><span class="n">kitap</span><span class="p">.</span><span class="na">getIsbn</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="n">kitaplar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">kitap</span><span class="p">);</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">kitapCikar</span><span class="p">(</span><span class="n">Kitap</span><span class="w"> </span><span class="n">kitap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// (2)!</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kitap</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">kitap</span><span class="p">.</span><span class="na">oduncteMi</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">kitaplar</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">kitap</span><span class="p">);</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Kitap parametre olarak geliyor; onu <code>new</code> ile yaratan <code>Kutuphane</code> değil, çağıran kod.</li>
+<li>Parça bütünden ayrılabiliyor. <code>remove</code>, eleman listedeyse çıkarıp <code>true</code>, değilse <code>false</code> döndürür.</li>
+</ol>
+<p>Toplamanın asıl testi şu sorudur: <strong>parça başka bir bütüne geçebilir mi?</strong> <code>KutuphaneTest</code>'teki
+<code>kitapBaskaKutuphaneyeGecebilir</code> testi tam bunu yapar: kitabı <code>merkez</code>'den çıkarır, <code>sube</code>'ye ekler ve
+<code>assertSame</code> ile şubedeki kitabın <strong>aynı nesne</strong> olduğunu doğrular.</p>
+<div class="admonition note">
+<p class="admonition-title">Toplama tartışmalı bir gösterimdir</p>
+<p>UML 2.5.1 standardı, "paylaşılan" (shared) toplamanın kesin anlamının uygulama alanına ve
+modelleyene göre değiştiğini açıkça söyler. Fowler da <em>UML Distilled</em>'da toplamanın anlamının
+belirsiz olduğunu belirtir ve kendi diyagramlarında kullanmamayı önerir. Pratikte birçok ekip
+toplama yerine düz ilişkilendirme çizer. Bu derste toplamayı, bileşimle <strong>karşıtlığını</strong> görmek için
+kullanıyoruz: aradaki fark elmasın dolu ya da boş olmasından çok, parçanın yaşam süresidir.</p>
+</div>
+<h2 id="4-bilesim">4. Bileşim (composition)<a class="headerlink" href="#4-bilesim" title="Permanent link">&para;</a></h2>
+<p>Bir evin odaları vardır. Ama bir oda evden bağımsız var olamaz: "Kadıköy'deki evin salonunu alıp
+Çankaya'daki eve taşıyalım" cümlesi anlamsızdır. Ev yıkılırsa odaları da yok olur. Parçanın bütünle
+birlikte doğup öldüğü bu daha güçlü bütün-parça ilişkisine <strong>bileşim</strong> (composition) denir. UML'de
+bütün tarafında <strong>içi dolu</strong> elmasla çizilir. Bir parça aynı anda en fazla <strong>bir</strong> bütüne ait olabilir;
+bu yüzden bütün tarafının çokluğu her zaman <code>1</code> (ya da <code>0..1</code>) olur.</p>
+<pre class="mermaid"><code>classDiagram
+    direction LR
+    class Ev {
+        -String adres
+        +odaEkle(String ad, double en, double boy) boolean
+        +odaAlani(String ad) double
+        +toplamAlan() double
+        +odaSayisi() int
+    }
+    class Oda {
+        -String ad
+        -double en
+        -double boy
+        ~Oda(String ad, double en, double boy)
+        +alan() double
+    }
+    Ev "1" *-- "*" Oda : odalar</code></pre>
+<p>Java'da bir nesneyi "öldüren" bir komut yoktur; bir nesneye hiçbir referans kalmadığında çöp toplayıcı
+(garbage collector) onu bellekten kendiliğinden temizler. Bu yüzden Java'da bileşim <strong>iki kuralla</strong>
+kurulur:</p>
+<ol>
+<li><strong>Parçayı bütün yaratır.</strong> Dışarıdan hazır bir <code>Oda</code> almak yerine, <code>Ev</code> odayı kendi içinde <code>new</code>
+   ile oluşturur.</li>
+<li><strong>Parça dışarı sızdırılmaz.</strong> <code>Ev</code>, oda listesini dışarı vermez. Böylece odaya giden tek referans
+   evin içindedir; eve erişim kalmayınca odalara da kalmaz ve ikisi birlikte temizlenir.</li>
+</ol>
+<p><code>Oda</code>'nın kurucusu <code>~Oda(...)</code> olarak çizildi: önünde <code>public</code> yok, yani <strong>paket içi</strong>. <code>nyp.m4.ev</code>
+paketinin dışında <code>new Oda(...)</code> yazmak derleme hatası verir: <code>Oda(String,double,double) is not public
+in Oda; cannot be accessed from outside package</code>. Odaları yalnızca aynı paketteki <code>Ev</code> yaratabilir.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Ev</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">adres</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Oda</span><span class="o">&gt;</span><span class="w"> </span><span class="n">odalar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">odaEkle</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">ad</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">en</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">boy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">odaBul</span><span class="p">(</span><span class="n">ad</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="n">odalar</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Oda</span><span class="p">(</span><span class="n">ad</span><span class="p">,</span><span class="w"> </span><span class="n">en</span><span class="p">,</span><span class="w"> </span><span class="n">boy</span><span class="p">));</span><span class="w">   </span><span class="c1">// parçayı bütün yaratıyor</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">toplamAlan</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                                  </span><span class="c1">// (2)!</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">toplam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Oda</span><span class="w"> </span><span class="n">oda</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">odalar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">            </span><span class="n">toplam</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">oda</span><span class="p">.</span><span class="na">alan</span><span class="p">();</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">toplam</span><span class="p">;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="c1">// odaAlani, odaSayisi ve private odaBul exercise_files'ta</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Parametreler bir <code>Oda</code> değil, oda <strong>bilgileri</strong>. Karşılaştırın: toplamada <code>kitapEkle(Kitap kitap)</code>
+   hazır nesneyi alıyordu.</li>
+<li>Dışarıya odaların kendisi değil, onlardan hesaplanan <strong>bilgiler</strong> veriliyor.</li>
+</ol>
+<p><code>EvTest</code>, iki odalı bir evin (5×4 ve 3,5×4) toplam alanının 34 m² olduğunu, aynı adlı ikinci odanın
+eklenmediğini ve boyutu sıfır olan odanın reddedildiğini doğrular.</p>
+<div class="admonition warning">
+<p class="admonition-title">Getter ile bileşimi bozmak</p>
+<p><code>Ev</code>'e <code>public ArrayList&lt;Oda&gt; getOdalar() { return odalar; }</code> eklediğiniz anda bileşim fiilen biter:
+dışarıdaki kod listenin referansını alır, odaları başka yerde saklayabilir ya da listeye müdahale
+edebilir. Bu, M3'teki kapsülleme sızıntısının aynısıdır. Bileşimde parçaları dışarı vermeniz
+gerekiyorsa değişmez (immutable) parçalar ya da kopyalar verin.</p>
+</div>
+<h2 id="5-bagimlilik">5. Bağımlılık (dependency)<a class="headerlink" href="#5-bagimlilik" title="Permanent link">&para;</a></h2>
+<p>En zayıf ilişki <strong>bağımlılıktır</strong>: bir sınıf başka bir sınıfı <strong>kısa süreliğine</strong> kullanır ama onu bir
+alanda saklamaz. Tipik biçimleri: metot parametresi, dönüş tipi, yerel değişken ya da bir <code>static</code>
+metot çağrısı. UML'de kesikli okla çizilir.</p>
+<p><code>Kutuphane</code> ödünç kayıtlarını üretir ve iade sırasında geri alır, ama hiçbir <code>Odunc</code>'u alanında tutmaz:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Odunc</span><span class="w"> </span><span class="nf">oduncVer</span><span class="p">(</span><span class="n">Uye</span><span class="w"> </span><span class="n">uye</span><span class="p">,</span><span class="w"> </span><span class="n">Kitap</span><span class="w"> </span><span class="n">kitap</span><span class="p">,</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">tarih</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="c1">// üye ve kitap bu kütüphanede kayıtlı mı? (contains ile kontrol, exercise_files'ta)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">uye</span><span class="p">.</span><span class="na">oduncAl</span><span class="p">(</span><span class="n">kitap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Kitap ödünç verilemez: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kitap</span><span class="p">.</span><span class="na">getBaslik</span><span class="p">());</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Odunc</span><span class="p">(</span><span class="n">uye</span><span class="p">,</span><span class="w"> </span><span class="n">kitap</span><span class="p">,</span><span class="w"> </span><span class="n">tarih</span><span class="p">);</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">iadeAl</span><span class="p">(</span><span class="n">Odunc</span><span class="w"> </span><span class="n">odunc</span><span class="p">,</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">iadeTarihi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// (2)!</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="n">odunc</span><span class="p">.</span><span class="na">uye</span><span class="p">().</span><span class="na">iadeEt</span><span class="p">(</span><span class="n">odunc</span><span class="p">.</span><span class="na">kitap</span><span class="p">());</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">odunc</span><span class="p">.</span><span class="na">gecikmeGunu</span><span class="p">(</span><span class="n">iadeTarihi</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">GUNLUK_CEZA</span><span class="p">;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>Odunc</code> yalnızca <strong>dönüş tipi</strong> olarak geçiyor. Kaydı saklamak çağıranın işi (üyeye verilen fiş).</li>
+<li><code>Odunc</code> yalnızca <strong>parametre</strong>. Metot bitince kütüphanenin kayıtla bağı kalmaz.</li>
+</ol>
+<pre class="mermaid"><code>classDiagram
+    direction LR
+    Kutuphane ..&gt; Odunc : üretir ve kullanır
+    Kutuphane ..&gt; LocalDate : kullanır
+    Odunc --&gt; Uye
+    Odunc --&gt; Kitap</code></pre>
+<p>Bağımlılık zayıf olsa da önemsiz değildir: <code>Odunc</code>'un metot imzası değişirse <code>Kutuphane</code> de değişmek
+zorunda kalır. Tasarımda bağımlılıkları az ve bilinçli tutmayı M11'de (tasarım ilkeleri) konuşacağız.</p>
+<h2 id="6-donusum">6. Diyagramdan koda, koddan diyagrama<a class="headerlink" href="#6-donusum" title="Permanent link">&para;</a></h2>
+<h3 id="61-dort-iliskiyi-ayrt-etmek">6.1 Dört ilişkiyi ayırt etmek<a class="headerlink" href="#61-dort-iliskiyi-ayrt-etmek" title="Permanent link">&para;</a></h3>
+<p>İki sınıf arasında hangi ilişkiyi çizeceğinize karar verirken şu soruları sırayla sorun:</p>
+<table>
+<thead>
+<tr>
+<th>Soru</th>
+<th>İlişkilendirme</th>
+<th>Toplama</th>
+<th>Bileşim</th>
+<th>Bağımlılık</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A, B'yi bir <strong>alanda</strong> tutuyor mu?</td>
+<td>Evet</td>
+<td>Evet</td>
+<td>Evet</td>
+<td>Hayır (parametre / yerel değişken)</td>
+</tr>
+<tr>
+<td>Aralarında bir bütün-parça ilişkisi var mı?</td>
+<td>Hayır</td>
+<td>Evet</td>
+<td>Evet</td>
+<td>Hayır</td>
+</tr>
+<tr>
+<td>B'yi kim <strong>yaratır</strong>?</td>
+<td>Dışarıdaki kod</td>
+<td>Dışarıdaki kod</td>
+<td>Bütün (A)</td>
+<td>Önemsiz</td>
+</tr>
+<tr>
+<td>Parça başka bir bütüne <strong>geçebilir mi</strong>?</td>
+<td>-</td>
+<td>Evet</td>
+<td>Hayır</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Bütün silinince parça ne olur?</td>
+<td>-</td>
+<td>Yaşamaya devam eder</td>
+<td>Birlikte yok olur</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Örnek</td>
+<td><code>Odunc --&gt; Uye</code></td>
+<td><code>Kutuphane o-- Kitap</code></td>
+<td><code>Ev *-- Oda</code></td>
+<td><code>Kutuphane ..&gt; Odunc</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Kendinizi deneyin</p>
+<p>Şu çiftler için ilişki türünü seçin: (a) <code>Otomobil</code> ve <code>Motor</code> (motor fabrikada takılır, araç
+hurdaya çıkınca motoru başka araca takılabilir); (b) <code>Siparis</code> ve <code>SiparisSatiri</code>;
+(c) <code>FaturaYazici.yazdir(Fatura f)</code>; (d) <code>Takim</code> ve <code>Oyuncu</code>.</p>
+<details class="success">
+<summary>Cevap</summary>
+<p>(a) Motor başka araca geçebildiği için <strong>toplama</strong>. Motorlar hiç sökülmüyorsa bileşim de
+savunulabilir; cevap alanın kurallarına bağlıdır. (b) Sipariş satırı siparişsiz anlamsızdır ve
+başka siparişe taşınmaz: <strong>bileşim</strong>. (c) <code>Fatura</code> yalnızca parametre: <strong>bağımlılık</strong>.
+(d) Oyuncu transfer olabilir, takım dağılınca oyuncu yaşamaya devam eder: <strong>toplama</strong>.</p>
+</details>
+</div>
+<h3 id="62-diyagramdan-koda">6.2 Diyagramdan koda<a class="headerlink" href="#62-diyagramdan-koda" title="Permanent link">&para;</a></h3>
+<p>Aşağıdaki diyagram bu modülün kütüphane paketinin tamamıdır. Her UML öğesinin Java'daki karşılığı
+tablodadır; <code>exercise_files/src/main/java/nyp/m4/kutuphane/</code> altındaki kodu bu tabloyla birlikte okuyun.</p>
+<pre class="mermaid"><code>classDiagram
+    class Uye {
+        +MAKS_KITAP$ int
+    }
+    class Kitap {
+        ~oduncAlaniAta(Uye uye) void
+    }
+    class Odunc {
+        &lt;&lt;record&gt;&gt;
+    }
+    Kutuphane "0..1" o-- "*" Kitap : kitaplar
+    Kutuphane "*" o-- "*" Uye : uyeler
+    Uye "0..1" -- "0..3" Kitap
+    Kutuphane ..&gt; Odunc
+    Odunc "*" --&gt; "1" Uye
+    Odunc "*" --&gt; "1" Kitap</code></pre>
+<table>
+<thead>
+<tr>
+<th>Diyagramda</th>
+<th>Java'da</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Kutuphane o-- "*" Kitap : kitaplar</code></td>
+<td><code>private final ArrayList&lt;Kitap&gt; kitaplar</code> + <code>kitapEkle(Kitap)</code></td>
+</tr>
+<tr>
+<td><code>Uye "0..1" -- "0..3" Kitap</code></td>
+<td><code>Uye</code>'de <code>ArrayList&lt;Kitap&gt; kitaplar</code> + <code>MAKS_KITAP = 3</code>; <code>Kitap</code>'ta <code>Uye oduncAlan</code> (null olabilir)</td>
+</tr>
+<tr>
+<td><code>Odunc --&gt; "1" Uye</code></td>
+<td><code>record Odunc(Uye uye, ...)</code>, kurucuda <code>null</code> kontrolü</td>
+</tr>
+<tr>
+<td><code>Kutuphane ..&gt; Odunc</code></td>
+<td><code>Odunc</code> yalnızca dönüş tipi ve parametre, alan yok</td>
+</tr>
+<tr>
+<td><code>~oduncAlaniAta</code></td>
+<td>Erişim belirleyicisi yazılmamış metot</td>
+</tr>
+<tr>
+<td><code>+MAKS_KITAP$ int</code></td>
+<td><code>public static final int MAKS_KITAP</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-koddan-diyagrama">6.3 Koddan diyagrama<a class="headerlink" href="#63-koddan-diyagrama" title="Permanent link">&para;</a></h3>
+<p>Tersi yönde çalışalım. Aşağıdaki iki sınıf <code>nyp.m4.okul</code> paketinde:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Ogrenci</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">numara</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ad</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="c1">// kurucu ve getter'lar</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Ders</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">kod</span><span class="p">;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kontenjan</span><span class="p">;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Ogrenci</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ogrenciler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">kaydet</span><span class="p">(</span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">ogrenci</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="c1">// null ise IllegalArgumentException</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ogrenciler</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">kontenjan</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">kayitliMi</span><span class="p">(</span><span class="n">ogrenci</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="n">ogrenciler</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">ogrenci</span><span class="p">);</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">kayitliMi</span><span class="p">(</span><span class="n">Ogrenci</span><span class="w"> </span><span class="n">ogrenci</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* for-each ile arar */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">ogrenciSayisi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ogrenciler</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Adım adım: (1) <code>Ders</code>'in <code>Ogrenci</code> tipinde bir <strong>liste alanı</strong> var, demek ki bağımlılık değil, bir ilişki
+ve çokluk <code>*</code>; üst sınır <code>kontenjan</code> olduğu için not düşülebilir. (2) <code>Ogrenci</code>'de <code>Ders</code> alanı yok:
+ilişki <strong>tek yönlü</strong>. (3) Öğrenci dışarıda yaratılıp <code>kaydet</code> ile veriliyor ve aynı öğrenci başka bir
+derse de kaydedilebiliyor: bileşim değil, <strong>toplama</strong>. (4) Bir öğrenci kaç derse kayıtlı olabilir?
+Koddan bir sınır çıkmıyor: <code>*</code>.</p>
+<details class="success">
+<summary>Cevap: diyagram</summary>
+<pre class="mermaid"><code>classDiagram
+    direction LR
+    class Ders {
+        -String kod
+        -int kontenjan
+        +kaydet(Ogrenci ogrenci) boolean
+        +kayitliMi(Ogrenci ogrenci) boolean
+        +ogrenciSayisi() int
+    }
+    class Ogrenci {
+        -String numara
+        -String ad
+    }
+    Ders "*" o--&gt; "0..*" Ogrenci : ogrenciler</code></pre>
+<p>Mermaid'de <code>o--&gt;</code> hem boş elması hem de yönü (tek yönlü gezinme) gösterir. <code>DersTest</code>'teki
+<code>ogrenciIkiDerseKayitliOlabilir</code> testi, toplamanın "parça birden çok bütünde olabilir" özelliğini
+doğrular.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Testlerde <code>() -&gt; ...</code> yazımı</p>
+<p><code>assertThrows(IllegalArgumentException.class, () -&gt; new Ders("BIL203", 0))</code> satırındaki
+<code>() -&gt; ...</code> bir <strong>lambda ifadesidir</strong> (M10). Şimdilik "JUnit bu kodu çalıştırsın ve belirtilen
+istisnanın fırlatıldığını doğrulasın" diye okuyun.</p>
+</div>
+<h2 id="7-alstrmalar">7. Alıştırmalar<a class="headerlink" href="#7-alstrmalar" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Çalıştır ve incele.</strong> <code>mvn -pl m4_iliskiler_uml/exercise_files test</code> ile testleri çalıştırın.
+   <code>KutuphaneUygulamasi</code>'nı çalıştırıp çıktıyı <a href="#2-4-siralama">§2.4</a>'teki sıralama diyagramıyla adım
+   adım eşleştirin.</li>
+<li><strong>Tutarlılığı bozun.</strong> <code>Uye.oduncAl</code> içindeki <code>kitap.oduncAlaniAta(this);</code> satırını yorum satırı
+   yapın. Hangi testler kırılıyor? Kırılan her testin hangi tutarsızlığı yakaladığını bir cümleyle
+   yazın. Sonra satırı geri alın.</li>
+<li><strong>Bileşimi sızdırın.</strong> <code>Ev</code>'e <code>getOdalar()</code> ekleyip listeyi olduğu gibi döndürün. Bir test yazarak
+   dışarıdaki kodun evin oda sayısını <code>odaEkle</code> çağırmadan değiştirebildiğini gösterin. Ardından
+   metodu, evin durumunu bozmayacak biçimde düzeltin ya da kaldırın (<a href="#4-bilesim">§4</a>).</li>
+<li><strong>Çift yönlü yapın.</strong> <code>Ogrenci</code>'nin kayıtlı olduğu dersleri de bilmesini isteyin. <code>Ders.kaydet</code>'i
+   iki tarafı birlikte güncelleyecek biçimde değiştirin ve <a href="#2-3-cift-yonlu">§2.3</a>'teki gibi bir
+   tutarlılık testi yazın. Diyagramı da güncelleyin.</li>
+<li><strong>Koddan diyagrama.</strong> Bir <strong>otopark</strong> için şu sınıfları yazın ve diyagramını çizin: <code>Otopark</code>
+   (katlarını kendisi oluşturur), <code>Kat</code> (sabit sayıda <code>Yer</code> içerir), <code>Arac</code> (plakası var, otoparka girer
+   ve çıkar), <code>UcretHesaplayici</code> (<code>ucret(Arac arac, int dakika)</code> metodu olan). Her ilişki için
+   <a href="#6-donusum">§6.1</a>'deki tablodan hangi sorunun cevabıyla karar verdiğinizi yazın.</li>
+</ol>
+<hr />
+<h2 id="ozet">Özet<a class="headerlink" href="#ozet" title="Permanent link">&para;</a></h2>
+<p>Sınıflar tek başına değil, birbirini tanıyarak çalışır. UML sınıf diyagramı bu yapıyı kutular ve
+çizgilerle gösterir: kutunun bölmeleri ad, nitelik ve işlemleri; <code>+ - # ~</code> simgeleri görünürlüğü;
+çizgiler ise ilişkinin türünü ve çokluğunu anlatır. <strong>İlişkilendirme</strong>, bir sınıfın diğerini bir alanda
+tuttuğu kalıcı bağlantıdır; çift yönlü kurulduğunda iki tarafı tek bir metotta birlikte güncellemek
+gerekir. <strong>Toplama</strong>, parçanın bütünden bağımsız yaşadığı ve başka bütüne geçebildiği bütün-parça
+ilişkisidir. <strong>Bileşim</strong>de ise parça bütünle birlikte doğar ve ölür; Java'da bunu parçayı bütünün içinde
+yaratıp dışarı sızdırmayarak sağlarız. <strong>Bağımlılık</strong>, bir sınıfın diğerini yalnızca parametre ya da yerel
+değişken olarak kullandığı en zayıf ilişkidir. Sıralama diyagramı da bu yapının zaman içinde nasıl
+mesajlaştığını gösterir. Bir sonraki modülde en güçlü ilişkiye, "bir türüdür" diyen <strong>kalıtıma</strong>
+geçiyoruz: <a href="../m5_kalitim/">M5 - Kalıtım</a>.</p>
+<h2 id="ileri-okuma">İleri okuma<a class="headerlink" href="#ileri-okuma" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://mermaid.js.org/syntax/classDiagram.html">Mermaid: Class diagrams</a> ve
+  <a href="https://mermaid.js.org/syntax/sequenceDiagram.html">Sequence diagrams</a>. Bu modüldeki diyagramların
+  sözdizimi; kendi diyagramlarınızı çizerken başvuru kaynağı.</li>
+<li><a href="https://www.drawio.com/">draw.io</a>. Tarayıcıda ya da masaüstünde çalışan ücretsiz çizim aracı; UML
+  şekil kütüphanesi vardır.</li>
+<li>Martin Fowler, <em>UML Distilled</em>, 3. baskı, 3. bölüm ("Class Diagrams: The Essentials"). Kısa ve
+  pratik; UML'yi eskiz dili olarak kullanmanın savunusu.</li>
+</ul>
+<h2 id="kaynaklar">Kaynaklar<a class="headerlink" href="#kaynaklar" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Object Management Group, <a href="https://www.omg.org/spec/UML/2.5.1"><em>Unified Modeling Language (UML), Version 2.5.1</em></a>,</li>
+<li>§1'deki gösterimlerin ve §3–4'teki toplama/bileşim (AggregationKind: shared, composite)
+  tanımlarının kaynağı.</li>
+<li>Martin Fowler, <em>UML Distilled: A Brief Guide to the Standard Object Modeling Language</em>, 3. baskı,
+  Addison-Wesley, 2003; 3. bölüm (sınıf diyagramları), 4. bölüm (sıralama diyagramları), 5. bölüm
+  (toplama ve bileşim). §1–4'ün dayandığı kitap.</li>
+<li>Cay S. Horstmann, <em>Core Java, Volume I: Fundamentals</em>, 12. baskı, Pearson, 2022, 4. bölüm
+  ("Objects and Classes"). Sınıflar arası ilişkilerin (bağımlılık, toplama, kalıtım) Java açısından
+  anlatımı.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html">Java SE 21 API: <code>java.util.ArrayList</code></a>
+  ve <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalDate.html"><code>java.time.LocalDate</code></a>.
+  Örneklerde kullanılan JDK sınıfları.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">The Java Tutorials: Controlling Access to Members of a Class</a>,
+  Oracle. §1 ve §4'teki paket içi erişimin kaynağı.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Son Güncelleme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 Eylül 2026 06:14:04">24 Eylül 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Oluşturuldu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 Eylül 2026 22:53:58">23 Eylül 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Altbilgi" >
+        
+          
+          <a href="../m3_kapsulleme/" class="md-footer__link md-footer__link--prev" aria-label="Önceki: 🔒 M3 - Kapsülleme">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Önceki
+              </span>
+              <div class="md-ellipsis">
+                🔒 M3 - Kapsülleme
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../m5_kalitim/" class="md-footer__link md-footer__link--next" aria-label="Sonraki: 🧬 M5 - Kalıtım">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sonraki
+              </span>
+              <div class="md-ellipsis">
+                🧬 M5 - Kalıtım
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.indexes", "navigation.footer", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

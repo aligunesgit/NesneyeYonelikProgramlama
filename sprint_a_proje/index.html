@@ -1,0 +1,1526 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Nesneye Yönelik Programlama (Java) ders materyali">
+      
+      
+      
+      
+        <link rel="prev" href="../m7_soyut_arayuz/">
+      
+      
+        <link rel="next" href="../m8_istisnalar/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../figures/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>🚀 Proje Sprinti A - Nesneye Yönelik Programlama</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#proje-sprinti-a" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-header__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nesneye Yönelik Programlama
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🚀 Proje Sprinti A
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Karanlık moda geç"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Karanlık moda geç" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Aydınlık moda geç"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aydınlık moda geç" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Ara" placeholder="Ara" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Ara">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Temizle" aria-label="Temizle" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Arama başlatılıyor
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-nav__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    Nesneye Yönelik Programlama
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ana Sayfa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m1_oop_giris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 M1 - Nesneye Yönelik Programlamaya Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2_siniflar_nesneler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 M2 - Sınıflar ve Nesneler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m3_kapsulleme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔒 M3 - Kapsülleme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m4_iliskiler_uml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔗 M4 - Nesneler Arası İlişkiler ve UML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m5_kalitim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 M5 - Kalıtım
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m6_cok_bicimlilik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎭 M6 - Çok Biçimlilik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m7_soyut_arayuz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧩 M7 - Soyut Sınıflar ve Arayüzler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Proje Sprinti A
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Proje Sprinti A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Amaç
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beklenen-cktlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Beklenen çıktılar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proje-konular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Proje konuları
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Proje konuları">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-otopark-yonetimi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A1. Otopark yönetimi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-kutuphane-odunc-sistemi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A2. Kütüphane ödünç sistemi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a3-hayvan-barnag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A3. Hayvan barınağı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a4-basit-oyun-karakterleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A4. Basit oyun karakterleri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a5-sinema-bilet-sats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A5. Sinema bilet satışı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teslim-paketi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Teslim paketi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calsma-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗓️ Çalışma planı
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#degerlendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Değerlendirme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#akademik-durustluk-ve-yapay-zeka-araclar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚖️ Akademik dürüstlük ve yapay zekâ araçları
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m8_istisnalar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚨 M8 - İstisna Yönetimi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m9_koleksiyonlar_generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📦 M9 - Koleksiyonlar ve Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m10_lambda_stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    λ M10 - Lambda İfadeleri ve Stream API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m11_tasarim_ilkeleri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 M11 - Tasarım İlkeleri
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m12_tasarim_kaliplari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏛️ M12 - Tasarım Kalıpları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_b_final_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏁 Proje Sprinti B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/timeplan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zaman Planı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Özet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Amaç
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beklenen-cktlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Beklenen çıktılar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proje-konular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Proje konuları
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Proje konuları">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-otopark-yonetimi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A1. Otopark yönetimi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-kutuphane-odunc-sistemi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A2. Kütüphane ödünç sistemi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a3-hayvan-barnag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A3. Hayvan barınağı
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a4-basit-oyun-karakterleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A4. Basit oyun karakterleri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a5-sinema-bilet-sats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A5. Sinema bilet satışı
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teslim-paketi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Teslim paketi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calsma-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗓️ Çalışma planı
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#degerlendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Değerlendirme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#akademik-durustluk-ve-yapay-zeka-araclar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚖️ Akademik dürüstlük ve yapay zekâ araçları
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/edit/main/sprint_a_proje/README.md" title="Düzenle" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/raw/main/sprint_a_proje/README.md" title="Sayfanın kaynağını görüntüle" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="proje-sprinti-a">🚀 Proje Sprinti A<a class="headerlink" href="#proje-sprinti-a" title="Permanent link">&para;</a></h1>
+<p align="center"><em>Hafta 8 (ara sınav haftası)</em></p>
+
+<p>Bu haftada yeni konu anlatılmaz. M1–M7'de öğrenilenleri (sınıflar, kapsülleme, ilişkiler, kalıtım, çok biçimlilik, arayüzler) tek bir projede birleştirme.</p>
+<h2 id="amac">🎯 Amaç<a class="headerlink" href="#amac" title="Permanent link">&para;</a></h2>
+<p>İlk yedi haftada kavramları küçük, ayrı örneklerle öğrendiniz. Bu sprintte bunları <strong>tek bir
+çalışan programda</strong> bir araya getireceksiniz: bir problemi okuyup sınıflara ayırmak, sorumlulukları
+dağıtmak, UML ile tasarlamak, kodlamak ve testlerle doğrulamak. Değerlendirilen şey programın büyüklüğü
+değil, <strong>nesneye yönelik tasarımın doğruluğu</strong> ve kodu açıklayabilmenizdir.</p>
+<p>Sprint A <strong>bireyseldir</strong> (öğretim üyesi farklı duyurmadıkça).</p>
+<div class="admonition warning">
+<p class="admonition-title">Yalnızca M1–M7 araçları</p>
+<p>Bu projede kullanabileceğiniz araçlar: sınıflar ve nesneler, kapsülleme (<code>private</code> alanlar,
+doğrulayan metotlar), ilişkiler (ilişkilendirme, toplama, bileşim), kalıtım, çok biçimlilik,
+soyut sınıf, arayüz ve <code>enum</code>. Koleksiyon olarak yalnızca <code>ArrayList</code>'in temel kullanımı
+(<code>add</code>, <code>get</code>, <code>remove</code>, <code>size</code>, <code>for</code> döngüsü) serbesttir. Hatalı girdiye karşı yalnızca
+<code>IllegalArgumentException</code> fırlatabilirsiniz. Özel istisnalar (M8), <code>Map</code>/<code>Set</code> ve kendi generic
+sınıflarınız (M9), lambda/stream (M10) Sprint B'nin konusudur; burada <strong>kullanmayın</strong>.</p>
+</div>
+<h2 id="beklenen-cktlar">🎯 Beklenen çıktılar<a class="headerlink" href="#beklenen-cktlar" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Problemin tanımı ve gereksinim listesi</li>
+<li>UML sınıf diyagramı (Mermaid veya draw.io)</li>
+<li>Java kaynak kodu (Maven projesi)</li>
+<li>JUnit 5 testleri</li>
+</ul>
+<h2 id="proje-konular">📌 Proje konuları<a class="headerlink" href="#proje-konular" title="Permanent link">&para;</a></h2>
+<p>Aşağıdakilerden <strong>birini</strong> seçin. Kendi konunuzu önermek isterseniz, aynı ölçülebilir kriterleri
+karşılayacak biçimde yazıp öğretim üyesinin onayına sunun.</p>
+<p>Tüm konularda ortak asgari koşullar:</p>
+<ul>
+<li>En az <strong>6 sınıf</strong> (arayüz ve <code>enum</code> dahil), en az <strong>1 soyut sınıf</strong> ya da <strong>1 arayüz</strong>, en az
+  <strong>1 <code>enum</code></strong></li>
+<li>En az bir <strong>kalıtım hiyerarşisi</strong> (bir üst tür, en az iki alt tür) ve bu hiyerarşi üzerinde
+  <strong>çok biçimli</strong> bir metot çağrısı (üst tür referansıyla, <code>instanceof</code> zinciri olmadan)</li>
+<li>En az bir <strong>bileşim</strong> ya da <strong>toplama</strong> ilişkisi (bir nesnenin <code>ArrayList</code> ile başka nesneleri tutması)</li>
+<li>Tüm alanlar <code>private</code>; kuralları koruyan metotlar geçersiz girdide <code>IllegalArgumentException</code> fırlatır</li>
+<li>Küçük bir <code>main</code> senaryosu (uygulama sınıfı) programın ana akışını gösterir</li>
+</ul>
+<h3 id="a1-otopark-yonetimi">A1. Otopark yönetimi<a class="headerlink" href="#a1-otopark-yonetimi" title="Permanent link">&para;</a></h3>
+<p>Katlı bir otoparka araçlar giriş yapar, park eder ve çıkarken ücret öder. Otomobil, motosiklet ve
+minibüs farklı yer kaplar ve farklı saatlik ücrete tabidir.</p>
+<ul>
+<li><strong>Zorunlu özellikler:</strong> araç girişi/çıkışı, boş yer kontrolü, park süresine göre ücret, doluluk raporu</li>
+<li><strong>Ölçülebilir kriterler:</strong> <code>Arac</code> soyut sınıfı ve en az 3 alt sınıfı; <code>ucretHesapla(int saat)</code> çok
+  biçimli; <code>AracTuru</code> ya da <code>KatTipi</code> enum; dolu otoparka giriş reddedilir</li>
+</ul>
+<h3 id="a2-kutuphane-odunc-sistemi">A2. Kütüphane ödünç sistemi<a class="headerlink" href="#a2-kutuphane-odunc-sistemi" title="Permanent link">&para;</a></h3>
+<p>Bir kütüphane kitap, dergi ve DVD gibi materyalleri üyelere ödünç verir. Her materyal türünün ödünç
+süresi ve gecikme cezası farklıdır.</p>
+<ul>
+<li><strong>Zorunlu özellikler:</strong> materyal ekleme, ödünç verme, iade, gecikme cezası, üye başına ödünç sınırı</li>
+<li><strong>Ölçülebilir kriterler:</strong> <code>Materyal</code> soyut sınıfı ve en az 3 alt sınıfı; <code>gecikmeCezasi(int gun)</code>
+  çok biçimli; <code>UyeTipi</code> enum (öğrenci/personel, farklı sınır); ödünçteki materyal tekrar verilemez</li>
+</ul>
+<h3 id="a3-hayvan-barnag">A3. Hayvan barınağı<a class="headerlink" href="#a3-hayvan-barnag" title="Permanent link">&para;</a></h3>
+<p>Bir barınak hayvanları kaydeder, bakımlarını izler ve sahiplendirme başvurularını değerlendirir.</p>
+<ul>
+<li><strong>Zorunlu özellikler:</strong> hayvan kaydı, aşı/bakım kaydı, sahiplendirme, türe göre günlük mama ihtiyacı</li>
+<li><strong>Ölçülebilir kriterler:</strong> <code>Hayvan</code> soyut sınıfı ve en az 3 alt sınıfı; <code>gunlukMamaGram()</code> çok
+  biçimli; <code>Sahiplenilebilir</code> arayüzü; <code>SaglikDurumu</code> enum; aşısı eksik hayvan sahiplendirilemez</li>
+</ul>
+<h3 id="a4-basit-oyun-karakterleri">A4. Basit oyun karakterleri<a class="headerlink" href="#a4-basit-oyun-karakterleri" title="Permanent link">&para;</a></h3>
+<p>Sıra tabanlı bir savaş oyununda savaşçı, büyücü ve okçu karakterleri birbirine saldırır. Her
+karakterin saldırı ve savunma biçimi farklıdır.</p>
+<ul>
+<li><strong>Zorunlu özellikler:</strong> karakter oluşturma, saldırı ve hasar hesabı, can puanı, envanterde eşya,
+  tur sonu kazanan belirleme</li>
+<li><strong>Ölçülebilir kriterler:</strong> <code>Karakter</code> soyut sınıfı ve en az 3 alt sınıfı; <code>saldir(Karakter hedef)</code>
+  çok biçimli; <code>Iyilestirebilir</code> arayüzü; <code>Sinif</code> ya da <code>EsyaTuru</code> enum; can puanı 0'ın altına inmez</li>
+</ul>
+<h3 id="a5-sinema-bilet-sats">A5. Sinema bilet satışı<a class="headerlink" href="#a5-sinema-bilet-sats" title="Permanent link">&para;</a></h3>
+<p>Bir sinema salonları, seansları ve koltukları yönetir. Tam, öğrenci ve 65 yaş üstü biletlerin fiyatı
+farklıdır.</p>
+<ul>
+<li><strong>Zorunlu özellikler:</strong> salon ve seans tanımı, koltuk seçimi, bilet satışı ve iptali, seans doluluk
+  oranı, günlük hasılat</li>
+<li><strong>Ölçülebilir kriterler:</strong> <code>Bilet</code> soyut sınıfı (ya da <code>Fiyatlandirilabilir</code> arayüzü) ve en az 3
+  alt türü; <code>fiyat()</code> çok biçimli; <code>KoltukDurumu</code> enum; satılmış koltuk tekrar satılamaz</li>
+</ul>
+<h2 id="teslim-paketi">📦 Teslim paketi<a class="headerlink" href="#teslim-paketi" title="Permanent link">&para;</a></h2>
+<p>Tek bir Maven projesi, sıkıştırılmış klasör ya da Git deposu bağlantısı olarak teslim edilir:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>soyad_ad_sprintA/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── pom.xml                         ← Java 21, JUnit 5
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── README.md                       ← konu, gereksinim listesi, nasıl çalıştırılır
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── uml/
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   └── sinif_diyagrami.md          ← Mermaid (ya da .drawio + .png)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└── src/
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    ├── main/java/proje/            ← kaynak kod
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    │   ├── Arac.java
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    │   ├── ...
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    │   └── OtoparkUygulamasi.java  ← main
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    └── test/java/proje/            ← testler (aynı paket yapısı)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        ├── OtoparkTest.java
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        └── ...
+</span></code></pre></div>
+<ul>
+<li><strong>README.md:</strong> konunun 3–5 cümlelik tanımı; numaralı <strong>gereksinim listesi</strong> (ör. "G3: Dolu otoparka
+  araç girişi reddedilir"); <code>mvn test</code> ve programın nasıl çalıştırılacağı.</li>
+<li><strong>UML:</strong> tüm sınıflar, önemli alan ve metotlar, ilişkiler ve çokluklar (M4). Diyagram kodla
+  tutarlı olmalı.</li>
+<li><strong>Testler:</strong> en az <strong>12 test</strong>; her gereksinim için en az bir test, sınır durumları dahil (ör. son
+  boş yer, tam sınırda ödünç, 0 can puanı). Testler Hazırla/Çalıştır/Doğrula düzeninde yazılır.</li>
+<li>Proje klasöründe <code>mvn test</code> <strong>hatasız geçmeli</strong>. Derlenmeyen proje kod doğruluğu ve test
+  ölçütlerinden puan alamaz.</li>
+</ul>
+<h2 id="calsma-plan">🗓️ Çalışma planı<a class="headerlink" href="#calsma-plan" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Gün</th>
+<th>Yapılacaklar</th>
+<th>Gün sonunda elinizde olan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Konuyu seçin, gereksinimleri yazın, isimleri (sınıf adayları) ve fiilleri (metot adayları) çıkarın</td>
+<td>README'de gereksinim listesi</td>
+</tr>
+<tr>
+<td>2</td>
+<td>UML sınıf diyagramını çizin; kalıtım hiyerarşisini ve ilişkileri belirleyin</td>
+<td><code>uml/sinif_diyagrami.md</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Maven projesini kurun; temel sınıfları, kurucuları ve doğrulamaları yazın; ilk testler</td>
+<td>Derlenen proje, ilk 4–5 test</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Kalıtım ve çok biçimli davranışları, ana senaryoyu tamamlayın</td>
+<td>Çalışan <code>main</code> senaryosu</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Testleri tamamlayın, UML'yi kodla eşleyin, README'yi bitirin, teslim edin</td>
+<td><code>mvn test</code> geçen teslim paketi</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Önce tasarım, sonra kod</p>
+<p>UML'yi kodlamadan önce çizin ve kodladıkça güncelleyin. Bir sınıfın sorumluluğunu tek cümleyle
+söyleyemiyorsanız, muhtemelen iki sınıfa bölünmesi gerekir.</p>
+</div>
+<h2 id="degerlendirme">📋 Değerlendirme<a class="headerlink" href="#degerlendirme" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Ölçüt</th>
+<th style="text-align: center;">Ağırlık</th>
+<th>Neye bakılır?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gereksinimler ve UML</td>
+<td style="text-align: center;">%20</td>
+<td>Gereksinimler numaralı ve test edilebilir; UML eksiksiz, doğru ilişki türleri ve çokluklar, kodla tutarlı</td>
+</tr>
+<tr>
+<td>OOP ilkelerinin doğru kullanımı</td>
+<td style="text-align: center;">%30</td>
+<td>Kapsülleme (<code>private</code> alanlar, kuralı koruyan metotlar); anlamlı kalıtım hiyerarşisi; <code>instanceof</code> zinciri yerine çok biçimlilik; soyut sınıf/arayüz/enum'un yerinde kullanımı</td>
+</tr>
+<tr>
+<td>Kod doğruluğu</td>
+<td style="text-align: center;">%20</td>
+<td>Gereksinimlerin tamamı çalışıyor; geçersiz girdide <code>IllegalArgumentException</code>; <code>main</code> senaryosu hatasız</td>
+</tr>
+<tr>
+<td>Testler</td>
+<td style="text-align: center;">%20</td>
+<td>En az 12 test, her gereksinim kapsanmış, sınır durumları var, <code>mvn test</code> geçiyor</td>
+</tr>
+<tr>
+<td>Kod kalitesi ve okunabilirlik</td>
+<td style="text-align: center;">%10</td>
+<td>Java adlandırma kuralları, anlamlı adlar, kısa metotlar, tekrarsız kod, Javadoc</td>
+</tr>
+<tr>
+<td><strong>Toplam</strong></td>
+<td style="text-align: center;"><strong>%100</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Asgari koşullardan (6 sınıf, kalıtım hiyerarşisi, enum vb.) biri eksikse ilgili ölçütün en fazla
+yarısı verilir. Öğretim üyesi kısa bir sözlü kontrol isteyebilir; kodunuzu açıklayamazsanız ilgili
+kısım değerlendirmeye alınmaz.</p>
+<h2 id="akademik-durustluk-ve-yapay-zeka-araclar">⚖️ Akademik dürüstlük ve yapay zekâ araçları<a class="headerlink" href="#akademik-durustluk-ve-yapay-zeka-araclar" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Proje bireyseldir. Fikir alışverişi serbesttir; kod paylaşmak ve başkasının kodunu teslim etmek
+  değildir.</li>
+<li>Yapay zekâ araçlarını (sohbet asistanları, kod tamamlayıcılar) <strong>kullanabilirsiniz</strong>, ama
+  README'nin sonuna bir <strong>"Araç beyanı"</strong> bölümü ekleyin: hangi aracı, hangi iş için kullandınız
+  (ör. "test fikirleri için", "derleme hatasını anlamak için").</li>
+<li><strong>Teslim ettiğiniz her satırı açıklayabilmelisiniz.</strong> Sözlü kontrolde bir sınıfın neden soyut
+  olduğunu, bir ilişkinin neden bileşim olduğunu ya da bir testin neyi doğruladığını
+  açıklayamıyorsanız, o kısım sizin çalışmanız sayılmaz.</li>
+<li>İnternetten ya da kitaplardan aldığınız kod parçalarını kaynağıyla belirtin.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Son Güncelleme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 Eylül 2026 06:14:04">24 Eylül 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Oluşturuldu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 Eylül 2026 22:53:58">23 Eylül 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Altbilgi" >
+        
+          
+          <a href="../m7_soyut_arayuz/" class="md-footer__link md-footer__link--prev" aria-label="Önceki: 🧩 M7 - Soyut Sınıflar ve Arayüzler">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Önceki
+              </span>
+              <div class="md-ellipsis">
+                🧩 M7 - Soyut Sınıflar ve Arayüzler
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../m8_istisnalar/" class="md-footer__link md-footer__link--next" aria-label="Sonraki: 🚨 M8 - İstisna Yönetimi">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sonraki
+              </span>
+              <div class="md-ellipsis">
+                🚨 M8 - İstisna Yönetimi
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.indexes", "navigation.footer", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

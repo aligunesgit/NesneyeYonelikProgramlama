@@ -1,0 +1,2108 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Nesneye Yönelik Programlama (Java) ders materyali">
+      
+      
+      
+      
+        <link rel="prev" href="../m2_siniflar_nesneler/">
+      
+      
+        <link rel="next" href="../m4_iliskiler_uml/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../figures/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>🔒 M3 - Kapsülleme - Nesneye Yönelik Programlama</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#m3-kapsulleme" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-header__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nesneye Yönelik Programlama
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🔒 M3 - Kapsülleme
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Karanlık moda geç"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Karanlık moda geç" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Aydınlık moda geç"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aydınlık moda geç" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Ara" placeholder="Ara" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Ara">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Temizle" aria-label="Temizle" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Arama başlatılıyor
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-nav__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    Nesneye Yönelik Programlama
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ana Sayfa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m1_oop_giris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 M1 - Nesneye Yönelik Programlamaya Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2_siniflar_nesneler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 M2 - Sınıflar ve Nesneler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔒 M3 - Kapsülleme
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔒 M3 - Kapsülleme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-neden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Kapsülleme neden gerekli?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-erisim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Erişim belirleyiciler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-getter-setter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Getter, setter ve sınıf değişmezleri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Getter, setter ve sınıf değişmezleri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-snf-degismezi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Sınıf değişmezi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-gecerlilik-kontrolu-ve-illegalargumentexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Geçerlilik kontrolü ve IllegalArgumentException
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-istisna-m-false-mu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 İstisna mı, false mu?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-her-alana-gettersetter-tuzag-tell-dont-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 "Her alana getter/setter" tuzağı: Tell, Don't Ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-static" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. static alanlar ve metotlar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. static alanlar ve metotlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-yardmc-snf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Yardımcı sınıf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-final-degismez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. final ve değişmez nesneler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. final ve değişmez nesneler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-final-alanlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 final alanlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-degismez-snf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Değişmez sınıf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-savunmaci-kopya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Savunmacı kopya
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m4_iliskiler_uml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔗 M4 - Nesneler Arası İlişkiler ve UML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m5_kalitim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 M5 - Kalıtım
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m6_cok_bicimlilik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎭 M6 - Çok Biçimlilik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m7_soyut_arayuz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧩 M7 - Soyut Sınıflar ve Arayüzler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_a_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Proje Sprinti A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m8_istisnalar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚨 M8 - İstisna Yönetimi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m9_koleksiyonlar_generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📦 M9 - Koleksiyonlar ve Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m10_lambda_stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    λ M10 - Lambda İfadeleri ve Stream API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m11_tasarim_ilkeleri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 M11 - Tasarım İlkeleri
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m12_tasarim_kaliplari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏛️ M12 - Tasarım Kalıpları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_b_final_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏁 Proje Sprinti B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/timeplan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zaman Planı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Özet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-neden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Kapsülleme neden gerekli?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-erisim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Erişim belirleyiciler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-getter-setter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Getter, setter ve sınıf değişmezleri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Getter, setter ve sınıf değişmezleri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-snf-degismezi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Sınıf değişmezi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-gecerlilik-kontrolu-ve-illegalargumentexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Geçerlilik kontrolü ve IllegalArgumentException
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-istisna-m-false-mu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 İstisna mı, false mu?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-her-alana-gettersetter-tuzag-tell-dont-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 "Her alana getter/setter" tuzağı: Tell, Don't Ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-static" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. static alanlar ve metotlar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. static alanlar ve metotlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-yardmc-snf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Yardımcı sınıf
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-final-degismez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. final ve değişmez nesneler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. final ve değişmez nesneler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-final-alanlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 final alanlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-degismez-snf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Değişmez sınıf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-savunmaci-kopya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Savunmacı kopya
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/edit/main/m3_kapsulleme/README.md" title="Düzenle" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/raw/main/m3_kapsulleme/README.md" title="Sayfanın kaynağını görüntüle" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="m3-kapsulleme">🔒 M3 - Kapsülleme<a class="headerlink" href="#m3-kapsulleme" title="Permanent link">&para;</a></h1>
+<p align="center"><em>Hafta 3</em></p>
+
+<h2 id="ogrenme-hedefleri">❔ Öğrenme hedefleri<a class="headerlink" href="#ogrenme-hedefleri" title="Permanent link">&para;</a></h2>
+<p>Bu modülün sonunda öğrenci:</p>
+<ul>
+<li>Erişim belirleyicilerle bir sınıfın iç durumunu korur</li>
+<li>Sınıf değişmezini (class invariant) tanımlar; geçerlilik kontrolü yapan kurucu ve setter yazar</li>
+<li>Geçersiz argümanda <code>IllegalArgumentException</code> fırlatır ve bunu <code>assertThrows</code> ile test eder</li>
+<li><code>static</code> ve <code>final</code> üyeleri doğru yerde kullanır</li>
+<li>Değişmez (immutable) bir sınıf ve <code>record</code> tasarlar; dizi alanlarında savunmacı kopya kullanır</li>
+</ul>
+<hr />
+<h2 id="1-neden">1. Kapsülleme neden gerekli?<a class="headerlink" href="#1-neden" title="Permanent link">&para;</a></h2>
+<p>M1'deki prosedürel bankaya geri dönelim. Bakiyeler paralel bir dizideydi ve "bakiye negatif olamaz"
+kuralı yalnızca <code>paraCek</code> fonksiyonunda yazılıydı. Diziye erişen herhangi bir kod
+<code>bakiyeler[0] = -500;</code> yazarak kuralı atlayabiliyordu.</p>
+<p>Veriyi bir sınıfa taşımak tek başına bu sorunu çözmez. Alanları <code>public</code> olan bir sınıf, paralel diziden
+pek farklı değildir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AcikHesap</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sahip</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">bakiye</span><span class="p">;</span><span class="w">     </span><span class="c1">// herkes her değeri yazabilir</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">AcikHesap</span><span class="w"> </span><span class="n">hesap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AcikHesap</span><span class="p">();</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">hesap</span><span class="p">.</span><span class="na">bakiye</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">500</span><span class="p">;</span><span class="w">          </span><span class="c1">// derlenir; kural yine çiğnendi</span>
+</span></code></pre></div>
+<p><strong>Kapsülleme</strong> (encapsulation), bir nesnenin verisini dışarıya kapatıp yalnızca kontrollü metotlarla
+erişilmesine izin vermektir. Böylece nesnenin kuralları tek bir yerde, sınıfın içinde yazılır ve
+<strong>derleyici</strong> tarafından korunur. İlişkili fikir <strong>bilgi gizleme</strong> (information hiding): sınıfı kullanan
+kod, verinin içeride nasıl saklandığını bilmek zorunda kalmamalıdır. Bakiyeyi yarın <code>double</code> yerine
+kuruş cinsinden <code>long</code> olarak saklamaya karar verirsek yalnızca sınıfın içi değişmeli, onu kullanan
+yüzlerce satır değil.</p>
+<h2 id="2-erisim">2. Erişim belirleyiciler<a class="headerlink" href="#2-erisim" title="Permanent link">&para;</a></h2>
+<p>Java'da her sınıf üyesinin (alan, metot, kurucu) kimlerin erişebileceğini belirleyen bir <strong>erişim
+belirleyicisi</strong> (access modifier) vardır:</p>
+<table>
+<thead>
+<tr>
+<th>Belirleyici</th>
+<th style="text-align: center;">Aynı sınıf</th>
+<th style="text-align: center;">Aynı paket</th>
+<th style="text-align: center;">Başka paketteki alt sınıf</th>
+<th style="text-align: center;">Her yer</th>
+<th style="text-align: center;">UML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>private</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;"><code>-</code></td>
+</tr>
+<tr>
+<td>(yazılmaz) paket erişimi</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;"><code>~</code></td>
+</tr>
+<tr>
+<td><code>protected</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;"><code>#</code></td>
+</tr>
+<tr>
+<td><code>public</code></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"><code>+</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong><code>private</code></strong>: yalnızca sınıfın kendi kodu erişir. Alanlar için varsayılan tercihiniz bu olmalı.</li>
+<li><strong>Paket erişimi</strong> (package-private): hiçbir şey yazmazsanız üye aynı paketteki (<code>nyp.m3</code>) sınıflara
+  açıktır. Birlikte çalışan birkaç sınıfın birbirine yardımcı üyelerini paylaşması için kullanılır.</li>
+<li><strong><code>protected</code></strong>: paket erişimine ek olarak alt sınıflara da açılır. Kalıtımla birlikte M5'te işleyeceğiz.</li>
+<li><strong><code>public</code></strong>: sınıfın dış dünyaya verdiği sözdür; bir kez <code>public</code> yaptığınız üyeyi, onu kullanan
+  kodu bozmadan kaldıramazsınız.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Genel kural: olabildiğince kapalı</p>
+<p>Her üyeyi olabilecek en kısıtlı erişimle başlatın; yalnızca gerçekten gerektiğinde açın. Alanlar
+neredeyse her zaman <code>private</code> olur; istisnası <code>public static final</code> sabitlerdir (§4).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><code>private</code> nesneye değil, sınıfa göredir</p>
+<p>Bir <code>BankaHesabi</code> metodu, <strong>başka</strong> bir <code>BankaHesabi</code> nesnesinin <code>private</code> alanına erişebilir.
+M2'deki <code>Nokta(Nokta diger)</code> kopya kurucusu da <code>diger.x</code> yazabiliyordu. Koruma, sınıfın dışındaki
+koda karşıdır.</p>
+</div>
+<h2 id="3-getter-setter">3. Getter, setter ve sınıf değişmezleri<a class="headerlink" href="#3-getter-setter" title="Permanent link">&para;</a></h2>
+<h3 id="31-snf-degismezi">3.1 Sınıf değişmezi<a class="headerlink" href="#31-snf-degismezi" title="Permanent link">&para;</a></h3>
+<p><strong>Sınıf değişmezi</strong> (class invariant), bir nesne için her zaman doğru olması gereken koşuldur. Nesne
+oluşturulduğu anda doğru olmalı ve her <code>public</code> metot bittiğinde hâlâ doğru kalmalıdır. M1'deki
+<code>Hesap</code>'ı bu gözle geliştirelim. <code>BankaHesabi</code> sınıfının değişmezleri:</p>
+<ol>
+<li>Sahip adı <code>null</code> ya da boş olamaz.</li>
+<li>Bakiye hiçbir zaman negatif olamaz.</li>
+<li>İşlem limiti <code>0</code>'dan büyük ve <code>UST_ISLEM_LIMITI</code> (100.000) değerinden küçük ya da ona eşittir.</li>
+</ol>
+<pre class="mermaid"><code>classDiagram
+    class BankaHesabi {
+        +UST_ISLEM_LIMITI$ double
+        +VARSAYILAN_ISLEM_LIMITI$ double
+        -sonNumara$ int
+        -int numara
+        -String sahip
+        -double bakiye
+        -double islemLimiti
+        +BankaHesabi(String sahip, double islemLimiti)
+        +BankaHesabi(String sahip)
+        +paraYatir(double tutar) void
+        +paraCek(double tutar) boolean
+        +havaleYap(BankaHesabi alici, double tutar) boolean
+        +setIslemLimiti(double islemLimiti) void
+        +acilanHesapSayisi()$ int
+        +getBakiye() double
+        +getNumara() int
+    }</code></pre>
+<p>Diyagramda altı çizili gösterilen (Mermaid'de <code>$</code> ile yazılan) üyeler <code>static</code>'tir (§4). Dikkat edin:
+<code>setBakiye</code> yok. Bakiye yalnızca <code>paraYatir</code>, <code>paraCek</code> ve <code>havaleYap</code> ile değişir.</p>
+<h3 id="32-gecerlilik-kontrolu-ve-illegalargumentexception">3.2 Geçerlilik kontrolü ve <code>IllegalArgumentException</code><a class="headerlink" href="#32-gecerlilik-kontrolu-ve-illegalargumentexception" title="Permanent link">&para;</a></h3>
+<p>Birisi limiti <code>-5</code> yapmaya çalışırsa ne yapmalıyız? M1'de <code>false</code> döndürüyorduk. Ama <code>false</code>'u kontrol
+etmeyi unutan çağıran, hiçbir şey olmamış gibi devam eder. Geçersiz bir argüman çoğunlukla <strong>çağıranın
+hatasıdır</strong> ve sessizce geçiştirilmemelidir. Java'da bunun standart yolu bir <strong>istisna</strong> (exception)
+fırlatmaktır: metot o noktada durur ve hata çağırana iletilir. Hatalı argümanlar için JDK'nın hazır
+sınıfı <code>IllegalArgumentException</code>'dır. İstisnaları M8'de ayrıntılı işleyeceğiz; bu modülde yalnızca
+fırlatmayı ve test etmeyi öğreniyoruz.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setIslemLimiti</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">islemLimiti</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">islemLimiti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gecerliLimit</span><span class="p">(</span><span class="n">islemLimiti</span><span class="p">);</span><span class="w">          </span><span class="c1">// (1)!</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">gecerliLimit</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">limit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">         </span><span class="c1">// (2)!</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">limit</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">UST_ISLEM_LIMITI</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="w">                 </span><span class="c1">// (3)!</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">                </span><span class="s">"İşlem limiti 0 ile "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">UST_ISLEM_LIMITI</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" arasında olmalı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">limit</span><span class="p">);</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">limit</span><span class="p">;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Önce doğrula, sonra ata. Doğrulama başarısız olursa atama satırına hiç gelinmez; eski limit
+   korunur ve nesne geçerli durumda kalır.</li>
+<li>Kurucu da aynı metodu kullanır. Kural tek yerde yazılır; kurucu ile setter arasında fark oluşmaz.</li>
+<li><code>throw new ...</code> bir istisna nesnesi oluşturup fırlatır. Mesaja geçersiz değeri de yazın; hatayı
+   ayıklayan kişi (çoğu zaman siz) teşekkür eder.</li>
+</ol>
+<p>Kurucu da değişmezin ilk bekçisidir; geçersiz bir nesnenin hiç oluşmamasını sağlar:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="nf">BankaHesabi</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sahip</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">islemLimiti</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sahip</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">sahip</span><span class="p">.</span><span class="na">isBlank</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Hesap sahibi boş olamaz"</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">sahip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sahip</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">islemLimiti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gecerliLimit</span><span class="p">(</span><span class="n">islemLimiti</span><span class="p">);</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">sonNumara</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sonNumara</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">numara</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sonNumara</span><span class="p">;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>JUnit'te bir istisnanın fırlatıldığını <code>assertThrows</code> ile doğrularız. <code>assertThrows</code> fırlatılan istisnayı
+döndürür; böylece mesajını da kontrol edebiliriz:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Test</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"Setter geçersiz limiti reddeder ve eski limit korunur (sınıf değişmezi)"</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setterGecersizLimitiReddeder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">BankaHesabi</span><span class="w"> </span><span class="n">hesap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BankaHesabi</span><span class="p">(</span><span class="s">"Ayşe"</span><span class="p">,</span><span class="w"> </span><span class="mi">5_000</span><span class="p">);</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">hesap</span><span class="p">.</span><span class="na">setIslemLimiti</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">hesap</span><span class="p">.</span><span class="na">setIslemLimiti</span><span class="p">(</span><span class="n">BankaHesabi</span><span class="p">.</span><span class="na">UST_ISLEM_LIMITI</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">5_000.0</span><span class="p">,</span><span class="w"> </span><span class="n">hesap</span><span class="p">.</span><span class="na">getIslemLimiti</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">hesap</span><span class="p">.</span><span class="na">setIslemLimiti</span><span class="p">(</span><span class="n">BankaHesabi</span><span class="p">.</span><span class="na">UST_ISLEM_LIMITI</span><span class="p">);</span><span class="w">   </span><span class="c1">// sınır değeri geçerli</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">BankaHesabi</span><span class="p">.</span><span class="na">UST_ISLEM_LIMITI</span><span class="p">,</span><span class="w"> </span><span class="n">hesap</span><span class="p">.</span><span class="na">getIslemLimiti</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>() -&gt; ...</code> bir lambda ifadesidir (M10); "bu kodu çalıştır" diye okuyun. İstisna fırlatılmazsa ya
+   da başka türde bir istisna fırlatılırsa test başarısız olur.</li>
+</ol>
+<h3 id="33-istisna-m-false-mu">3.3 İstisna mı, <code>false</code> mu?<a class="headerlink" href="#33-istisna-m-false-mu" title="Permanent link">&para;</a></h3>
+<p><code>paraCek</code> iki farklı başarısızlığı iki farklı biçimde bildiriyor:</p>
+<table>
+<thead>
+<tr>
+<th>Durum</th>
+<th>Kimin hatası?</th>
+<th><code>BankaHesabi</code>'nin tepkisi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paraCek(-50)</code></td>
+<td>Çağıranın: negatif tutar anlamsız</td>
+<td><code>IllegalArgumentException</code></td>
+</tr>
+<tr>
+<td><code>paraCek(1000)</code>, bakiye 300</td>
+<td>Kimsenin: olağan bir iş durumu</td>
+<td><code>false</code> döner, bakiye değişmez</td>
+</tr>
+</tbody>
+</table>
+<p>Yetersiz bakiye bir programlama hatası değildir; ATM ekranında "Bakiyeniz yetersiz" yazar ve hayat
+devam eder. Negatif tutar ise programda bir yerde hata olduğunu gösterir ve hemen ortaya çıkmalıdır.</p>
+<h3 id="34-her-alana-gettersetter-tuzag-tell-dont-ask">3.4 "Her alana getter/setter" tuzağı: Tell, Don't Ask<a class="headerlink" href="#34-her-alana-gettersetter-tuzag-tell-dont-ask" title="Permanent link">&para;</a></h3>
+<p>IDE'ler tek tıkla her alana getter ve setter üretebilir. Bunu alışkanlık hâline getirmek kapsüllemeyi
+sessizce geri alır. <code>setBakiye</code> olan bir hesapta havale kodu şöyle yazılır:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// KÖTÜ: kural çağıranın elinde</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ayse</span><span class="p">.</span><span class="na">getBakiye</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">tutar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">ayse</span><span class="p">.</span><span class="na">setBakiye</span><span class="p">(</span><span class="n">ayse</span><span class="p">.</span><span class="na">getBakiye</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">mehmet</span><span class="p">.</span><span class="na">setBakiye</span><span class="p">(</span><span class="n">mehmet</span><span class="p">.</span><span class="na">getBakiye</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Kural ("bakiye yeterli mi?") yine sınıfın dışında ve her havale yapılan yerde tekrar yazılmak zorunda.
+Birisi kontrolü unutursa bakiye negatife düşer; M1'deki paralel diziye geri döndük. Çözüm, nesneye ne
+yapacağını <strong>söylemek</strong>, verisini isteyip kararı dışarıda vermemektir: <strong>Tell, Don't Ask</strong> (söyle, sorma).</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// İYİ: kural nesnenin içinde</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">ayse</span><span class="p">.</span><span class="na">havaleYap</span><span class="p">(</span><span class="n">mehmet</span><span class="p">,</span><span class="w"> </span><span class="n">tutar</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">havaleYap</span><span class="p">(</span><span class="n">BankaHesabi</span><span class="w"> </span><span class="n">alici</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tutar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">alici</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">alici</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Geçersiz alıcı hesap"</span><span class="p">);</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">paraCek</span><span class="p">(</span><span class="n">tutar</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">          </span><span class="c1">// çekilemediyse alıcıya hiçbir şey yatırılmaz</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">alici</span><span class="p">.</span><span class="na">paraYatir</span><span class="p">(</span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Getter ya da setter yazmadan önce sorun</p>
+<p><em>Bu alanı dışarıdan kim, neden değiştirmek istiyor?</em> Cevap bir iş kuralıysa (para çekmek, sınıf
+atlamak) bunun için anlamlı adı olan bir metot yazın. Bir setter ancak alanın dışarıdan serbestçe
+ama <strong>geçerli</strong> değerlerle ayarlanması gerçekten gerekiyorsa (işlem limiti gibi) ve doğrulama
+yapıyorsa yerindedir. Getter'lar daha zararsızdır, ama onlar da iç yapıyı dışarı sızdırabilir (§5.3).</p>
+</div>
+<h2 id="4-static">4. <code>static</code> alanlar ve metotlar<a class="headerlink" href="#4-static" title="Permanent link">&para;</a></h2>
+<p>Her hesabın benzersiz bir numarası olsun: ilk açılan 1, ikincisi 2... Bu sayacı nereye koyacağız?
+Her nesnenin kendi <code>sonNumara</code> alanı olursa her hesap 1 numarayı alır. Sayaç <strong>sınıfa</strong> ait olmalı,
+tüm nesneler onu paylaşmalıdır. <code>static</code> anahtar kelimesi tam olarak bunu söyler:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sonNumara</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// tek kopya, sınıfa ait</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numara</span><span class="p">;</span><span class="w">           </span><span class="c1">// her nesnede ayrı</span>
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    S["BankaHesabi sınıfı&lt;br&gt;static sonNumara = 2"]
+    A["ayse nesnesi&lt;br&gt;numara = 1&lt;br&gt;bakiye = 380.0"]
+    M["mehmet nesnesi&lt;br&gt;numara = 2&lt;br&gt;bakiye = 120.0"]
+    A -.-&gt;|"paylaşır"| S
+    M -.-&gt;|"paylaşır"| S</code></pre>
+<p><code>static</code> bir metot da nesneye değil sınıfa aittir ve sınıf adıyla çağrılır:
+<code>BankaHesabi.acilanHesapSayisi()</code>. Bir nesnesi olmadığı için <code>static</code> metodun içinde <code>this</code> yoktur;
+<code>bakiye</code> gibi örnek alanlarına doğrudan erişemez.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Örnek (instance) üyesi</th>
+<th><code>static</code> üye</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kime ait?</td>
+<td>Her nesneye ayrı</td>
+<td>Sınıfa, tek kopya</td>
+</tr>
+<tr>
+<td>Nasıl erişilir?</td>
+<td><code>ayse.getBakiye()</code></td>
+<td><code>BankaHesabi.acilanHesapSayisi()</code></td>
+</tr>
+<tr>
+<td><code>this</code> kullanılabilir mi?</td>
+<td>Evet</td>
+<td>Hayır</td>
+</tr>
+<tr>
+<td>Tipik kullanım</td>
+<td>Nesnenin durumu ve davranışı</td>
+<td>Sayaçlar, sabitler, yardımcı metotlar, fabrika metotları</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sabitler</strong> <code>static final</code> olarak tanımlanır ve adları <code>UPPER_SNAKE_CASE</code> ile yazılır:
+<code>public static final double UST_ISLEM_LIMITI = 100_000;</code>. Değişmedikleri için <code>public</code> olmaları
+kapsüllemeyi bozmaz.</p>
+<h3 id="41-yardmc-snf">4.1 Yardımcı sınıf<a class="headerlink" href="#41-yardmc-snf" title="Permanent link">&para;</a></h3>
+<p><code>Math.sqrt(2)</code> yazarken bir <code>Math</code> nesnesi oluşturmayız; <code>Math</code> yalnızca <code>static</code> metotlardan oluşan bir
+<strong>yardımcı sınıftır</strong> (utility class). Kendi yardımcı sınıfımızı yazalım:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Istatistik</span><span class="w"> </span><span class="p">{</span><span class="w">            </span><span class="c1">// (1)!</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Istatistik</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                 </span><span class="c1">// (2)!</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">ortalama</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">dizi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="n">bosOlmamali</span><span class="p">(</span><span class="n">dizi</span><span class="p">);</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">toplam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">deger</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">dizi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">            </span><span class="n">toplam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toplam</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">deger</span><span class="p">;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">toplam</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">dizi</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="c1">// enBuyuk, enKucuk benzer</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>final</code> sınıftan alt sınıf türetilemez (M5).</li>
+<li><code>private</code> kurucu: <code>new Istatistik()</code> yazılamaz. Durumu olmayan bir sınıfın nesnesini oluşturmak
+   anlamsızdır; bunu derleyiciye de söylüyoruz.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title"><code>static</code>'i her derde deva sanmayın</p>
+<p>Her şeyi <code>static</code> yapmak, M1'de bıraktığımız prosedürel stile geri dönmektir. <code>static</code> değiştirilebilir
+alanlar (bizim <code>sonNumara</code> gibi) tüm programın paylaştığı bir durumdur ve test etmeyi zorlaştırır:
+<code>BankaHesabiTest</code>'te numaraların tam değerini değil, <strong>ardışık</strong> olduklarını test etmemizin
+nedeni bu. Kullanımı sayaç ve sabit gibi gerçekten sınıf düzeyindeki bilgilerle sınırlı tutun.</p>
+</div>
+<h2 id="5-final-degismez">5. <code>final</code> ve değişmez nesneler<a class="headerlink" href="#5-final-degismez" title="Permanent link">&para;</a></h2>
+<h3 id="51-final-alanlar">5.1 <code>final</code> alanlar<a class="headerlink" href="#51-final-alanlar" title="Permanent link">&para;</a></h3>
+<p><code>final</code> bir alana yalnızca <strong>bir kez</strong> değer atanabilir; bunu da en geç kurucu bitmeden yapmak
+gerekir. <code>BankaHesabi</code>'nin <code>numara</code> ve <code>sahip</code> alanları <code>final</code>: hesap açıldıktan sonra numarası ve
+sahibi değişmez. Derleyici bunu garanti eder; yanlışlıkla <code>numara = 0;</code> yazarsanız kod derlenmez.</p>
+<h3 id="52-degismez-snf">5.2 Değişmez sınıf<a class="headerlink" href="#52-degismez-snf" title="Permanent link">&para;</a></h3>
+<p><strong>Değişmez</strong> (immutable) bir nesnenin durumu oluşturulduktan sonra <strong>hiç</strong> değişmez. Değişmez nesneler
+aliasing sorunu yaşamaz (M2 §5): iki referans aynı nesneyi gösterse bile kimse onu değiştiremeyeceği
+için paylaşmak güvenlidir. Hep kullandığınız <code>String</code> değişmezdir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">String</span><span class="w"> </span><span class="n">ad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ayşe"</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">ad</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span><span class="w">              </span><span class="c1">// ad değişmez; sonuç kullanılmadan atıldı</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">String</span><span class="w"> </span><span class="n">buyuk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ad</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">buyuk</span><span class="p">);</span><span class="w">   </span><span class="c1">// ayşe AYŞE</span>
+</span></code></pre></div>
+<p>Bir sınıfı değişmez yapmanın tarifi: (1) sınıfı <code>final</code> yap, (2) tüm alanları <code>private final</code> yap,
+(3) setter yazma, (4) "değiştiren" her metot <strong>yeni bir nesne döndürsün</strong>, (5) değiştirilebilir alanlar
+varsa savunmacı kopya kullan (§5.3).</p>
+<pre class="mermaid"><code>classDiagram
+    class Sicaklik {
+        &lt;&lt;immutable&gt;&gt;
+        +MUTLAK_SIFIR$ double
+        -double celsius
+        +Sicaklik(double celsius)
+        +fahrenheittenOlustur(double fahrenheit)$ Sicaklik
+        +artir(double derece) Sicaklik
+        +getCelsius() double
+        +fahrenheit() double
+    }</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Sicaklik</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">MUTLAK_SIFIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">273.15</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">celsius</span><span class="p">;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Sicaklik</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">celsius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">celsius</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MUTLAK_SIFIR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Mutlak sıfırın altında sıcaklık olamaz: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">celsius</span><span class="p">);</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">celsius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">celsius</span><span class="p">;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Sicaklik</span><span class="w"> </span><span class="nf">fahrenheittenOlustur</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">fahrenheit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// (1)!</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sicaklik</span><span class="p">((</span><span class="n">fahrenheit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Sicaklik</span><span class="w"> </span><span class="nf">artir</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">derece</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sicaklik</span><span class="p">(</span><span class="n">celsius</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">derece</span><span class="p">);</span><span class="w">                           </span><span class="c1">// (2)!</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><strong>Static fabrika metodu</strong> (static factory method): kurucuya anlamlı bir ad verir.
+   <code>new Sicaklik(98.6)</code> Celsius mu Fahrenheit mi belli değildir; <code>fahrenheittenOlustur(98.6)</code> bellidir.</li>
+<li>Yeni nesne kurucudan geçtiği için doğrulama atlanamaz: <code>new Sicaklik(-270).artir(-10)</code> istisna fırlatır.</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@Test</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"artir yeni nesne döndürür, asıl nesne değişmez"</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">artirYeniNesneDondurur</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="c1">// Hazırla</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">Sicaklik</span><span class="w"> </span><span class="n">sabah</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sicaklik</span><span class="p">(</span><span class="mf">12.5</span><span class="p">);</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="c1">// Çalıştır</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">Sicaklik</span><span class="w"> </span><span class="n">ogle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sabah</span><span class="p">.</span><span class="na">artir</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="c1">// Doğrula</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">assertNotSame</span><span class="p">(</span><span class="n">sabah</span><span class="p">,</span><span class="w"> </span><span class="n">ogle</span><span class="p">);</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">12.5</span><span class="p">,</span><span class="w"> </span><span class="n">sabah</span><span class="p">.</span><span class="na">getCelsius</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">20.5</span><span class="p">,</span><span class="w"> </span><span class="n">ogle</span><span class="p">.</span><span class="na">getCelsius</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="53-savunmaci-kopya">5.3 Savunmacı kopya<a class="headerlink" href="#53-savunmaci-kopya" title="Permanent link">&para;</a></h3>
+<p><code>final</code> bir alan <strong>referansı</strong> sabitler, gösterdiği nesneyi değil. <code>private final int[] notlar;</code> alanına
+başka bir dizi atanamaz, ama dizinin elemanları değiştirilebilir. Kurucu dışarıdan gelen diziyi olduğu
+gibi saklarsa, onu veren kod da elinde bir referans tutar (M2'deki paylaşılan köşe sorunu):</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">dizi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">70</span><span class="p">,</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">};</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">SinavNotlari</span><span class="w"> </span><span class="n">notlar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SinavNotlari</span><span class="p">(</span><span class="s">"BLM102"</span><span class="p">,</span><span class="w"> </span><span class="n">dizi</span><span class="p">);</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">dizi</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">500</span><span class="p">;</span><span class="w">     </span><span class="c1">// kopya almasaydık, "not 0-100 aralığında" değişmezi dışarıdan bozulurdu</span>
+</span></code></pre></div>
+<p>Çözüm <strong>savunmacı kopya</strong> (defensive copy): dışarıdan gelen değiştirilebilir nesnenin kopyasını sakla,
+dışarıya da kopyasını ver.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">public</span><span class="w"> </span><span class="nf">SinavNotlari</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">dersKodu</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">notlar</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">kopya</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">notlar</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span><span class="w">          </span><span class="c1">// (1)!</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kopya</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"En az bir not olmalı"</span><span class="p">);</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">kopya</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">not</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Not 0-100 aralığında olmalı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">not</span><span class="p">);</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">dersKodu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dersKodu</span><span class="p">;</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">notlar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kopya</span><span class="p">;</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="p">}</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">getNotlar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">notlar</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span><span class="w">                 </span><span class="c1">// (2)!</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Önce kopyala, sonra <strong>kopyayı</strong> doğrula. Tersini yaparsak doğrulama ile kopyalama arasında dizi
+   değiştirilebilir (bu, eşzamanlı programlarda gerçek bir güvenlik açığıdır).</li>
+<li>Getter da kopya döndürür; yoksa <code>getNotlar()[0] = -500;</code> ile değişmez yine bozulurdu.</li>
+</ol>
+<p><code>SinavNotlariTest</code>, iki kapıyı da test eder: kurucuya verilen diziyi ve getter'ın döndürdüğü diziyi
+değiştirmek nesneyi etkilemez. Listelerde de aynı ilke geçerlidir; <code>List.copyOf</code> gibi araçları M9'da
+göreceğiz.</p>
+<h2 id="6-record">6. <code>record</code><a class="headerlink" href="#6-record" title="Permanent link">&para;</a></h2>
+<p><code>Sicaklik</code> gibi değişmez veri sınıfları çok yaygındır ve yazması uzundur: <code>private final</code> alanlar,
+kurucu, getter'lar, <code>toString</code>, <code>equals</code>... Java 16'dan beri (JEP 395) bunun kısa yolu <strong>record</strong>'dur.
+M1'de parayı <code>double</code> ile tutmanın sakıncasını görmüştük; kuruş cinsinden <code>long</code> tutan bir <code>Para</code> yazalım:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Para</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">kurus</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">paraBirimi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// (1)!</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Para</span><span class="w"> </span><span class="p">{</span><span class="w">                                            </span><span class="c1">// (2)!</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kurus</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Tutar negatif olamaz: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kurus</span><span class="p">);</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">paraBirimi</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">paraBirimi</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Para birimi üç harfli bir kod olmalı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">paraBirimi</span><span class="p">);</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="n">paraBirimi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paraBirimi</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">(</span><span class="n">Locale</span><span class="p">.</span><span class="na">ROOT</span><span class="p">);</span><span class="w">    </span><span class="c1">// (3)!</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Para</span><span class="w"> </span><span class="nf">tl</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">lira</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kurus</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">kurus</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">kurus</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">99</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Kuruş 0-99 aralığında olmalı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kurus</span><span class="p">);</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Para</span><span class="p">(</span><span class="n">lira</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kurus</span><span class="p">,</span><span class="w"> </span><span class="s">"TRY"</span><span class="p">);</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Para</span><span class="w"> </span><span class="nf">topla</span><span class="p">(</span><span class="n">Para</span><span class="w"> </span><span class="n">diger</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">        </span><span class="n">ayniBirimOlmali</span><span class="p">(</span><span class="n">diger</span><span class="p">);</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Para</span><span class="p">(</span><span class="n">kurus</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">diger</span><span class="p">.</span><span class="na">kurus</span><span class="p">,</span><span class="w"> </span><span class="n">paraBirimi</span><span class="p">);</span><span class="w">   </span><span class="c1">// yeni nesne</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">    </span><span class="c1">// cikar, bicimli ve ayniBirimOlmali benzer</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>Başlıktaki bileşenler (components) <code>kurus</code> ve <code>paraBirimi</code>, derleyiciye şunları ürettirir:
+   <code>private final</code> alanlar, tüm alanları alan kurucu, <code>kurus()</code> ve <code>paraBirimi()</code> erişimcileri
+   (<code>get</code> öneki yok), içeriğe bakan <code>equals</code>/<code>hashCode</code> ve <code>Para[kurus=1250, paraBirimi=TRY]</code> biçiminde
+   <code>toString</code>.</li>
+<li><strong>Kompakt kurucu</strong> (compact constructor): parantez ve parametre listesi yazılmaz. Gövde, parametreler
+   alanlara atanmadan <strong>önce</strong> çalışır; doğrulama için idealdir.</li>
+<li>Kompakt kurucuda parametreye yeni değer atayabilirsiniz; alana atanacak olan budur (normalleştirme).
+   <code>Locale.ROOT</code> neden? Türkçe yerel ayarda <code>"i".toUpperCase()</code> sonucu <code>"İ"</code> olur; para birimi kodları
+   gibi dilden bağımsız metinlerde bu sürpriz istenmez.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Record'da</th>
+<th>Durum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alanlar</td>
+<td>Otomatik <code>private final</code>; başlık dışında örnek alanı eklenemez</td>
+</tr>
+<tr>
+<td>Sınıf</td>
+<td>Otomatik <code>final</code>; başka bir sınıftan türetilemez</td>
+</tr>
+<tr>
+<td><code>equals</code></td>
+<td>İçeriğe bakar: <code>Para.tl(12, 50).equals(new Para(1250, "TRY"))</code> true (ayrıntısı M5)</td>
+</tr>
+<tr>
+<td>Eklenebilenler</td>
+<td>Metotlar, <code>static</code> alanlar ve metotlar, ek kurucular (<code>this(...)</code> ile ana kurucuya zincirlenir)</td>
+</tr>
+</tbody>
+</table>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@Test</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"Record equals içeriğe bakar; farklı nesneler eşit olabilir"</span><span class="p">)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">equalsIcerigeBakar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">Para</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Para</span><span class="p">.</span><span class="na">tl</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="n">Para</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Para</span><span class="p">(</span><span class="mi">1250</span><span class="p">,</span><span class="w"> </span><span class="s">"TRY"</span><span class="p">);</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="n">assertNotSame</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">   </span><span class="c1">// iki ayrı nesne</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">    </span><span class="c1">// ama içerikleri eşit</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Record sığ (shallow) değişmezdir</p>
+<p>Bir record bileşeni dizi ya da değiştirilebilir bir nesneyse, record yalnızca referansı sabitler.
+<code>record Notlar(int[] degerler)</code> içindeki dizinin elemanları değiştirilebilir. Gerekirse kompakt
+kurucuda savunmacı kopya alın ve erişimciyi kendiniz yazıp kopya döndürün (§5.3).</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Kendinizi deneyin</p>
+<p><code>Sicaklik</code> sınıfını bir record olarak yeniden yazın. Hangi satırlar kaybolur, hangileri kalır?</p>
+<details class="success">
+<summary>Cevap</summary>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Sicaklik</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">celsius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">MUTLAK_SIFIR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">273.15</span><span class="p">;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Sicaklik</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">celsius</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MUTLAK_SIFIR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Mutlak sıfırın altında sıcaklık olamaz: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">celsius</span><span class="p">);</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Sicaklik</span><span class="w"> </span><span class="nf">fahrenheittenOlustur</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">fahrenheit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sicaklik</span><span class="p">((</span><span class="n">fahrenheit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Sicaklik</span><span class="w"> </span><span class="nf">artir</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">derece</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Sicaklik</span><span class="p">(</span><span class="n">celsius</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">derece</span><span class="p">);</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>private final</code> alan, atama yapan kurucu gövdesi ve <code>getCelsius()</code> kaybolur (yerine <code>celsius()</code>
+gelir). Doğrulama, fabrika metodu ve <code>artir</code> kalır. Kazanç olarak içeriğe bakan <code>equals</code>
+gelir: <code>new Sicaklik(20).equals(new Sicaklik(20))</code> artık true.</p>
+</details>
+</div>
+<h2 id="7-alstrmalar">7. Alıştırmalar<a class="headerlink" href="#7-alstrmalar" title="Permanent link">&para;</a></h2>
+<p>Bu modülün alıştırmaları <code>exercise_files/</code> klasöründeki Maven projesindedir: kaynak kod
+<code>src/main/java/nyp/m3/</code>, testler <code>src/test/java/nyp/m3/</code> altında.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mvn<span class="w"> </span>-pl<span class="w"> </span>m3_kapsulleme/exercise_files<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<ol>
+<li><strong>Derleyiciyi deneyin.</strong> <code>KapsullemeUygulamasi.main</code> içine <code>ayse.bakiye = -500;</code> ve
+   <code>new Istatistik();</code> satırlarını ekleyin. Derleyici mesajlarını not edip satırları silin.</li>
+<li>
+<p><strong>NaN deliği.</strong> <code>hesap.paraYatir(Double.NaN)</code> çağrısı ne yapar? <code>NaN &lt;= 0</code> ifadesinin değerini
+   araştırın. <code>BankaHesabi</code>'nin değişmezleri korunuyor mu? Sorunu gösteren bir test yazıp
+   <code>paraYatir</code> ve <code>paraCek</code>'i düzeltin.</p>
+<details class="success">
+<summary>İpucu</summary>
+<p><code>NaN</code> ile yapılan her karşılaştırma <code>false</code> verir; bu yüzden <code>tutar &lt;= 0</code> kontrolü <code>NaN</code>'ı
+geçirir ve bakiye <code>NaN</code> olur. <code>if (!(tutar &gt; 0))</code> ya da <code>Double.isNaN(tutar)</code> kontrolü ekleyin.</p>
+</details>
+</li>
+<li>
+<p><strong>Değişmez tarih.</strong> <code>year</code>, <code>month</code>, <code>day</code> yerine Türkçe adlı alanları olan değişmez bir <code>Tarih</code>
+   record'u yazın: ay 1-12, gün 1-31 aralığında olsun (ayların gün sayısını şimdilik yok sayabilirsiniz).
+   <code>ertesiGun()</code> metodu yeni bir <code>Tarih</code> döndürsün. En az dört test yazın; ayın son gününü unutmayın.</p>
+</li>
+<li><strong>Savunmacı kopya testi.</strong> <code>SinavNotlari</code>'nın kurucusundaki <code>.clone()</code> çağrısını kaldırın ve
+   testleri çalıştırın. Hangi test başarısız oluyor? Sonra getter'dakini kaldırıp aynı soruyu sorun.</li>
+<li><strong>M2'ye dönüş.</strong> M2'deki <code>Dikdortgen</code> sınıfının paylaşılan köşe sorununu savunmacı kopyayla
+   düzeltin. <code>Nokta</code> değişmez olsaydı bu kopyaya gerek kalır mıydı? Neden?</li>
+</ol>
+<hr />
+<h2 id="ozet">Özet<a class="headerlink" href="#ozet" title="Permanent link">&para;</a></h2>
+<p>Kapsülleme, nesnenin verisini <code>private</code> alanlarda saklayıp yalnızca kontrollü metotlarla erişilmesine
+izin vermektir; böylece sınıf, değişmezlerini derleyicinin yardımıyla kendisi korur. Java'da dört erişim
+düzeyi vardır: <code>private</code>, paket erişimi, <code>protected</code> ve <code>public</code>; varsayılan tercih en kapalısı olmalıdır.
+Kurucular ve setter'lar gelen değeri doğrular ve geçersiz argümanda <code>IllegalArgumentException</code> fırlatır;
+olağan iş durumları ise dönüş değeriyle bildirilir. Her alana otomatik getter/setter yazmak kapsüllemeyi
+geri alır; nesneye ne yapacağını söyleyin (Tell, Don't Ask). <code>static</code> üyeler sınıfa aittir ve sayaç, sabit,
+yardımcı metot gibi sınıf düzeyindeki bilgiler içindir. <code>final</code> bir alana bir kez atama yapılır; değişmez
+bir sınıfın "değiştiren" metotları yeni nesne döndürür. Değiştirilebilir alanlar savunmacı kopyayla
+korunur. <code>record</code>, değişmez veri sınıflarını kısaca yazmanın yoludur ve kompakt kurucusu doğrulama için
+idealdir. Bir sonraki modülde nesneler arası ilişkileri ve UML'yi işliyoruz.</p>
+<h2 id="ileri-okuma">İleri okuma<a class="headerlink" href="#ileri-okuma" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">The Java Tutorials: Controlling Access to Members of a Class</a>,
+  Oracle. Erişim belirleyiciler tablosunun resmî kaynağı.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html">The Java Tutorials: Understanding Class Members</a>,
+  Oracle. <code>static</code> alanlar, metotlar ve sabitler.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html">The Java Tutorials: A Strategy for Defining Immutable Objects</a>,
+  Oracle. Değişmez sınıf tarifinin ayrıntılı hâli.</li>
+<li>Martin Fowler, <a href="https://martinfowler.com/bliki/TellDontAsk.html">TellDontAsk</a>. "Tell, Don't Ask"
+  ilkesine kısa bir giriş.</li>
+</ul>
+<h2 id="kaynaklar">Kaynaklar<a class="headerlink" href="#kaynaklar" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Joshua Bloch, <em>Effective Java</em>, 3. baskı, Addison-Wesley, 2018. Madde 4 ("Enforce noninstantiability
+  with a private constructor"), Madde 15 ("Minimize the accessibility of classes and members"),
+  Madde 16 ("In public classes, use accessor methods, not public fields"), Madde 17 ("Minimize
+  mutability"), Madde 50 ("Make defensive copies when needed"). §2, §4.1, §5'in dayandığı kaynak.</li>
+<li>Cay S. Horstmann, <em>Core Java, Volume I: Fundamentals</em>, 12. baskı, Pearson, 2022, 4. bölüm
+  ("Objects and Classes"). Kapsülleme, <code>static</code>, <code>final</code> ve record anlatımı.</li>
+<li><a href="https://openjdk.org/jeps/395">JEP 395: Records</a>. §6'daki record kuralları ve kompakt kurucunun kaynağı.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html">Java SE 21 API: <code>java.lang.Record</code></a>
+  ve <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html"><code>java.lang.IllegalArgumentException</code></a>.</li>
+<li><a href="https://docs.oracle.com/javase/specs/jls/se21/html/index.html">The Java Language Specification, Java SE 21 Edition</a>,
+  §6.6 (erişim denetimi), §8.3.1.2 (<code>final</code> alanlar), §8.10 (record sınıfları).</li>
+<li><a href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5 User Guide</a>. <code>assertThrows</code> kullanımı.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Son Güncelleme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 Eylül 2026 06:14:04">24 Eylül 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Oluşturuldu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 Eylül 2026 22:53:58">23 Eylül 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Altbilgi" >
+        
+          
+          <a href="../m2_siniflar_nesneler/" class="md-footer__link md-footer__link--prev" aria-label="Önceki: 🧱 M2 - Sınıflar ve Nesneler">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Önceki
+              </span>
+              <div class="md-ellipsis">
+                🧱 M2 - Sınıflar ve Nesneler
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../m4_iliskiler_uml/" class="md-footer__link md-footer__link--next" aria-label="Sonraki: 🔗 M4 - Nesneler Arası İlişkiler ve UML">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sonraki
+              </span>
+              <div class="md-ellipsis">
+                🔗 M4 - Nesneler Arası İlişkiler ve UML
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.indexes", "navigation.footer", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

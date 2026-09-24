@@ -1,0 +1,2130 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Nesneye Yönelik Programlama (Java) ders materyali">
+      
+      
+      
+      
+        <link rel="prev" href="../m9_koleksiyonlar_generics/">
+      
+      
+        <link rel="next" href="../m11_tasarim_ilkeleri/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../figures/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>λ M10 - Lambda İfadeleri ve Stream API - Nesneye Yönelik Programlama</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#m10-lambda-ifadeleri-ve-stream-api" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-header__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nesneye Yönelik Programlama
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              λ M10 - Lambda İfadeleri ve Stream API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="indigo"  aria-label="Karanlık moda geç"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Karanlık moda geç" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Aydınlık moda geç"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aydınlık moda geç" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Ara" placeholder="Ara" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Ara">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Temizle" aria-label="Temizle" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Arama başlatılıyor
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nesneye Yönelik Programlama" class="md-nav__button md-logo" aria-label="Nesneye Yönelik Programlama" data-md-component="logo">
+      
+  <img src="../figures/logo.svg" alt="logo">
+
+    </a>
+    Nesneye Yönelik Programlama
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama" title="Depoya git" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ana Sayfa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m1_oop_giris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 M1 - Nesneye Yönelik Programlamaya Giriş
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2_siniflar_nesneler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧱 M2 - Sınıflar ve Nesneler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m3_kapsulleme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔒 M3 - Kapsülleme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m4_iliskiler_uml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔗 M4 - Nesneler Arası İlişkiler ve UML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m5_kalitim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 M5 - Kalıtım
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m6_cok_bicimlilik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎭 M6 - Çok Biçimlilik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m7_soyut_arayuz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧩 M7 - Soyut Sınıflar ve Arayüzler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_a_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Proje Sprinti A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m8_istisnalar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚨 M8 - İstisna Yönetimi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m9_koleksiyonlar_generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📦 M9 - Koleksiyonlar ve Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    λ M10 - Lambda İfadeleri ve Stream API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    λ M10 - Lambda İfadeleri ve Stream API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-davranis-parametre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Davranışı parametre olarak geçmek
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Davranışı parametre olarak geçmek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-m9daki-comparator-lambdaya-cevirmek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 M9'daki Comparator'ı lambdaya çevirmek
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fonksiyonel-arayuzler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fonksiyonel arayüzler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Lambda ifadeleri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Lambda ifadeleri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-etkin-final-degiskenleri-yakalamak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Etkin final değişkenleri yakalamak
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-metot-referanslari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Metot referansları
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Metot referansları">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-comparator-zincirleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Comparator zincirleri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Stream API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Stream API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tembel-degerlendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Tembel değerlendirme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dongu-mu-stream-mi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Döngü mü, stream mi?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Optional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m11_tasarim_ilkeleri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 M11 - Tasarım İlkeleri
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m12_tasarim_kaliplari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏛️ M12 - Tasarım Kalıpları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprint_b_final_proje/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏁 Proje Sprinti B
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/timeplan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zaman Planı
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Özet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ogrenme-hedefleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❔ Öğrenme hedefleri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-davranis-parametre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Davranışı parametre olarak geçmek
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Davranışı parametre olarak geçmek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-m9daki-comparator-lambdaya-cevirmek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 M9'daki Comparator'ı lambdaya çevirmek
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fonksiyonel-arayuzler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fonksiyonel arayüzler
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Lambda ifadeleri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Lambda ifadeleri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-etkin-final-degiskenleri-yakalamak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Etkin final değişkenleri yakalamak
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-metot-referanslari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Metot referansları
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Metot referansları">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-comparator-zincirleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Comparator zincirleri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Stream API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Stream API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tembel-degerlendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Tembel değerlendirme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dongu-mu-stream-mi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Döngü mü, stream mi?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Optional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-alstrmalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Alıştırmalar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Özet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ileri-okuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        İleri okuma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kaynaklar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kaynaklar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/edit/main/m10_lambda_stream/README.md" title="Düzenle" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/aligunesgit/NesneyeYonelikProgramlama/raw/main/m10_lambda_stream/README.md" title="Sayfanın kaynağını görüntüle" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="m10-lambda-ifadeleri-ve-stream-api">λ M10 - Lambda İfadeleri ve Stream API<a class="headerlink" href="#m10-lambda-ifadeleri-ve-stream-api" title="Permanent link">&para;</a></h1>
+<p align="center"><em>Hafta 11</em></p>
+
+<h2 id="ogrenme-hedefleri">❔ Öğrenme hedefleri<a class="headerlink" href="#ogrenme-hedefleri" title="Permanent link">&para;</a></h2>
+<p>Bu modülün sonunda öğrenci:</p>
+<ul>
+<li>Davranışı bir metoda parametre olarak geçirir; ayrı sınıf, anonim sınıf ve lambda yazımlarını karşılaştırır</li>
+<li>Fonksiyonel arayüzü tanımlar, kendi fonksiyonel arayüzünü yazar ve <code>java.util.function</code> arayüzlerini kullanır</li>
+<li>Lambda ifadesi ve metot referansı yazar, etkin final değişken kuralını açıklar</li>
+<li>Koleksiyon işlemlerini Stream API ile (filter, map, sorted, collect) ifade eder</li>
+<li>Boş olabilecek sonuçları <code>Optional</code> ile güvenli biçimde ele alır</li>
+</ul>
+<hr />
+<h2 id="1-davranis-parametre">1. Davranışı parametre olarak geçmek<a class="headerlink" href="#1-davranis-parametre" title="Permanent link">&para;</a></h2>
+<p>Bir e-ticaret sitesinin siparişlerini raporlayacağız. Her sipariş bir <code>record</code> (M7) olarak tutuluyor:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">SiparisDurumu</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">BEKLIYOR</span><span class="p">,</span><span class="w"> </span><span class="n">KARGODA</span><span class="p">,</span><span class="w"> </span><span class="n">TESLIM_EDILDI</span><span class="p">,</span><span class="w"> </span><span class="n">IPTAL</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Siparis</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">musteri</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">kategori</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tutar</span><span class="p">,</span><span class="w"> </span><span class="n">SiparisDurumu</span><span class="w"> </span><span class="n">durum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">iptalMi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">durum</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SiparisDurumu</span><span class="p">.</span><span class="na">IPTAL</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Yönetim önce "1000 TL üzeri siparişleri", sonra "kitap siparişlerini", sonra "iptal edilenleri" istiyor.
+Her istek için yeni bir metot yazarsak (<code>pahalilariSec</code>, <code>kitaplariSec</code>, <code>iptalleriSec</code>...) aynı
+döngüyü tekrar tekrar kopyalarız. Değişen tek şey <code>if</code> içindeki <strong>koşuldur</strong>. Çözüm: koşulu bir
+nesneye koyup metoda parametre olarak vermek. Böylece metot yalnızca döngüyü bilir, koşulu çağıran
+kod belirler.</p>
+<pre class="mermaid"><code>classDiagram
+    class SiparisFiltresi {
+        &lt;&lt;interface&gt;&gt;
+        +uygunMu(Siparis siparis)* boolean
+        +ve(SiparisFiltresi diger) SiparisFiltresi
+    }
+    class PahaliSiparisFiltresi {
+        -double esik
+        +uygunMu(Siparis siparis) boolean
+    }
+    class SiparisSecici {
+        +filtrele(List~Siparis~ siparisler, SiparisFiltresi filtre)$ List~Siparis~
+    }
+    SiparisFiltresi &lt;|.. PahaliSiparisFiltresi
+    SiparisSecici ..&gt; SiparisFiltresi : kullanır</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">filtrele</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">siparisler</span><span class="p">,</span><span class="w"> </span><span class="n">SiparisFiltresi</span><span class="w"> </span><span class="n">filtre</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sonuc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Siparis</span><span class="w"> </span><span class="n">siparis</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">siparisler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">filtre</span><span class="p">.</span><span class="na">uygunMu</span><span class="p">(</span><span class="n">siparis</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// koşulu filtre nesnesi söylüyor</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span><span class="n">sonuc</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">siparis</span><span class="p">);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sonuc</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Aynı filtreyi üç farklı yolla verebiliriz. Kod her adımda kısalır ama <strong>anlam aynı kalır</strong>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">1. Ayrı sınıf</label><label for="__tabbed_1_2">2. Anonim sınıf</label><label for="__tabbed_1_3">3. Lambda</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PahaliSiparisFiltresi</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">SiparisFiltresi</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">esik</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PahaliSiparisFiltresi</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">esik</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">esik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">esik</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">uygunMu</span><span class="p">(</span><span class="n">Siparis</span><span class="w"> </span><span class="n">siparis</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">siparis</span><span class="p">.</span><span class="na">tutar</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">esik</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">SiparisSecici</span><span class="p">.</span><span class="na">filtrele</span><span class="p">(</span><span class="n">siparisler</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PahaliSiparisFiltresi</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">SiparisSecici</span><span class="p">.</span><span class="na">filtrele</span><span class="p">(</span><span class="n">siparisler</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SiparisFiltresi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">uygunMu</span><span class="p">(</span><span class="n">Siparis</span><span class="w"> </span><span class="n">siparis</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">siparis</span><span class="p">.</span><span class="na">tutar</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">});</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">SiparisSecici</span><span class="p">.</span><span class="na">filtrele</span><span class="p">(</span><span class="n">siparisler</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">tutar</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Ayrı sınıf, filtre birçok yerde kullanılacaksa ya da kendi durumu ve testleri olacaksa hâlâ en iyi
+seçimdir. Tek yerde kullanılan kısa bir koşul için lambda en okunaklı olanıdır.</p>
+<h3 id="11-m9daki-comparator-lambdaya-cevirmek">1.1 M9'daki Comparator'ı lambdaya çevirmek<a class="headerlink" href="#11-m9daki-comparator-lambdaya-cevirmek" title="Permanent link">&para;</a></h3>
+<p>M9'da sıralama için <code>Comparator</code>'ı anonim sınıfla yazmıştık. <code>Comparator</code> da tek soyut metodu
+(<code>compare</code>) olan bir arayüz olduğu için aynı dönüşüm burada da geçerlidir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// M9: anonim sınıf</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">siparisler</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">Siparis</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Siparis</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">tutar</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">tutar</span><span class="p">());</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">});</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">// M10: lambda</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">siparisler</span><span class="p">.</span><span class="na">sort</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">tutar</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">tutar</span><span class="p">()));</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1">// M10: hazır yardımcı metot ve metot referansı (§4)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">siparisler</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">));</span>
+</span></code></pre></div>
+<h2 id="2-fonksiyonel-arayuzler">2. Fonksiyonel arayüzler<a class="headerlink" href="#2-fonksiyonel-arayuzler" title="Permanent link">&para;</a></h2>
+<p><strong>Fonksiyonel arayüz</strong> (functional interface), <strong>tam olarak bir soyut metodu</strong> olan arayüzdür.
+<code>default</code> ve <code>static</code> metotları (M7) bu sayıma girmez. Lambda ifadesi yalnızca fonksiyonel arayüz
+türünde bir yere yazılabilir; derleyici lambdayı o tek soyut metodun gövdesi olarak kabul eder.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@FunctionalInterface</span><span class="w">                                           </span><span class="c1">// (1)!</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">SiparisFiltresi</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">uygunMu</span><span class="p">(</span><span class="n">Siparis</span><span class="w"> </span><span class="n">siparis</span><span class="p">);</span><span class="w">                          </span><span class="c1">// (2)!</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="n">SiparisFiltresi</span><span class="w"> </span><span class="nf">ve</span><span class="p">(</span><span class="n">SiparisFiltresi</span><span class="w"> </span><span class="n">diger</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// (3)!</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">siparis</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">uygunMu</span><span class="p">(</span><span class="n">siparis</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">diger</span><span class="p">.</span><span class="na">uygunMu</span><span class="p">(</span><span class="n">siparis</span><span class="p">);</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>İsteğe bağlıdır ama önerilir: arayüze yanlışlıkla ikinci bir soyut metot eklenirse derleyici hata
+   verir (<code>SiparisFiltresi is not a functional interface</code>).</li>
+<li>Tek soyut metot. Lambdanın parametresi <code>Siparis</code>, dönüş türü <code>boolean</code> olmak zorundadır.</li>
+<li><code>default</code> metot soyut sayılmaz. Kendisi de bir lambda döndürür:
+   <code>kitap.ve(iptalDegil)</code> iki koşulu birleştiren yeni bir filtredir.</li>
+</ol>
+<p>Her küçük iş için kendi arayüzümüzü yazmamız gerekmez. <code>java.util.function</code> paketinde en sık
+ihtiyaç duyulan şekiller hazır bulunur:</p>
+<table>
+<thead>
+<tr>
+<th>Arayüz</th>
+<th>Soyut metot</th>
+<th>Anlamı</th>
+<th>Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Predicate&lt;T&gt;</code></td>
+<td><code>boolean test(T t)</code></td>
+<td>Koşul</td>
+<td><code>Predicate&lt;Siparis&gt; p = s -&gt; s.tutar() &gt; 1000;</code></td>
+</tr>
+<tr>
+<td><code>Function&lt;T, R&gt;</code></td>
+<td><code>R apply(T t)</code></td>
+<td>Dönüştürme</td>
+<td><code>Function&lt;Siparis, String&gt; f = s -&gt; s.musteri();</code></td>
+</tr>
+<tr>
+<td><code>Consumer&lt;T&gt;</code></td>
+<td><code>void accept(T t)</code></td>
+<td>Tüketme (yan etki)</td>
+<td><code>Consumer&lt;Siparis&gt; c = s -&gt; System.out.println(s);</code></td>
+</tr>
+<tr>
+<td><code>Supplier&lt;T&gt;</code></td>
+<td><code>T get()</code></td>
+<td>Üretme</td>
+<td><code>Supplier&lt;List&lt;String&gt;&gt; s = () -&gt; new ArrayList&lt;&gt;();</code></td>
+</tr>
+<tr>
+<td><code>UnaryOperator&lt;T&gt;</code></td>
+<td><code>T apply(T t)</code></td>
+<td>Aynı türe dönüştürme</td>
+<td><code>UnaryOperator&lt;Urun&gt; zam = u -&gt; u.zamli(0.10);</code></td>
+</tr>
+<tr>
+<td><code>BinaryOperator&lt;T&gt;</code></td>
+<td><code>T apply(T a, T b)</code></td>
+<td>İki değeri birleştirme</td>
+<td><code>BinaryOperator&lt;Double&gt; topla = (a, b) -&gt; a + b;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Bu arayüzlerin de <code>default</code> metotları vardır: <code>Predicate</code> için <code>and</code>, <code>or</code>, <code>negate</code>; <code>Function</code> için
+<code>andThen</code> ve <code>compose</code>. <code>SiparisFiltresi</code> yazmak yerine <code>Predicate&lt;Siparis&gt;</code> da kullanabilirdik;
+kendi arayüzümüzün tek avantajı, adının alanımızı anlatmasıdır.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Test</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"Predicate: and, negate ile birleştirme"</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">predicateBirlestirme</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pahali</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">tutar</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iptal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Siparis</span><span class="p">::</span><span class="n">iptalMi</span><span class="p">;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">pahali</span><span class="p">.</span><span class="na">and</span><span class="p">(</span><span class="n">iptal</span><span class="p">).</span><span class="na">test</span><span class="p">(</span><span class="n">telefon</span><span class="p">));</span><span class="w">   </span><span class="c1">// 2500 TL ve iptal</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">pahali</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="n">kitap</span><span class="p">));</span><span class="w">               </span><span class="c1">// 120 TL</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">pahali</span><span class="p">.</span><span class="na">negate</span><span class="p">().</span><span class="na">test</span><span class="p">(</span><span class="n">kitap</span><span class="p">));</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="3-lambda">3. Lambda ifadeleri<a class="headerlink" href="#3-lambda" title="Permanent link">&para;</a></h2>
+<p><strong>Lambda ifadesi</strong> (lambda expression), adı olmayan kısa bir metottur: parametre listesi, <code>-&gt;</code> oku
+ve gövde. Parametre türleri çoğunlukla hedef arayüzden çıkarılır (type inference).</p>
+<table>
+<thead>
+<tr>
+<th>Biçim</th>
+<th>Örnek</th>
+<th>Ne zaman?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tek parametre, parantezsiz</td>
+<td><code>s -&gt; s.tutar() &gt; 1000</code></td>
+<td>En yaygın biçim</td>
+</tr>
+<tr>
+<td>Parametresiz</td>
+<td><code>() -&gt; new ArrayList&lt;&gt;()</code></td>
+<td><code>Supplier</code>, <code>Runnable</code></td>
+</tr>
+<tr>
+<td>Birden çok parametre</td>
+<td><code>(a, b) -&gt; a + b</code></td>
+<td><code>BinaryOperator</code>, <code>Comparator</code></td>
+</tr>
+<tr>
+<td>Türleri açık yazılmış</td>
+<td><code>(Siparis s) -&gt; s.musteri()</code></td>
+<td>Okunabilirlik gerekiyorsa</td>
+</tr>
+<tr>
+<td>Blok gövde</td>
+<td><code>s -&gt; { double k = s.tutar() * 0.2; return k &gt; 100; }</code></td>
+<td>Birden çok deyim; <code>return</code> zorunlu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-etkin-final-degiskenleri-yakalamak">3.1 Etkin final değişkenleri yakalamak<a class="headerlink" href="#31-etkin-final-degiskenleri-yakalamak" title="Permanent link">&para;</a></h3>
+<p>Lambda, tanımlandığı metodun yerel değişkenlerini kullanabilir (capture). Koşul: değişken <strong>final</strong>
+ya da <strong>etkin final</strong> (effectively final) olmalıdır; yani ilk atamadan sonra hiç değiştirilmemelidir.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">esik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w">                                  </span><span class="c1">// bir kez atandı: etkin final</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">esikUstu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">tutar</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">esik</span><span class="p">;</span><span class="w"> </span><span class="c1">// derlenir</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">sayac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">siparisler</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">sayac</span><span class="o">++</span><span class="p">);</span><span class="w">   </span><span class="c1">// DERLENMEZ: local variables referenced from a</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">                                    </span><span class="c1">// lambda expression must be final or effectively final</span>
+</span></code></pre></div>
+<p>Kural rastgele değildir: lambda daha sonra, hatta başka bir iş parçacığında (thread) çalışabilir.
+Değişkenin değeri kopyalanarak yakalanır; değişmesine izin verilse lambda eski mi yeni mi değeri
+göreceğini bilemezdi.</p>
+<div class="admonition tip">
+<p class="admonition-title">Sayaç gerekiyorsa</p>
+<p>Önce stream'in kendi işlemlerine bakın: <code>count()</code>, <code>sum()</code> genellikle yeterlidir. Gerçekten
+değişen bir değer gerekiyorsa (testlerde çağrı saymak gibi) <code>AtomicInteger</code> gibi bir <strong>nesne</strong>
+yakalanır; değişken aynı nesneyi gösterdiği için etkin final kalır, değişen nesnenin içidir.</p>
+</div>
+<h2 id="4-metot-referanslari">4. Metot referansları<a class="headerlink" href="#4-metot-referanslari" title="Permanent link">&para;</a></h2>
+<p>Lambda yalnızca var olan bir metodu çağırıyorsa, onun yerine <strong>metot referansı</strong> (method reference)
+yazılabilir: <code>s -&gt; s.musteri()</code> yerine <code>Siparis::musteri</code>. Dört türü vardır:</p>
+<table>
+<thead>
+<tr>
+<th>Tür</th>
+<th>Söz dizimi</th>
+<th>Örnek</th>
+<th>Eşdeğer lambda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static metot</td>
+<td><code>Sinif::staticMetot</code></td>
+<td><code>Math::abs</code></td>
+<td><code>x -&gt; Math.abs(x)</code></td>
+</tr>
+<tr>
+<td>Belirli olmayan nesnenin örnek metodu</td>
+<td><code>Sinif::ornekMetot</code></td>
+<td><code>String::length</code></td>
+<td><code>s -&gt; s.length()</code></td>
+</tr>
+<tr>
+<td>Belirli bir nesnenin örnek metodu</td>
+<td><code>nesne::ornekMetot</code></td>
+<td><code>System.out::println</code></td>
+<td><code>x -&gt; System.out.println(x)</code></td>
+</tr>
+<tr>
+<td>Kurucu</td>
+<td><code>Sinif::new</code></td>
+<td><code>Urun::new</code></td>
+<td><code>(ad, fiyat) -&gt; new Urun(ad, fiyat)</code></td>
+</tr>
+</tbody>
+</table>
+<p>İkinci satırdaki fark önemlidir: <code>String::length</code> yazıldığında hangi <code>String</code> nesnesi üzerinde
+çağrılacağı henüz belli değildir; nesne lambdanın <strong>ilk parametresi</strong> olur. Üçüncü satırda ise nesne
+(<code>System.out</code>) baştan bellidir. Kurucu referansının türü parametre sayısına göre değişir:
+<code>ArrayList::new</code> bir <code>Supplier</code> olabilir, iki parametreli <code>Urun::new</code> ise bir <code>BiFunction&lt;String,
+Double, Urun&gt;</code> olur.</p>
+<h3 id="41-comparator-zincirleri">4.1 Comparator zincirleri<a class="headerlink" href="#41-comparator-zincirleri" title="Permanent link">&para;</a></h3>
+<p><code>Comparator</code> arayüzünün static ve <code>default</code> metotları, metot referanslarıyla birlikte sıralamayı
+cümle gibi okunur hâle getirir:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tutaraGore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">);</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pahalidanUcuza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tutaraGore</span><span class="p">.</span><span class="na">reversed</span><span class="p">();</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kategoriSonraTutar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Comparator</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="p">.</span><span class="na">comparing</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">kategori</span><span class="p">)</span><span class="w">                                  </span><span class="c1">// (1)!</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="p">.</span><span class="na">thenComparing</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">).</span><span class="na">reversed</span><span class="p">());</span><span class="w"> </span><span class="c1">// (2)!</span>
+</span></code></pre></div>
+<ol>
+<li>Önce kategori adına göre alfabetik (A-Z).</li>
+<li>Kategori aynıysa tutara göre <strong>azalan</strong>. <code>reversed()</code> burada yalnızca iç karşılaştırıcıya uygulanıyor.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title"><code>reversed()</code> zincirin tamamını çevirir</p>
+<p><code>Comparator.comparing(Siparis::kategori).thenComparing(Siparis::tutar).reversed()</code> yazarsanız
+<strong>her iki</strong> ölçüt de ters döner: kategoriler Z-A sıralanır. Yalnızca ikinci ölçütü çevirmek için
+<code>reversed()</code>'ı yukarıdaki gibi iç karşılaştırıcıya yazın.</p>
+</div>
+<h2 id="5-stream">5. Stream API<a class="headerlink" href="#5-stream" title="Permanent link">&para;</a></h2>
+<p>Şimdiye kadar raporları <code>for</code> döngüleriyle yazdık. <strong>Stream API</strong>, aynı işi "nasıl yapılacağını"
+değil "ne istendiğini" söyleyerek ifade etmemizi sağlar. Bir stream bir veri kaynağından gelen
+elemanların <strong>boru hattıdır</strong> (pipeline): kaynak, sıfır ya da daha çok ara işlem ve tek bir
+sonlandırıcı işlem.</p>
+<pre class="mermaid"><code>flowchart LR
+    K["Kaynak&lt;br&gt;siparisler.stream()"] --&gt; F["filter&lt;br&gt;iptal olmayanlar"]
+    F --&gt; M["mapToDouble&lt;br&gt;tutar"]
+    M --&gt; S["sum&lt;br&gt;sonlandırıcı"]
+    S --&gt; R["4415.0"]
+    subgraph ara ["Ara işlemler: yeni stream döndürür, tembel"]
+        F
+        M
+    end</code></pre>
+<table>
+<thead>
+<tr>
+<th>Aşama</th>
+<th>İşlem</th>
+<th>Ne yapar?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kaynak</td>
+<td><code>liste.stream()</code></td>
+<td>Koleksiyondan stream oluşturur; koleksiyonu değiştirmez</td>
+</tr>
+<tr>
+<td>Ara</td>
+<td><code>filter(Predicate)</code></td>
+<td>Koşula uyanları geçirir</td>
+</tr>
+<tr>
+<td>Ara</td>
+<td><code>map(Function)</code></td>
+<td>Her elemanı dönüştürür (<code>Siparis</code> → <code>String</code>)</td>
+</tr>
+<tr>
+<td>Ara</td>
+<td><code>mapToDouble(...)</code></td>
+<td><code>DoubleStream</code>'e dönüştürür; <code>sum</code>, <code>average</code> sunar</td>
+</tr>
+<tr>
+<td>Ara</td>
+<td><code>sorted()</code> / <code>sorted(Comparator)</code></td>
+<td>Sıralar</td>
+</tr>
+<tr>
+<td>Ara</td>
+<td><code>distinct()</code></td>
+<td>Tekrarları atar (<code>equals</code> ile)</td>
+</tr>
+<tr>
+<td>Ara</td>
+<td><code>limit(n)</code></td>
+<td>İlk <code>n</code> elemanla sınırlar</td>
+</tr>
+<tr>
+<td>Sonlandırıcı</td>
+<td><code>count()</code>, <code>sum()</code></td>
+<td>Sayı üretir</td>
+</tr>
+<tr>
+<td>Sonlandırıcı</td>
+<td><code>collect(...)</code>, <code>toList()</code></td>
+<td>Koleksiyon ya da <code>Map</code> üretir</td>
+</tr>
+<tr>
+<td>Sonlandırıcı</td>
+<td><code>findFirst()</code>, <code>max(...)</code></td>
+<td><code>Optional</code> üretir (§6)</td>
+</tr>
+</tbody>
+</table>
+<p><code>SiparisRaporu</code> sınıfı tüm raporları stream ile yazar:</p>
+<pre class="mermaid"><code>classDiagram
+    class SiparisRaporu {
+        -List~Siparis~ siparisler
+        +toplamCiro() double
+        +kategoriyeGoreToplam() Map~String, Double~
+        +musteriSayisi() long
+        +musteriListesi() String
+        +durumaGoreSayilar() Map~SiparisDurumu, Long~
+        +enPahaliSiparis() Optional~Siparis~
+        +enPahaliSiparisler(int n) List~Siparis~
+    }
+    class Siparis {
+        &lt;&lt;record&gt;&gt;
+        +musteri() String
+        +kategori() String
+        +tutar() double
+        +durum() SiparisDurumu
+        +iptalMi() boolean
+    }
+    SiparisRaporu "1" o-- "*" Siparis</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">toplamCiro</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">iptalMi</span><span class="p">())</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">            </span><span class="p">.</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">)</span><span class="w">                        </span><span class="c1">// (1)!</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">            </span><span class="p">.</span><span class="na">sum</span><span class="p">();</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">}</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">kategoriyeGoreToplam</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">iptalMi</span><span class="p">())</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">kategori</span><span class="p">,</span><span class="w">   </span><span class="c1">// (2)!</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">                    </span><span class="n">Collectors</span><span class="p">.</span><span class="na">summingDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">)));</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">}</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="kd">public</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">musteriSayisi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">musteri</span><span class="p">).</span><span class="na">distinct</span><span class="p">().</span><span class="na">count</span><span class="p">();</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">}</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">musteriListesi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">musteri</span><span class="p">).</span><span class="na">distinct</span><span class="p">().</span><span class="na">sorted</span><span class="p">()</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">", "</span><span class="p">));</span><span class="w">                 </span><span class="c1">// (3)!</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="p">}</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">SiparisDurumu</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">durumaGoreSayilar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">durum</span><span class="p">,</span><span class="w"> </span><span class="n">Collectors</span><span class="p">.</span><span class="na">counting</span><span class="p">()));</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="p">}</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">enPahaliSiparisler</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">            </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">).</span><span class="na">reversed</span><span class="p">())</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="w">            </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="w">            </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span><span class="w">                                          </span><span class="c1">// (4)!</span>
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>map</code> bir <code>Stream&lt;Double&gt;</code> üretirdi; <code>mapToDouble</code> ise kutulama (boxing) yapmadan <code>DoubleStream</code>
+   üretir ve <code>sum()</code> metodunu sunar. Boş stream'in toplamı <code>0.0</code>'dır.</li>
+<li><code>groupingBy(anahtar, alt toplayıcı)</code>: elemanları kategoriye göre gruplar, her grubu
+   <code>summingDouble</code> ile tek sayıya indirir. Tek argümanlı <code>groupingBy(Siparis::kategori)</code> ise
+   <code>Map&lt;String, List&lt;Siparis&gt;&gt;</code> döndürürdü.</li>
+<li><code>joining(", ")</code> metinleri araya ayraç koyarak birleştirir: <code>"Ayşe, Can, Mehmet, Zeynep"</code>.</li>
+<li>Java 16'dan beri: <code>collect(Collectors.toList())</code> yerine kısaca <code>toList()</code>. Fark: <code>toList()</code>
+   <strong>değiştirilemez</strong> liste döndürür. Tekrarsız sonuç için <code>collect(Collectors.toSet())</code> kullanılır.</li>
+</ol>
+<p>Testler, beklenen değerleri elle hesaplayarak yazılmıştır (iptal edilen sipariş: Mehmet, Kitap, 90 TL):</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@Test</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"Kategoriye göre toplamlar doğru hesaplanır"</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">kategoriyeGoreToplam</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toplamlar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rapor</span><span class="p">.</span><span class="na">kategoriyeGoreToplam</span><span class="p">();</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">toplamlar</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">165.0</span><span class="p">,</span><span class="w"> </span><span class="n">toplamlar</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"Kitap"</span><span class="p">),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span><span class="w">        </span><span class="c1">// 120 + 45 (90 iptal)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">3300.0</span><span class="p">,</span><span class="w"> </span><span class="n">toplamlar</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"Elektronik"</span><span class="p">),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span><span class="w">  </span><span class="c1">// 2500 + 800</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">950.0</span><span class="p">,</span><span class="w"> </span><span class="n">toplamlar</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"Giyim"</span><span class="p">),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span><span class="w">        </span><span class="c1">// 350 + 600</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="51-tembel-degerlendirme">5.1 Tembel değerlendirme<a class="headerlink" href="#51-tembel-degerlendirme" title="Permanent link">&para;</a></h3>
+<p>Ara işlemler <strong>tembeldir</strong> (lazy evaluation): <code>filter</code> ya da <code>map</code> çağrıldığında hiçbir şey çalışmaz,
+yalnızca boru hattı kurulur. İş, sonlandırıcı işlem çağrılınca başlar ve elemanlar hattan <strong>tek tek</strong>
+geçer. Bu yüzden <code>limit</code> gibi işlemler gereksiz çalışmayı keser:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ilkPahali</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">        </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"kontrol: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">musteri</span><span class="p">());</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">tutar</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">        </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">musteri</span><span class="p">)</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">        </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>kontrol: Ayşe
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>kontrol: Mehmet
+</span></code></pre></div>
+<p>İlk uygun eleman (Mehmet, 2500 TL) bulununca hat durur; kalan beş sipariş hiç kontrol edilmez.
+<code>FonksiyonelArayuzlerTest.tembelDegerlendirme</code> testi bunu bir <code>AtomicInteger</code> sayacıyla doğrular.
+Bir stream <strong>yalnızca bir kez</strong> tüketilebilir; aynı stream'e ikinci sonlandırıcı işlem uygulamak
+<code>IllegalStateException</code> fırlatır.</p>
+<h3 id="52-dongu-mu-stream-mi">5.2 Döngü mü, stream mi?<a class="headerlink" href="#52-dongu-mu-stream-mi" title="Permanent link">&para;</a></h3>
+<p>Aynı rapor iki yolla (<code>SiparisRaporu</code> içinde ikisi de var):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Döngü</label><label for="__tabbed_2_2">Stream</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toplamlar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Siparis</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">siparisler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">iptalMi</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">onceki</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toplamlar</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">kategori</span><span class="p">(),</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="n">toplamlar</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">kategori</span><span class="p">(),</span><span class="w"> </span><span class="n">onceki</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">tutar</span><span class="p">());</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="p">}</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="k">return</span><span class="w"> </span><span class="n">toplamlar</span><span class="p">;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">        </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">iptalMi</span><span class="p">())</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">        </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">kategori</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">                </span><span class="n">Collectors</span><span class="p">.</span><span class="na">summingDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">)));</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p><code>donguVeStreamAyni</code> testi iki sürümün aynı <code>Map</code>'i ürettiğini doğrular. Stream sürümü niyeti
+doğrudan söyler ("iptal olmayanları kategoriye göre grupla, tutarları topla"); döngü sürümünde bu
+niyeti okuyucu koddan çıkarmak zorundadır.</p>
+<div class="admonition warning">
+<p class="admonition-title">Ne zaman stream kullanmamalı?</p>
+<ul>
+<li><strong>Yan etkili işlemler:</strong> Stream içinden dışarıdaki bir listeye <code>add</code> yapmak, veritabanına yazmak
+  ya da değişken güncellemek stream'in amacına aykırıdır. Sonucu <code>collect</code>/<code>toList</code> ile üretin;
+  her elemana yalnızca bir iş yapılacaksa düz <code>for</code> ya da <code>forEach</code> yeterlidir.</li>
+<li><strong>Okunabilirlik:</strong> On satırlık, iç içe <code>groupingBy</code> içeren bir hat, düz bir döngüden zor
+  okunuyorsa döngüyü seçin. Amaç kısa kod değil, anlaşılır koddur.</li>
+<li><strong>Kontrol akışı:</strong> <code>break</code>, <code>continue</code>, kontrol edilen istisna (checked exception) fırlatma gibi
+  ihtiyaçlar lambdanın içinde zahmetlidir.</li>
+<li><code>HashMap</code> tabanlı <code>groupingBy</code> sonucunun <strong>sırası garanti değildir</strong>; testlerde sıraya değil
+  içeriğe bakın.</li>
+</ul>
+</div>
+<h2 id="6-optional">6. Optional<a class="headerlink" href="#6-optional" title="Permanent link">&para;</a></h2>
+<p>"En pahalı sipariş hangisi?" sorusunun liste boşsa cevabı yoktur. Eskiden böyle durumlarda <code>null</code>
+döndürülür ve çağıran kod <code>null</code> kontrolünü unutunca <code>NullPointerException</code> (M8) oluşurdu.
+<code>Optional&lt;T&gt;</code>, <strong>ya bir değer içeren ya da boş olan</strong> bir kutudur ve "sonuç olmayabilir" bilgisini
+metodun dönüş türüne yazar.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">enPahaliSiparis</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">max</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">));</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">}</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kd">public</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Siparis</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">musterininIlkSiparisi</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">musteri</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">musteri</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">musteri</span><span class="p">)).</span><span class="na">findFirst</span><span class="p">();</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">}</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">enYuksekTutar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">enPahaliSiparis</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span><span class="w">         </span><span class="c1">// (1)!</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="p">}</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="kd">public</span><span class="w"> </span><span class="n">Siparis</span><span class="w"> </span><span class="nf">siparisBul</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">musteri</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">musterininIlkSiparisi</span><span class="p">(</span><span class="n">musteri</span><span class="p">)</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">            </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NoSuchElementException</span><span class="p">(</span><span class="s">"Sipariş bulunamadı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">musteri</span><span class="p">));</span><span class="w"> </span><span class="c1">// (2)!</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li><code>map</code> kutu doluysa içindekini dönüştürür, boşsa boş kalır. <code>orElse</code> boş kutu için varsayılan değer verir.</li>
+<li>Değer yoksa bir istisna fırlatmak doğruysa <code>orElseThrow</code> kullanılır; istisnayı bir <code>Supplier</code> üretir.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Metot</th>
+<th>Kutu doluysa</th>
+<th>Kutu boşsa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isPresent()</code> / <code>isEmpty()</code></td>
+<td><code>true</code> / <code>false</code></td>
+<td><code>false</code> / <code>true</code></td>
+</tr>
+<tr>
+<td><code>orElse(v)</code></td>
+<td>İçindeki değer</td>
+<td><code>v</code></td>
+</tr>
+<tr>
+<td><code>orElseThrow()</code></td>
+<td>İçindeki değer</td>
+<td><code>NoSuchElementException</code></td>
+</tr>
+<tr>
+<td><code>ifPresent(Consumer)</code></td>
+<td>Consumer çalışır</td>
+<td>Hiçbir şey olmaz</td>
+</tr>
+<tr>
+<td><code>map(Function)</code></td>
+<td>Dönüştürülmüş dolu <code>Optional</code></td>
+<td>Boş <code>Optional</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">rapor</span><span class="p">.</span><span class="na">enPahaliSiparis</span><span class="p">().</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"En pahalı: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">));</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nd">@Test</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nd">@DisplayName</span><span class="p">(</span><span class="s">"Boş listede raporlar güvenli varsayılan değerler döndürür"</span><span class="p">)</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bosListe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">bosRapor</span><span class="p">.</span><span class="na">toplamCiro</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">bosRapor</span><span class="p">.</span><span class="na">enPahaliSiparis</span><span class="p">().</span><span class="na">isPresent</span><span class="p">());</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">bosRapor</span><span class="p">.</span><span class="na">enYuksekTutar</span><span class="p">(),</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">);</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">bosRapor</span><span class="p">.</span><span class="na">kategoriyeGoreToplam</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">());</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Optional nerede kullanılır?</p>
+<p><code>Optional</code> bir <strong>dönüş türü</strong> olarak tasarlanmıştır. Alan (field) ya da metot parametresi olarak
+kullanmayın ve boş bir <code>Optional</code> yerine asla <code>null</code> döndürmeyin. Koleksiyon döndüren metotlar
+<code>Optional&lt;List&lt;...&gt;&gt;</code> yerine boş liste döndürmelidir.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Kendinizi deneyin</p>
+<p><code>ortalamaTutar()</code> metodu, iptal edilmemiş siparişlerin ortalama tutarını döndürsün. Liste boşsa ne
+olmalı? <code>DoubleStream.average()</code> metodunun dönüş türüne bakın.</p>
+<details class="success">
+<summary>Cevap</summary>
+<p><code>average()</code> bir <code>OptionalDouble</code> döndürür, çünkü boş bir kümenin ortalaması tanımsızdır:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">ortalamaTutar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">siparisler</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">iptalMi</span><span class="p">())</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">            </span><span class="p">.</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Siparis</span><span class="p">::</span><span class="n">tutar</span><span class="p">)</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">            </span><span class="p">.</span><span class="na">average</span><span class="p">()</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">            </span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Örnek veride 4415 / 6 ≈ 735.83 TL. Boş listede <code>0.0</code> döner; bunun yerine <code>OptionalDouble</code>'ı
+doğrudan döndürüp kararı çağırana bırakmak da savunulabilir bir tasarımdır.</p>
+</details>
+</div>
+<h2 id="7-alstrmalar">7. Alıştırmalar<a class="headerlink" href="#7-alstrmalar" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Çalıştır ve incele.</strong> <code>mvn -pl m10_lambda_stream/exercise_files test</code> ile testleri çalıştırın.
+   <code>SiparisUygulamasi</code>'nı çalıştırıp çıktıdaki kategori sırasının neden sizin listenizdeki sırayla
+   aynı olmayabileceğini açıklayın.</li>
+<li><strong>Dönüştür.</strong> Aşağıdaki anonim sınıfı önce lambdaya, sonra metot referansına çevirin:
+   <code>new Function&lt;Siparis, String&gt;() { public String apply(Siparis s) { return s.kategori(); } }</code>.</li>
+<li><strong>Yeni rapor.</strong> <code>SiparisRaporu</code>'na <code>Map&lt;String, Long&gt; musteriBasinaSiparisSayisi()</code> ekleyin
+   (<code>groupingBy</code> + <code>counting</code>). Örnek veride Ayşe, Mehmet ve Zeynep için 2, Can için 1 beklenir. Test
+   yazın.</li>
+<li><strong>Optional.</strong> <code>Optional&lt;String&gt; enCokHarcayanMusteri()</code> metodunu yazın: iptal olmayan siparişleri
+   müşteriye göre toplayın, en büyük toplamı bulun. Boş liste için test ekleyin.</li>
+<li><strong>Döngüden stream'e.</strong> Müşterilerin adlarını büyük harfle, tekrarsız, alfabetik ve en fazla 3 kişi
+   olacak biçimde döndüren metodu önce döngüyle, sonra stream ile yazın. İki sürümü aynı testle
+   doğrulayın.</li>
+<li><strong>Etkin final.</strong> §3.1'deki <code>sayac++</code> örneğini derleyip hata mesajını okuyun. Aynı sonucu stream'in
+   kendi işlemleriyle, yan etki kullanmadan elde edin.</li>
+</ol>
+<hr />
+<h2 id="ozet">Özet<a class="headerlink" href="#ozet" title="Permanent link">&para;</a></h2>
+<p>Bir metoda veri yerine <strong>davranış</strong> geçirmek, tekrarlanan döngüleri tek bir genel metotta toplar.
+Java'da davranış bir <strong>fonksiyonel arayüz</strong> (tek soyut metotlu arayüz) aracılığıyla taşınır: ayrı bir
+sınıf, anonim sınıf, lambda ifadesi ya da metot referansı bu arayüzü gerçekleyebilir. <code>java.util.function</code>
+paketi <code>Predicate</code>, <code>Function</code>, <code>Consumer</code>, <code>Supplier</code>, <code>UnaryOperator</code> ve <code>BinaryOperator</code> gibi hazır
+arayüzler sunar. Lambdalar yalnızca etkin final yerel değişkenleri yakalayabilir. Stream API, koleksiyon
+işlemlerini kaynak → ara işlemler → sonlandırıcı işlem hattı olarak ifade eder; ara işlemler tembeldir.
+Olmayabilecek sonuçlar <code>null</code> yerine <code>Optional</code> ile döndürülür. Stream her döngünün yerine geçmez:
+yan etkili ya da okunması zorlaşan durumlarda düz döngü daha iyi bir seçimdir. Bir sonraki modülde,
+şimdiye kadar öğrendiğimiz araçları iyi tasarım ilkeleriyle (SOLID) bir araya getiriyoruz.</p>
+<h2 id="ileri-okuma">İleri okuma<a class="headerlink" href="#ileri-okuma" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">The Java Tutorials: Lambda Expressions</a>,
+  Oracle. Davranışı parametre olarak geçme örneğini adım adım lambdaya kadar götürür.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/collections/streams/index.html">The Java Tutorials: Aggregate Operations</a>,
+  Oracle. Boru hattı, tembel değerlendirme ve indirgeme (reduction) işlemleri.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/package-summary.html">Java SE 21 API: <code>java.util.stream</code> paket özeti</a>.
+  Stream işlemlerinin özellikleri, yan etkiler ve tembellik üzerine resmî açıklama.</li>
+<li>Joshua Bloch, <em>Effective Java</em>, 3. baskı, 2018, 7. bölüm ("Lambdas and Streams"), özellikle
+  "Use streams judiciously" ve "Prefer side-effect-free functions in streams" maddeleri.</li>
+</ul>
+<h2 id="kaynaklar">Kaynaklar<a class="headerlink" href="#kaynaklar" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://openjdk.org/jeps/126">JEP 126: Lambda Expressions &amp; Virtual Extension Methods</a>. Lambda
+  ifadelerinin ve <code>default</code> metotların Java 8'e eklenmesi.</li>
+<li><a href="https://docs.oracle.com/javase/specs/jls/se21/html/jls-9.html#jls-9.8">JLS 21 §9.8 Functional Interfaces</a>
+  ve <a href="https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.27">§15.27 Lambda Expressions</a>.
+  §2–3'teki tanımların kaynağı.</li>
+<li><a href="https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html#jls-4.12.4">JLS 21 §4.12.4 final Variables</a>.
+  §3.1'deki "etkin final" tanımının kaynağı.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">The Java Tutorials: Method References</a>.
+  §4'teki dört tür tablosunun kaynağı.</li>
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/package-summary.html">Java SE 21 API: <code>java.util.function</code></a>,
+  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Comparator.html"><code>Comparator</code></a>,
+  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Collectors.html"><code>Collectors</code></a>,
+  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html"><code>Stream</code></a>
+  ve <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html"><code>Optional</code></a>.
+  §2, §4.1, §5 ve §6'daki metot imzalarının kaynağı (<code>Stream.toList()</code> Java 16 notu dahil).</li>
+<li>Joshua Bloch, <em>Effective Java</em>, 3. baskı, Addison-Wesley, 2018: Madde 42 "Prefer lambdas to
+  anonymous classes", Madde 43 "Prefer method references to lambdas", Madde 44 "Favor the use of
+  standard functional interfaces", Madde 55 "Return optionals judiciously". §1, §2, §4 ve §6'daki
+  önerilerin kaynağı.</li>
+<li>Cay S. Horstmann, <em>Core Java, Volume I: Fundamentals</em>, 12. baskı, Pearson, 2022, 6. bölüm
+  ("Interfaces, Lambda Expressions, and Inner Classes"); <em>Core Java, Volume II: Advanced Features</em>,</li>
+<li>baskı, 2022, 1. bölüm ("Streams").</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Son Güncelleme">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="24 Eylül 2026 06:14:04">24 Eylül 2026</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Oluşturuldu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 Eylül 2026 22:53:58">23 Eylül 2026</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Altbilgi" >
+        
+          
+          <a href="../m9_koleksiyonlar_generics/" class="md-footer__link md-footer__link--prev" aria-label="Önceki: 📦 M9 - Koleksiyonlar ve Generics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Önceki
+              </span>
+              <div class="md-ellipsis">
+                📦 M9 - Koleksiyonlar ve Generics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../m11_tasarim_ilkeleri/" class="md-footer__link md-footer__link--next" aria-label="Sonraki: 📐 M11 - Tasarım İlkeleri">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Sonraki
+              </span>
+              <div class="md-ellipsis">
+                📐 M11 - Tasarım İlkeleri
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.indexes", "navigation.footer", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
