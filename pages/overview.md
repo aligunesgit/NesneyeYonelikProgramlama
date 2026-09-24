@@ -19,6 +19,21 @@ flowchart TD
     L --> SB(["Sprint B"])
 ```
 
-!!! info "Durum"
+## Modüller
 
-    Modüller tamamlandıkça her modülün kısa özeti buraya eklenecek.
+| Modül | Özet |
+|---|---|
+| [M1](../m1_oop_giris/README.md) | Prosedürel ve nesne yönelimli yaklaşım, sınıf/nesne/durum/davranış, dört temel ilke, Maven proje yapısı, JUnit 5 ile ilk test. |
+| [M2](../m2_siniflar_nesneler/README.md) | Alanlar, metotlar, kurucular ve `this`; nesne oluşturma, referans ve değer, stack/heap, `null`. |
+| [M3](../m3_kapsulleme/README.md) | Erişim belirleyiciler, getter/setter ve sınıf değişmezleri, `static` ve `final`, değişmez nesneler, savunmacı kopya, `record`. |
+| [M4](../m4_iliskiler_uml/README.md) | UML sınıf diyagramı; ilişkilendirme ve çokluk, toplama, bileşim, bağımlılık; diyagramdan koda, koddan diyagrama. |
+| [M5](../m5_kalitim/README.md) | `extends` ve `super`, metot ezme, `protected`, `Object` metotları (`toString`, `equals`, `hashCode`), kalıtımın sınırları. |
+| [M6](../m6_cok_bicimlilik/README.md) | Dinamik bağlama, yukarı/aşağı tür dönüşümü, `instanceof` ve `switch` ile desen eşleme, aşırı yükleme ile ezme farkı. |
+| [M7](../m7_soyut_arayuz/README.md) | Soyut sınıflar, arayüzler, `default` metotlar, `sealed` hiyerarşiler, `enum`. |
+| [Sprint A](../sprint_a_proje/README.md) | M1–M7 ile çözülen bireysel proje. |
+| [M8](../m8_istisnalar/README.md) | `try`/`catch`/`finally`, checked ve unchecked istisnalar, kendi istisna sınıfları, try-with-resources, istisna testleri. |
+| [M9](../m9_koleksiyonlar_generics/README.md) | `List`, `Set`, `Map` ve seçim ölçütleri; generic sınıf ve metotlar; `Comparable` ve `Comparator`. |
+| [M10](../m10_lambda_stream/README.md) | Fonksiyonel arayüzler, lambda, metot referansları, Stream API ve `Collectors`, `Optional`. |
+| [M11](../m11_tasarim_ilkeleri/README.md) | SOLID ilkeleri ihlal → düzeltme örnekleriyle, bağımlılık enjeksiyonu ve sahte nesnelerle test, kalıtım yerine bileşim. |
+| [M12](../m12_tasarim_kaliplari/README.md) | Strategy, Observer, Factory Method, Singleton ve Builder; kalıpları ne zaman kullanmamalı. |
+| [Sprint B](../sprint_b_final_proje/README.md) | Tüm dönemi kapsayan grup projesi, tasarım kararları raporu ve sunum. |
