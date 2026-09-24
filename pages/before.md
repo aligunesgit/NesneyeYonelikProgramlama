@@ -3,10 +3,6 @@
 Nesneye Yönelik Programlama dersine hoş geldiniz! Bu sayfa dersin nasıl işlediğini ve ilk haftadan
 önce yapmanız gereken kurulumları anlatır.
 
-!!! info "Durum"
-
-    Giriş metni hazırlanıyor. Aşağıdaki kurulum listesi kesinleşmiştir.
-
 ## 🧰 Kurulum { #kurulum }
 
 Derste kullanılan araçların hepsi ücretsizdir.
